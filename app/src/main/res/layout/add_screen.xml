@@ -95,5 +95,4 @@
                 android:id="@+id/submitButton"/>
 
         </LinearLayout>
-
 </LinearLayout>
