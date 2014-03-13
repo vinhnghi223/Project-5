@@ -13,12 +13,12 @@
         <Button
             android:layout_width="200dp"
             android:layout_height="50dp"
-            android:text="Categories"/>
+            android:text="@string/categories"/>
 
         <Button
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:text="Categories"/>
+            android:text="@string/project"/>
     </LinearLayout>
 
     <LinearLayout
