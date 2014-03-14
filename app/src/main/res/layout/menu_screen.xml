@@ -6,7 +6,7 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
-    tools:context="pl.byd.wsg.promand.project5.MainActivity">
+    tools:context="pl.byd.wsg.promand.project5.loginActivity">
 
 
     <LinearLayout
@@ -31,7 +31,8 @@
                 android:id="@+id/buttonDashBoard"
                 android:layout_gravity="center_vertical"
                 android:layout_marginRight="10dp"
-                android:layout_marginBottom="20dp"/>
+                android:layout_marginBottom="20dp"
+                android:onClick="goDashboard" />
 
             <Button
                 android:layout_width="160dip"
@@ -55,7 +56,8 @@
                 android:id="@+id/buttonAdd"
                 android:layout_gravity="center_vertical"
                 android:layout_marginLeft="10dp"
-                android:layout_marginBottom="20dp"/>
+                android:layout_marginBottom="20dp"
+                android:onClick="goAddScreen" />
 
             <Button
                 android:layout_width="160dip"

@@ -17,13 +17,16 @@
 
 
 
-        <LinearLayout
+
+    <LinearLayout
         android:orientation="vertical"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_weight="1"
         android:layout_marginTop="230dp"
-        android:layout_marginBottom="110dp">
+        android:layout_marginBottom="110dp"
+        android:layout_gravity="center_vertical"
+        android:onClick="enterApp">
 
 
 
@@ -47,7 +50,8 @@
             android:layout_gravity="center_horizontal"
             android:layout_weight="1"
             android:layout_marginTop="40dp"
-            android:gravity="center"/>
+            android:gravity="center"
+            android:onClick="loginE" />
 
     </LinearLayout>
 

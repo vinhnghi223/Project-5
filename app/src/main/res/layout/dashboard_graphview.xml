@@ -48,7 +48,8 @@
         <Button
             android:layout_width="200dp"
             android:layout_height="50dp"
-            android:text="@string/categories"/>
+            android:text="@string/categories"
+            android:onClick="goCategories" />
 
         <Button
             android:layout_width="match_parent"
