@@ -1,6 +1,8 @@
 Project-5
 =========
 
+(This introduction page will be updated more during the development process)
+
 Project 5 is a mobile expense manager android application that is on development and expected to be completed on 21/03/2014.
 
 Mobile Expense Manager is developed by Nghi Le, Marta Pawłowska, Miguel Santos and Sergey Kibish. Own customer is a telecomumication companany in Portugal <name added later>. This is an application that was created   business men and women to ease the tracking of business related items such as expenses, travel, time, food and payments for jobs, trips, projects etc. It has been tailored to allow easy entry of these items throughout categories and projects. Once the category or project is complete, Mobile Expense Manager by <5-Team> allows the data to be viewed, saved and exported. These reports and exports can then be viewed on the device or emailed to whoever needs them. 
