@@ -11,6 +11,8 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.Toast;
 
+import pl.byd.wsg.promand.project5.categories.CategoriesActivity;
+
 /**
  * Created by Sergey on 3/14/14.
  */

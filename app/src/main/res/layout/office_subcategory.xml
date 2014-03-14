@@ -12,7 +12,8 @@
         android:text="Furniture"
         android:id="@+id/button"
         android:layout_weight="0.17"
-        android:textSize="20dp" />
+        android:textSize="20dp"
+        android:onClick="openAdd_screen"/>
 
     <Button
         android:layout_width="match_parent"
@@ -20,7 +21,8 @@
         android:text="Technical books and documents"
         android:id="@+id/button2"
         android:layout_weight="0.17"
-        android:textSize="20dp" />
+        android:textSize="20dp"
+        android:onClick="openAdd_screen"/>
 
     <Button
         android:layout_width="match_parent"
@@ -28,6 +30,7 @@
         android:text="House produkts"
         android:id="@+id/button3"
         android:layout_weight="0.17"
-        android:textSize="20dp" />
+        android:textSize="20dp"
+        android:onClick="openAdd_screen"/>
 
 </LinearLayout>

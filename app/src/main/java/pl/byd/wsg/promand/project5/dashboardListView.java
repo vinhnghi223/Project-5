@@ -5,6 +5,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import pl.byd.wsg.promand.project5.categories.CategoriesActivity;
+
 /**
  * Created by Miguel on 14-03-2014.
  */
