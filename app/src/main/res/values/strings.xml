@@ -24,13 +24,13 @@
         <item>PLN</item>
         <item>GPB</item>
     </string-array>
+
     <string name="dashboard">Dashboard</string>
     <string name="add">Add</string>
     <string name="OCR">OCR</string>
     <string name="QR">QR Code</string>
     <string name="pin">Enter PIN</string>
     <string name="login">LOGIN</string>
-
-
+    <string name="title_activity_add_screen">AddScreenActivity</string>
 
 </resources>
