@@ -25,12 +25,23 @@
         <item>GPB</item>
     </string-array>
 
+<!-- Strings MENU   -->
     <string name="dashboard">Dashboard</string>
     <string name="add">Add</string>
     <string name="OCR">OCR</string>
     <string name="QR">QR Code</string>
+
+<!-- Strings LOGIN  -->
     <string name="pin">Enter PIN</string>
     <string name="login">LOGIN</string>
+
+<!-- Strings PROJECTS   -->
+    <string name="project1">Project 1</string>
+    <string name="project2">Project 2</string>
+    <string name="project3">Project 3</string>
+    <string name="project4">Project 4</string>
+
+
     <string name="title_activity_add_screen">AddScreenActivity</string>
 
 </resources>
