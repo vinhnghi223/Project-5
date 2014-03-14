@@ -30,6 +30,19 @@
             android:name="pl.byd.wsg.promand.project5.AddScreenActivity"
             android:label="@string/app_name">
         </activity>
+        <activity
+            android:name="pl.byd.wsg.promand.project5.dashboardListView"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="pl.byd.wsg.promand.project5.menuActivity"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="pl.byd.wsg.promand.project5.CategoriesActivity"
+            android:label="@string/app_name" >
+        </activity>
+
     </application>
 
 </manifest>

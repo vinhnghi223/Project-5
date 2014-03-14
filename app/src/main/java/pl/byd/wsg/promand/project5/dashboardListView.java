@@ -1,6 +1,5 @@
 package pl.byd.wsg.promand.project5;
 
-
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,13 +8,11 @@ import android.view.View;
 /**
  * Created by Miguel on 14-03-2014.
  */
-
-public class dashboardGraphActivity extends Activity {
-
+public class dashboardListView extends Activity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.dashboard_graphview);
+        setContentView(R.layout.dashboard_listview);
     }
 
     public void goCategories(View v){
@@ -28,8 +25,8 @@ public class dashboardGraphActivity extends Activity {
         startActivity(intent);
     }
 
-    public void goReportList(View v){
-        Intent intent = new Intent(this, reportListActivity.class);
+    public void goDashboard(View v){
+        Intent intent = new Intent(this, dashboardGraphActivity.class);
         startActivity(intent);
     }
 }
