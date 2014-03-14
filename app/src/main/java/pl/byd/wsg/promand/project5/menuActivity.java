@@ -13,6 +13,7 @@ public class menuActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.menu_screen);
+
     }
 
     public void goDashboard(View v){

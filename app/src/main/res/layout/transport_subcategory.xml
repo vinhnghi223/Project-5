@@ -13,7 +13,8 @@
         android:id="@+id/button"
         android:layout_gravity="right"
         android:layout_weight="0.20"
-        android:textSize="20dp" />
+        android:textSize="20dp"
+        android:onClick="openAdd_screen"/>
 
     <Button
         android:layout_width="match_parent"
@@ -21,7 +22,8 @@
         android:text="Train"
         android:id="@+id/button2"
         android:layout_weight="0.20"
-        android:textSize="20dp" />
+        android:textSize="20dp"
+        android:onClick="openAdd_screen"/>
 
     <Button
         android:layout_width="match_parent"
@@ -29,7 +31,8 @@
         android:text="Bus"
         android:id="@+id/button3"
         android:layout_weight="0.20"
-        android:textSize="20dp" />
+        android:textSize="20dp"
+        android:onClick="openAdd_screen"/>
 
     <Button
         android:layout_width="match_parent"
@@ -37,7 +40,8 @@
         android:text="Taxi"
         android:id="@+id/button4"
         android:layout_weight="0.20"
-        android:textSize="20dp" />
+        android:textSize="20dp"
+        android:onClick="openAdd_screen"/>
 
     <Button
         android:layout_width="match_parent"
@@ -45,5 +49,6 @@
         android:text="Public transport"
         android:id="@+id/button5"
         android:layout_weight="0.20"
-        android:textSize="20dp" />
+        android:textSize="20dp"
+        android:onClick="openAdd_screen"/>
 </LinearLayout>

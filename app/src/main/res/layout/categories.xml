@@ -10,44 +10,50 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:text="Meals"
-        android:id="@+id/button2"
+        android:id="@+id/button_meal"
         android:layout_weight="0.20"
         android:layout_gravity="center_horizontal|left"
-        android:textSize="20dp" />
+        android:textSize="20dp"
+        android:onClick="openMeal_subcategory"
+        />
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:text="Transport"
-        android:id="@+id/button"
+        android:id="@+id/button_transport"
         android:layout_gravity="left|right"
         android:layout_weight="0.20"
-        android:textSize="20dp" />
+        android:textSize="20dp"
+        android:onClick="openTransport_subcategory"/>
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:text="Company Car"
-        android:id="@+id/button3"
+        android:id="@+id/button_company_car"
         android:layout_gravity="right"
         android:layout_weight="0.20"
-        android:textSize="20dp" />
+        android:textSize="20dp"
+        android:onClick="openCar_subcategory"/>
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:text="Office Materials"
-        android:id="@+id/button4"
+        android:id="@+id/button_office"
         android:layout_gravity="right"
         android:layout_weight="0.20"
-        android:textSize="20dp" />
+        android:textSize="20dp"
+        android:onClick="openOffice_subcategory"/>
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:text="Representation Expenses"
-        android:id="@+id/button5"
+        android:id="@+id/button_representation_exp"
         android:layout_weight="0.20"
-        android:textSize="20dp" />
+        android:textSize="20dp"
+        android:onClick="openRepresentation_subcategory"/>
 
 </LinearLayout>
