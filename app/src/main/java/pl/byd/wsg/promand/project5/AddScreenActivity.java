@@ -49,7 +49,7 @@ public class AddScreenActivity extends ActionBarActivity {
     }
 
     public void openProjectChooser(View v){
-        Intent intent = new Intent(this, ProjectsActivity.class);
+        Intent intent = new Intent(this, projectActivity.class);
         startActivity(intent);
     }
 
@@ -59,7 +59,7 @@ public class AddScreenActivity extends ActionBarActivity {
     }
 
     public void submitExpense(View v){
-        Intent intent = new Intent(this, AddExpence.class);
+        Intent intent = new Intent(this, AddExpense.class);
         startActivity(intent);
     }
 }
