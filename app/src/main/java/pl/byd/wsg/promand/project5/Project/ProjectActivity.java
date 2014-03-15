@@ -1,4 +1,4 @@
-package pl.byd.wsg.promand.project5.Project;
+package pl.byd.wsg.promand.project5.project;
 
 import android.app.Activity;
 import android.os.Bundle;

@@ -14,7 +14,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name=".Login.LoginActivity"
+            android:name=".login.LoginActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -23,46 +23,46 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Menu.MenuActivity"
+            android:name=".menu.MenuActivity"
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name=".Dashboard.DashboardGraphActivity"
+            android:name=".dashboard.DashboardGraphActivity"
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name=".AddScreen.AddScreenActivity"
+            android:name=".addscreen.AddScreenActivity"
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name="pl.byd.wsg.promand.project5.Categories.GoToAddScreenActivity"
+            android:name="pl.byd.wsg.promand.project5.categories.GoToAddScreenActivity"
             android:label="@string/title_activity_go_to_add_screen" >
         </activity>
         <activity
-            android:name=".Dashboard.DashboardListView"
+            android:name=".dashboard.DashboardListView"
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name=".Menu.MenuActivity"
+            android:name=".menu.MenuActivity"
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name="pl.byd.wsg.promand.project5.Categories.CategoriesActivity"
+            android:name="pl.byd.wsg.promand.project5.categories.CategoriesActivity"
             android:label="@string/app_name" >
         </activity>
-        <activity android:name="pl.byd.wsg.promand.project5.Categories.CarActivity"
+        <activity android:name="pl.byd.wsg.promand.project5.categories.CarActivity"
             android:label="@string/app_name" >
         </activity>
-        <activity android:name="pl.byd.wsg.promand.project5.Categories.MealActivity"
+        <activity android:name="pl.byd.wsg.promand.project5.categories.MealActivity"
             android:label="@string/app_name" >
         </activity>
-        <activity android:name="pl.byd.wsg.promand.project5.Categories.OfficeActivity"
+        <activity android:name="pl.byd.wsg.promand.project5.categories.OfficeActivity"
             android:label="@string/app_name" >
         </activity>
-        <activity android:name="pl.byd.wsg.promand.project5.Categories.RepresentationActivity"
+        <activity android:name="pl.byd.wsg.promand.project5.categories.RepresentationActivity"
             android:label="@string/app_name" >
         </activity>
-        <activity android:name="pl.byd.wsg.promand.project5.Categories.TransportActivity"
+        <activity android:name="pl.byd.wsg.promand.project5.categories.TransportActivity"
             android:label="@string/app_name" >
         </activity>
      </application>

@@ -1,4 +1,4 @@
-package pl.byd.wsg.promand.project5.Dashboard;
+package pl.byd.wsg.promand.project5.dashboard;
 
 
 import android.app.Activity;
@@ -6,8 +6,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-import pl.byd.wsg.promand.project5.Categories.CategoriesActivity;
-import pl.byd.wsg.promand.project5.Project.ProjectActivity;
+import pl.byd.wsg.promand.project5.categories.CategoriesActivity;
+import pl.byd.wsg.promand.project5.project.ProjectActivity;
 import pl.byd.wsg.promand.project5.R;
 
 /**
@@ -33,7 +33,7 @@ public class DashboardGraphActivity extends Activity {
     }
 
     public void goReportList(View v){
-        Intent intent = new Intent(this, ReportListActivity.class);
+        Intent intent = new Intent(this, DashboardListView.class);
         startActivity(intent);
     }
 }

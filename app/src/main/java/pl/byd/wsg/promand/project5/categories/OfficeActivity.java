@@ -1,4 +1,4 @@
-package pl.byd.wsg.promand.project5.Categories;
+package pl.byd.wsg.promand.project5.categories;
 
 import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;

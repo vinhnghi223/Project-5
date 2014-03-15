@@ -1,4 +1,4 @@
-package pl.byd.wsg.promand.project5.AddScreen;
+package pl.byd.wsg.promand.project5.addscreen;
 
 import android.content.Context;
 import android.content.Intent;
@@ -9,8 +9,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
-import pl.byd.wsg.promand.project5.Categories.CategoriesActivity;
-import pl.byd.wsg.promand.project5.Project.ProjectActivity;
+import pl.byd.wsg.promand.project5.categories.CategoriesActivity;
+import pl.byd.wsg.promand.project5.project.ProjectActivity;
 import pl.byd.wsg.promand.project5.R;
 
 /**

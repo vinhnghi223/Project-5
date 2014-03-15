@@ -1,4 +1,4 @@
-package pl.byd.wsg.promand.project5.Login;
+package pl.byd.wsg.promand.project5.login;
 
 import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
@@ -7,7 +7,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
-import pl.byd.wsg.promand.project5.Menu.MenuActivity;
+import pl.byd.wsg.promand.project5.menu.MenuActivity;
 import pl.byd.wsg.promand.project5.R;
 
 
