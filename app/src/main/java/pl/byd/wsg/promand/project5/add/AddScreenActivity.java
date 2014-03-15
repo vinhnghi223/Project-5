@@ -55,7 +55,7 @@ public class AddScreenActivity extends ActionBarActivity {
         startActivity(intent);
     }
 
-    public void openProjectChooser(View v){
+    public void chooseProjectButton(View v){
         Intent intent = new Intent(this, ProjectActivity.class);
         startActivity(intent);
     }

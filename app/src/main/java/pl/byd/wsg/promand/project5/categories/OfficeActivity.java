@@ -8,6 +8,7 @@ import android.view.MenuItem;
 import android.view.View;
 
 import pl.byd.wsg.promand.project5.R;
+import pl.byd.wsg.promand.project5.add.AddScreenActivity;
 
 public class OfficeActivity extends ActionBarActivity {
 
@@ -38,6 +39,6 @@ public class OfficeActivity extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
     public void openAdd_screen(View v){
-        startActivity(new Intent(this, GoToAddScreenActivity.class));
+        startActivity(new Intent(this, AddScreenActivity.class));
     }
 }

@@ -35,10 +35,6 @@
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name="pl.byd.wsg.promand.project5.categories.GoToAddScreenActivity"
-            android:label="@string/title_activity_go_to_add_screen" >
-        </activity>
-        <activity
             android:name=".dashboards.DashboardListView"
             android:label="@string/app_name" >
         </activity>
