@@ -1,5 +1,6 @@
-package pl.byd.wsg.promand.project5.categories;
+package pl.byd.wsg.promand.project5.Categories;
 
+import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
@@ -15,6 +16,7 @@ public class CategoriesActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.categories);
+        Context context = this;
     }
 
 
@@ -39,6 +41,7 @@ public class CategoriesActivity extends ActionBarActivity {
     }
     public void openMeal_subcategory(View v){
         startActivity(new Intent(this, MealActivity.class));
+        this.finish();  //GOTTA TRY ALL OF THIS IN EVERY TIME I GET OUT OF AN ACTIVITY
     }
     public void openTransport_subcategory(View v){
         startActivity(new Intent(this, TransportActivity.class));
