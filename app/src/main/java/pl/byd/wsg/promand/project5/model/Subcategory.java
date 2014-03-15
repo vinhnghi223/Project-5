@@ -1,12 +1,17 @@
 package pl.byd.wsg.promand.project5.model;
 
+import com.j256.ormlite.field.DatabaseField;
+
 /**
  * Created by sergio on 3/14/14.
  */
 public class Subcategory {
-    int _id;
-    String _subcategory_name;
 
+    @DatabaseField
+    int _id;
+
+    @DatabaseField
+    String _subcategory_name;
 
     public Subcategory(){}
 

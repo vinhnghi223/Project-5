@@ -1,12 +1,18 @@
 package pl.byd.wsg.promand.project5.model;
 
+import com.j256.ormlite.field.DatabaseField;
+
 /**
  * Created by sergio on 3/14/14.
  */
-public class Project {
-    int _id;
-    String _project_name;
 
+public class Project {
+
+    @DatabaseField(id = true)
+    int _id;
+
+    @DatabaseField
+    String _project_name;
 
     public Project(){}
 

@@ -1,22 +1,34 @@
 package pl.byd.wsg.promand.project5.model;
 
+import com.j256.ormlite.field.DatabaseField;
+
 /**
  * Created by sergio on 3/14/14.
  */
-public class Expence {
+public class Expense {
+
+    @DatabaseField(id = true)
     int _id;
+
+    @DatabaseField
     String _amount;
+
+    @DatabaseField
+    String _currency;
+
+    @DatabaseField
     String _date;
-    String _photo; //path to directory
 
+    //@DatabaseField
+    //String _photo; //path to directory
 
-    public Expence(){}
+    public Expense(){}
 
-    public Expence(int id, String amount, String date, String photo){
+    public Expense(int id, String amount, String date/*, String photo*/){
         this._id = id;
         this._amount = amount;
         this._date = date;
-        this._photo = photo;
+        //this._photo = photo;
     }
 
     public int getID(){
@@ -32,6 +44,6 @@ public class Expence {
     public String getDate(){ return this._date; }
     public void setDate(String date){ this._date = date;}
 
-    public String getPhoto(){ return this._photo; }
-    public void setPhoto(String photo){ this._photo = photo;}
+    //public String getPhoto(){ return this._photo; }
+    //public void setPhoto(String photo){ this._photo = photo;}
 }
