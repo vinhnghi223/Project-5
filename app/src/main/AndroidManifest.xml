@@ -14,7 +14,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name=".login.LoginActivity"
+            android:name=".logins.LoginActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -23,15 +23,15 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".menu.MenuActivity"
+            android:name=".menus.MenuActivity"
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name=".dashboard.DashboardGraphActivity"
+            android:name=".dashboards.DashboardGraphActivity"
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name=".addscreen.AddScreenActivity"
+            android:name=".add.AddScreenActivity"
             android:label="@string/app_name" >
         </activity>
         <activity
@@ -39,11 +39,11 @@
             android:label="@string/title_activity_go_to_add_screen" >
         </activity>
         <activity
-            android:name=".dashboard.DashboardListView"
+            android:name=".dashboards.DashboardListView"
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name=".menu.MenuActivity"
+            android:name=".menus.MenuActivity"
             android:label="@string/app_name" >
         </activity>
         <activity

@@ -1,4 +1,5 @@
-package pl.byd.wsg.promand.project5.dashboard;
+package pl.byd.wsg.promand.project5.dashboards;
+
 
 import android.app.Activity;
 import android.content.Intent;
@@ -12,11 +13,13 @@ import pl.byd.wsg.promand.project5.R;
 /**
  * Created by Miguel on 14-03-2014.
  */
-public class DashboardListView extends Activity {
+
+public class DashboardGraphActivity extends Activity {
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.dashboard_listview);
+        setContentView(R.layout.dashboard_graphview);
     }
 
     public void goCategories(View v){
@@ -29,8 +32,8 @@ public class DashboardListView extends Activity {
         startActivity(intent);
     }
 
-    public void goDashboard(View v){
-        Intent intent = new Intent(this, DashboardGraphActivity.class);
+    public void goReportList(View v){
+        Intent intent = new Intent(this, DashboardListView.class);
         startActivity(intent);
     }
 }

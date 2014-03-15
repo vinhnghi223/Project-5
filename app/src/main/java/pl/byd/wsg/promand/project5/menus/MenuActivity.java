@@ -1,12 +1,12 @@
-package pl.byd.wsg.promand.project5.menu;
+package pl.byd.wsg.promand.project5.menus;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-import pl.byd.wsg.promand.project5.addscreen.AddScreenActivity;
-import pl.byd.wsg.promand.project5.dashboard.DashboardGraphActivity;
+import pl.byd.wsg.promand.project5.add.AddScreenActivity;
+import pl.byd.wsg.promand.project5.dashboards.DashboardGraphActivity;
 import pl.byd.wsg.promand.project5.R;
 
 /**
