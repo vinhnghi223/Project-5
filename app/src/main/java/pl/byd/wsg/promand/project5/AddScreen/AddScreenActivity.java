@@ -1,4 +1,4 @@
-package pl.byd.wsg.promand.project5;
+package pl.byd.wsg.promand.project5.AddScreen;
 
 import android.content.Context;
 import android.content.Intent;
@@ -8,12 +8,10 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.View.OnClickListener;
-import android.view.Window;
-import android.widget.Button;
-import android.widget.Toast;
 
-import pl.byd.wsg.promand.project5.categories.CategoriesActivity;
+import pl.byd.wsg.promand.project5.Categories.CategoriesActivity;
+import pl.byd.wsg.promand.project5.Project.ProjectActivity;
+import pl.byd.wsg.promand.project5.R;
 
 /**
  * Created by Sergey on 3/14/14.
@@ -23,22 +21,13 @@ public class AddScreenActivity extends ActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.add_screen);
-
         final Context context = this;
 
-        requestWindowFeature(Window.FEATURE_LEFT_ICON);
-        getWindow().setFeatureDrawableResource(Window.FEATURE_LEFT_ICON,R.drawable.ic_launcher);
-        View v = findViewById (android.R.id.home);
-        v.setClickable(true);
-        v.setOnClickListener(new OnClickListener() {
-            @Override public void onClick(View v) {
-                Intent intent = new Intent(context, menuActivity.class);
-                startActivity(intent);
+        super.onCreate(savedInstanceState);
 
-            }
-        });
+
+        setContentView(R.layout.add_screen);
+
     }
 
     @Override
@@ -67,7 +56,7 @@ public class AddScreenActivity extends ActionBarActivity {
     }
 
     public void openProjectChooser(View v){
-        Intent intent = new Intent(this, projectActivity.class);
+        Intent intent = new Intent(this, ProjectActivity.class);
         startActivity(intent);
     }
 
