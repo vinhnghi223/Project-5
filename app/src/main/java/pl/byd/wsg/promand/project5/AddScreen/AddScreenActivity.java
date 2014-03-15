@@ -10,7 +10,7 @@ import android.view.MenuItem;
 import android.view.View;
 
 import pl.byd.wsg.promand.project5.categories.CategoriesActivity;
-import pl.byd.wsg.promand.project5.project.ProjectActivity;
+import pl.byd.wsg.promand.project5.projects.ProjectActivity;
 import pl.byd.wsg.promand.project5.R;
 
 /**
