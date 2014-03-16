@@ -14,7 +14,7 @@ import pl.byd.wsg.promand.project5.menus.MenuActivity;
 import pl.byd.wsg.promand.project5.projects.ProjectActivity;
 
 /**
- * Created by Sergey on 3/14/14.
+ * Created by Nghi on 3/16/14.
  */
 
 public class AddScreenActivityTest extends ActionBarActivity {
