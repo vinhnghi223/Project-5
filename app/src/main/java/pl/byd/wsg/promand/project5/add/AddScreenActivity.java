@@ -24,7 +24,7 @@ public class AddScreenActivity extends ActionBarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.add_screen);
+        setContentView(R.layout.add_screen_test);
         ActionBar actionBar = getActionBar();
         actionBar.setHomeButtonEnabled(true); //this required API level 14  MIGUEL
     }

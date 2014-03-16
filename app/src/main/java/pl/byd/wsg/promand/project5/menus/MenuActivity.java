@@ -9,7 +9,6 @@ import android.view.MenuItem;
 import android.view.View;
 
 import pl.byd.wsg.promand.project5.add.AddScreenActivity;
-import pl.byd.wsg.promand.project5.add.AddScreenActivityTest;
 import pl.byd.wsg.promand.project5.dashboards.DashboardGraphActivity;
 import pl.byd.wsg.promand.project5.R;
 
@@ -49,10 +48,7 @@ public class MenuActivity extends ActionBarActivity {
     }
 
     public void goAddScreen(View v){
-        //Intent intent = new Intent(this, AddScreenActivity.class);
-
-        //For the sake of testing, "Add" button will lead you to AddScreenActivityTest.class instead of AddScreenActivity.class
-        Intent intent = new Intent(this, AddScreenActivityTest.class);
+        Intent intent = new Intent(this, AddScreenActivity.class);
         startActivity(intent);
     }
 }
