@@ -2,7 +2,6 @@ package pl.byd.wsg.promand.project5.dashboards;
 
 
 import android.app.ActionBar;
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
@@ -66,7 +65,7 @@ public class DashboardGraphActivity extends ActionBarActivity {
     }
 
     public void goReportList(View v){
-        Intent intent = new Intent(this, DashboardListView.class);
+        Intent intent = new Intent(this, DashboardListViewActivity.class);
         startActivity(intent);
     }
 }

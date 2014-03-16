@@ -17,7 +17,7 @@ import pl.byd.wsg.promand.project5.R;
 /**
  * Created by Miguel on 14-03-2014.
  */
-public class DashboardListView extends ActionBarActivity {
+public class DashboardListViewActivity extends ActionBarActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
