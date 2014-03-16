@@ -7,13 +7,18 @@
               android:background="#ffffff"
               android:padding="30dp">
 
+    <!-- Dummy LinearLayout for requesting focus out of editText  -->
+        <LinearLayout
+            android:focusable="true" android:focusableInTouchMode="true"
+            android:layout_width="0px" android:layout_height="0px"/>
+
         <Button
             android:layout_width="312dp"
             android:layout_height="wrap_content"
             android:text="@string/choose_project"
             android:layout_gravity="center"
             android:id="@+id/chooseProjectButton"
-            android:onClick="goReportList" />
+            android:onClick="goProjects" />
 
         <Button
             android:layout_width="312dp"

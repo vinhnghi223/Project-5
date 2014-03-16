@@ -1,5 +1,6 @@
 package pl.byd.wsg.promand.project5.add;
 
+import android.app.ActionBar;
 import android.content.Context;
 import android.content.Intent;
 import android.hardware.Camera;
@@ -10,6 +11,7 @@ import android.view.MenuItem;
 import android.view.View;
 
 import pl.byd.wsg.promand.project5.categories.CategoriesActivity;
+import pl.byd.wsg.promand.project5.menus.MenuActivity;
 import pl.byd.wsg.promand.project5.projects.ProjectActivity;
 import pl.byd.wsg.promand.project5.R;
 
@@ -21,13 +23,10 @@ public class AddScreenActivity extends ActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        final Context context = this;
-
         super.onCreate(savedInstanceState);
-
-
         setContentView(R.layout.add_screen);
-
+        ActionBar actionBar = getActionBar();
+        actionBar.setHomeButtonEnabled(true); //this required API level 14  MIGUEL
     }
 
     @Override
@@ -43,9 +42,15 @@ public class AddScreenActivity extends ActionBarActivity {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-        if (id == R.id.action_settings) {
-            return true;
+        switch (item.getItemId())
+        {
+            case android.R.id.home:
+                Intent intent = new Intent(this, MenuActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intent);
+                return true;
+            case R.id.action_settings:
+                return true;
         }
         return super.onOptionsItemSelected(item);
     }
@@ -55,19 +60,19 @@ public class AddScreenActivity extends ActionBarActivity {
         startActivity(intent);
     }
 
-    public void chooseProjectButton(View v){
+    public void goProjects(View v){
         Intent intent = new Intent(this, ProjectActivity.class);
         startActivity(intent);
     }
 
     public void takePhoto(View v){
-        Intent intent = new Intent(this, Camera.class);
-        startActivity(intent);
+      /*  Intent intent = new Intent(this, Camera.class);
+        startActivity(intent);  */
     }
-/*
+
     public void submitExpense(View v){
-        Intent intent = new Intent(this, AddExpense.class);
-        startActivity(intent);
+     /*   Intent intent = new Intent(this, AddExpense.class);
+        startActivity(intent);    */
     }
-*/
+
 }

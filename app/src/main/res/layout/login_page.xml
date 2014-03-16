@@ -7,6 +7,10 @@
 
 
 
+    <!-- Dummy LinearLayout for requesting focus out of editText  -->
+    <LinearLayout
+        android:focusable="true" android:focusableInTouchMode="true"
+        android:layout_width="0px" android:layout_height="0px"/>
 
     <RelativeLayout
         android:layout_marginTop="100dp"
@@ -16,7 +20,7 @@
          <ImageView
             android:layout_width="match_parent"
             android:layout_height="100dp"
-            android:src="@drawable/memlogo"
+            android:src="@drawable/mem_logo"
             android:id="@+id/imageView"
             android:layout_weight="1"/>
     </RelativeLayout>
