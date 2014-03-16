@@ -1,12 +1,9 @@
 package pl.byd.wsg.promand.project5;
 
 import android.app.Activity;
-import android.content.Context;
 import android.os.Bundle;
-import android.widget.ListView;
+
 import com.j256.ormlite.dao.Dao;
-import pl.byd.wsg.promand.project5.model.DatabaseHandler;
-import pl.byd.wsg.promand.project5.model.Expense;
 
 import java.sql.SQLException;
 
