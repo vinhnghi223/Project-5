@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 
 import pl.byd.wsg.promand.project5.R;
 import pl.byd.wsg.promand.project5.add.AddScreenActivity;
@@ -48,7 +49,12 @@ public class TransportActivity extends ActionBarActivity {
         }
         return super.onOptionsItemSelected(item);
     }
-    public void openAdd_screen(View v){
-        startActivity(new Intent(this, AddScreenActivity.class));
+    public void publTranspButton(View v){
+        Button button5 = (Button) findViewById(R.id.button5);
+        String str = button5.getText().toString();
+        AddScreenActivity.categoryTextView.setText(str);
+        Intent returnIntent = new Intent();
+        setResult(RESULT_OK, returnIntent);
+        this.finish();
     }
 }

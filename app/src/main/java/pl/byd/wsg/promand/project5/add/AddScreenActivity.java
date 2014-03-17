@@ -31,7 +31,7 @@ import pl.byd.wsg.promand.project5.R;
 
 public class AddScreenActivity extends ActionBarActivity {
     EditText inputAmountEditText,commentEditText;
-    public static TextView projectTextView, categoryEditText;
+    public static TextView projectTextView, categoryTextView;
     DataSource dataSource;
 
     @Override
@@ -43,7 +43,7 @@ public class AddScreenActivity extends ActionBarActivity {
 
         //References for user input edit text
         projectTextView= (TextView) findViewById(R.id.projectTextView);
-        categoryEditText= (TextView) findViewById(R.id.categoryTextView);
+        categoryTextView= (TextView) findViewById(R.id.categoryTextView);
         inputAmountEditText= (EditText) findViewById(R.id.inputAmountEditText);
         commentEditText= (EditText) findViewById(R.id.commentEditText);
 
@@ -99,7 +99,7 @@ public class AddScreenActivity extends ActionBarActivity {
 
         //get raw string data input
         String project=projectTextView.getText().toString();
-        String category=categoryEditText.getText().toString();
+        String category=categoryTextView.getText().toString();
         String amount= inputAmountEditText.getText().toString();
         String comment=commentEditText.getText().toString();
 

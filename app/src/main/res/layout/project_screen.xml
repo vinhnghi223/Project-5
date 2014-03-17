@@ -20,7 +20,8 @@
         android:text="@string/project2"
         android:id="@+id/buttonProj2"
         android:layout_weight="0.20"
-        android:textSize="20dp" />
+        android:textSize="20dp"
+        android:onClick="inputProject2"/>
 
     <Button
         android:layout_width="match_parent"
@@ -28,14 +29,16 @@
         android:text="@string/project3"
         android:id="@+id/buttonProj3"
         android:layout_weight="0.20"
-        android:textSize="20dp" />
+        android:textSize="20dp"
+        android:onClick="inputProject3"/>
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/project4"
-        android:id="@+id/button4"
+        android:id="@+id/buttonProj4"
         android:layout_weight="0.20"
-        android:textSize="20dp" />
+        android:textSize="20dp"
+        android:onClick="inputProject4"/>
 
 </LinearLayout>
