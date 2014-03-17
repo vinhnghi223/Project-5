@@ -97,7 +97,7 @@ public class DashboardListViewActivity extends ListActivity {
         //Creating the instance of PopupMenu
         PopupMenu popup = new PopupMenu(this, v);
         //Inflating the Popup using xml file
-        popup.getMenuInflater().inflate(R.menu.popup_menu, popup.getMenu());
+        //popup.getMenuInflater().inflate(R.menu.popup_menu, popup.getMenu());
 
         //registering popup with OnMenuItemClickListener
         popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {

@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 
 import pl.byd.wsg.promand.project5.R;
 import pl.byd.wsg.promand.project5.add.AddScreenActivity;
@@ -48,7 +49,57 @@ public class TransportActivity extends ActionBarActivity {
         }
         return super.onOptionsItemSelected(item);
     }
-    public void openAdd_screen(View v){
+   /* public void openAdd_screen(View v){
         startActivity(new Intent(this, AddScreenActivity.class));
+    }*/
+
+    public void inputPlane(View v) {
+        Button buttonPlane = (Button) findViewById(R.id.button_plane);
+        String str = buttonPlane.getText().toString();
+        AddScreenActivity.projectTextView.setText(str);
+
+        Intent returnIntent = new Intent();
+        setResult(RESULT_OK, returnIntent);
+        this.finish();
+    }
+
+    public void inputTrain(View v) {
+        Button buttonTrain = (Button) findViewById(R.id.button_train);
+        String str = buttonTrain.getText().toString();
+        AddScreenActivity.projectTextView.setText(str);
+
+        Intent returnIntent = new Intent();
+        setResult(RESULT_OK, returnIntent);
+        this.finish();
+    }
+
+    public void inputBus(View v) {
+        Button buttonBus = (Button) findViewById(R.id.button_bus);
+        String str = buttonBus.getText().toString();
+        AddScreenActivity.projectTextView.setText(str);
+
+        Intent returnIntent = new Intent();
+        setResult(RESULT_OK, returnIntent);
+        this.finish();
+    }
+
+    public void inputTaxi(View v) {
+        Button buttonTaxi = (Button) findViewById(R.id.button_taxi);
+        String str = buttonTaxi.getText().toString();
+        AddScreenActivity.projectTextView.setText(str);
+
+        Intent returnIntent = new Intent();
+        setResult(RESULT_OK, returnIntent);
+        this.finish();
+    }
+
+    public void inputPublicTransport(View v) {
+        Button buttonPublicTransport = (Button) findViewById(R.id.button_public_transport);
+        String str = buttonPublicTransport.getText().toString();
+        AddScreenActivity.projectTextView.setText(str);
+
+        Intent returnIntent = new Intent();
+        setResult(RESULT_OK, returnIntent);
+        this.finish();
     }
 }

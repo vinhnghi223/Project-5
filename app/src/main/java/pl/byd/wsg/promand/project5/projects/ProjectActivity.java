@@ -58,7 +58,28 @@ public class ProjectActivity extends ActionBarActivity {
         Button buttonProj1 = (Button) findViewById(R.id.buttonProj1);
         String str = buttonProj1.getText().toString();
         AddScreenActivity.projectTextView.setText(str);
+        this.finish();
+    }
 
+    public void inputProject2(View v){
+        Button buttonProj2 = (Button) findViewById(R.id.buttonProj2);
+        String str = buttonProj2.getText().toString();
+        AddScreenActivity.projectTextView.setText(str);
+        this.finish();
+    }
+
+    public void inputProject3(View v){
+        Button buttonProj3 = (Button) findViewById(R.id.buttonProj3);
+        String str = buttonProj3.getText().toString();
+        AddScreenActivity.projectTextView.setText(str);
+        this.finish();
+    }
+
+    public void inputProject4(View v){
+        Button buttonProj4 = (Button) findViewById(R.id.buttonProj4);
+        String str = buttonProj4.getText().toString();
+        AddScreenActivity.projectTextView.setText(str);
+        this.finish();
     }
 
 

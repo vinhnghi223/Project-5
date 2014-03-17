@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -54,15 +55,34 @@ public class CategoriesActivity extends ActionBarActivity {
         this.finish();  //GOTTA TRY ALL OF THIS IN EVERY TIME I GET OUT OF AN ACTIVITY
     }
     public void openTransport_subcategory(View v){
-        startActivity(new Intent(this, TransportActivity.class));
+        Intent intent = new Intent(this, TransportActivity.class);
+        startActivityForResult(intent, 1);
     }
     public void openCar_subcategory(View v){
-        startActivity(new Intent(this, CarActivity.class));
+        Intent intent = new Intent(this, CarActivity.class);
+        startActivityForResult(intent, 1);
     }
+
+
     public void openOffice_subcategory(View v){
-        startActivity(new Intent(this, OfficeActivity.class));
+        Intent intent = new Intent(this, OfficeActivity.class);
+        startActivityForResult(intent, 1);
     }
+
     public void openRepresentation_subcategory(View v) {
-        startActivity(new Intent(this, RepresentationActivity.class));
+        Intent intent = new Intent(this, RepresentationActivity.class);
+        startActivityForResult(intent, 1);
     }
+
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == 1) {
+            if(resultCode == RESULT_OK){
+                this.finish();
+            }
+            if (resultCode == RESULT_CANCELED) {
+                Log.d("MS","onActivityResult     resultCode=RESULT_CANCELED ");//Write your code if there's no result
+            }
+        }
+    }//onActivityResult
+
 }

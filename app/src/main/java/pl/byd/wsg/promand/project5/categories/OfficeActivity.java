@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 
 import pl.byd.wsg.promand.project5.R;
 import pl.byd.wsg.promand.project5.add.AddScreenActivity;
@@ -47,7 +48,37 @@ public class OfficeActivity extends ActionBarActivity {
         }
         return super.onOptionsItemSelected(item);
     }
-    public void openAdd_screen(View v){
+    /*public void openAdd_screen(View v){
         startActivity(new Intent(this, AddScreenActivity.class));
+    }*/
+
+    public void inputFurniture(View v) {
+        Button buttonFurniture = (Button) findViewById(R.id.button_furniture);
+        String str = buttonFurniture.getText().toString();
+        AddScreenActivity.projectTextView.setText(str);
+
+        Intent returnIntent = new Intent();
+        setResult(RESULT_OK, returnIntent);
+        this.finish();
+    }
+
+    public void inputTechBook(View v) {
+        Button buttonTechBook = (Button) findViewById(R.id.button_tech_book);
+        String str = buttonTechBook.getText().toString();
+        AddScreenActivity.projectTextView.setText(str);
+
+        Intent returnIntent = new Intent();
+        setResult(RESULT_OK, returnIntent);
+        this.finish();
+    }
+
+    public void inputHouseProducts(View v) {
+        Button buttonHouseProducts = (Button) findViewById(R.id.button_house_products);
+        String str = buttonHouseProducts.getText().toString();
+        AddScreenActivity.projectTextView.setText(str);
+
+        Intent returnIntent = new Intent();
+        setResult(RESULT_OK, returnIntent);
+        this.finish();
     }
 }

@@ -10,48 +10,48 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Breakfast"
-        android:id="@+id/button"
+        android:id="@+id/button_breakfast"
         android:layout_gravity="right"
         android:layout_weight="0.20"
         android:textSize="20dp"
-        android:onClick="openAdd_screen"/>
+        android:onClick="inputBreakfast"/>
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Lunch"
-        android:id="@+id/button2"
+        android:id="@+id/button_lunch"
         android:layout_gravity="center_horizontal"
         android:layout_weight="0.20"
         android:textSize="20dp"
-        android:onClick="openAdd_screen"/>
+        android:onClick="inputLunch"/>
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Dinner"
-        android:id="@+id/button3"
+        android:id="@+id/button_dinner"
         android:layout_weight="0.20"
         android:textSize="20dp"
-            />
+        android:onClick="inputDinner"   />
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Half board"
-        android:id="@+id/button4"
+        android:id="@+id/button_hb"
         android:layout_gravity="right"
         android:layout_weight="0.20"
         android:textSize="20dp"
-        android:onClick="openAdd_screen"/>
+        android:onClick="inputHB"/>
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Full board"
-        android:id="@+id/button5"
+        android:id="@+id/button_all"
         android:layout_weight="0.20"
         android:textSize="20dp"
-        android:onClick="openAdd_screen"/>
+        android:onClick="inputFull"/>
 
 </LinearLayout>

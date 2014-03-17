@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 
 import pl.byd.wsg.promand.project5.R;
 import pl.byd.wsg.promand.project5.add.AddScreenActivity;
@@ -47,7 +48,37 @@ public class RepresentationActivity extends ActionBarActivity {
         }
         return super.onOptionsItemSelected(item);
     }
-    public void openAdd_screen(View v){
+    /*public void openAdd_screen(View v){
         startActivity(new Intent(this, AddScreenActivity.class));
+    }*/
+
+    public void inputGroceries(View v) {
+        Button buttonGroceries = (Button) findViewById(R.id.button_groceries);
+        String str = buttonGroceries.getText().toString();
+        AddScreenActivity.projectTextView.setText(str);
+
+        Intent returnIntent = new Intent();
+        setResult(RESULT_OK, returnIntent);
+        this.finish();
+    }
+
+    public void inputUtilities(View v) {
+        Button buttonUtilities = (Button) findViewById(R.id.button_utilities);
+        String str = buttonUtilities.getText().toString();
+        AddScreenActivity.projectTextView.setText(str);
+
+        Intent returnIntent = new Intent();
+        setResult(RESULT_OK, returnIntent);
+        this.finish();
+    }
+
+    public void inputCleaning(View v) {
+        Button buttonCleaning = (Button) findViewById(R.id.button_cleaning);
+        String str = buttonCleaning.getText().toString();
+        AddScreenActivity.projectTextView.setText(str);
+
+        Intent returnIntent = new Intent();
+        setResult(RESULT_OK, returnIntent);
+        this.finish();
     }
 }

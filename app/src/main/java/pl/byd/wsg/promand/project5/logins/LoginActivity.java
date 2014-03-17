@@ -43,6 +43,7 @@ public class LoginActivity extends Activity {
         if (PIN.equals("1234")) {
             Intent intent = new Intent(this, MenuActivity.class);
             startActivity(intent);
+            this.finish();
         }
 
         else {
