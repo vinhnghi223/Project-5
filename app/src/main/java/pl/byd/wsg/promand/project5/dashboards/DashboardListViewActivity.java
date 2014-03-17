@@ -2,28 +2,51 @@ package pl.byd.wsg.promand.project5.dashboards;
 
 import android.app.ActionBar;
 import android.app.Activity;
+import android.app.ListActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+
+import java.util.List;
 
 import pl.byd.wsg.promand.project5.categories.CategoriesActivity;
+import pl.byd.wsg.promand.project5.database.DataSource;
 import pl.byd.wsg.promand.project5.menus.MenuActivity;
+import pl.byd.wsg.promand.project5.model.ExpenseEntry;
 import pl.byd.wsg.promand.project5.projects.ProjectActivity;
 import pl.byd.wsg.promand.project5.R;
 
 /**
  * Created by Miguel on 14-03-2014.
  */
-public class DashboardListViewActivity extends ActionBarActivity {
+public class DashboardListViewActivity extends ListActivity {
+    DataSource dataSource;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.dashboard_listview);
+        setContentView(R.layout.dashboard_listview_test);
         ActionBar actionBar = getActionBar();
         actionBar.setHomeButtonEnabled(true); //this required API level 14  MIGUEL
+
+        //instantiate DataSource
+        dataSource=new DataSource(this);
+        dataSource.open();
+        List<ExpenseEntry> expenseEntryList=dataSource.findAll();
+        if (expenseEntryList.size()==0){
+            expenseEntryList=dataSource.findAll();
+        }
+
+        ListView dataList=(ListView)findViewById(android.R.id.list);
+
+        ArrayAdapter<ExpenseEntry> adapter=new ArrayAdapter<ExpenseEntry>(this, android.R.layout.simple_list_item_1,expenseEntryList);
+        dataList.setAdapter(adapter);
+        //setAdapter(adapter);
     }
 
     @Override

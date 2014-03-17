@@ -1,5 +1,7 @@
 package pl.byd.wsg.promand.project5.model;
 
+import java.text.NumberFormat;
+
 /**
  * Created by Le on 3/17/14.
  */
@@ -61,5 +63,12 @@ public class ExpenseEntry {
     }
     public String getPhoto() {
         return photo;
+    }
+
+    @Override
+    public String toString() {
+        NumberFormat nf = NumberFormat.getCurrencyInstance();
+        //return project + "\n("+nf.format(amount)+")";
+        return project+ "\n"+amount;
     }
 }

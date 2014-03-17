@@ -61,7 +61,7 @@ public class DataSource {
     }
 
     public List<ExpenseEntry> findAll(){
-        List<ExpenseEntry> ExpenseEntries=new ArrayList<ExpenseEntry>();
+        List<ExpenseEntry> expenseEntryList=new ArrayList<ExpenseEntry>();
 
         //Cursor is a reference to the data that's returned from the query
         Cursor cursor=database.query(DatabaseOpenHelper.TABLE_EXPENSE,allColumns,null,null,null,null,null);
@@ -77,9 +77,9 @@ public class DataSource {
                 expenseEntry.setAmount(cursor.getString(cursor.getColumnIndex(DatabaseOpenHelper.COLUMN_AMOUNT)));
                 expenseEntry.setComment(cursor.getString(cursor.getColumnIndex(DatabaseOpenHelper.COLUMN_COMMENT)));
                 expenseEntry.setPhoto(cursor.getString(cursor.getColumnIndex(DatabaseOpenHelper.COLUMN_PHOTO)));
-                ExpenseEntries.add(expenseEntry);
+                expenseEntryList.add(expenseEntry);
             }
         }
-        return ExpenseEntries;
+        return expenseEntryList;
     }
 }

@@ -8,6 +8,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.hardware.Camera;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -15,6 +16,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import pl.byd.wsg.promand.project5.categories.CategoriesActivity;
+import pl.byd.wsg.promand.project5.dashboards.DashboardListViewActivity;
 import pl.byd.wsg.promand.project5.database.DataSource;
 import pl.byd.wsg.promand.project5.database.DatabaseOpenHelper;
 import pl.byd.wsg.promand.project5.menus.MenuActivity;
@@ -108,8 +110,9 @@ public class AddScreenActivity extends ActionBarActivity {
         expenseEntry=dataSource.create(expenseEntry);
 
         Toast.makeText(this, "Added "+expenseEntry.getAmount(), Toast.LENGTH_LONG).show();
-
+        Log.i("Added", expenseEntry.getAmount());
         //not  complete
+        startActivity(new Intent(this, DashboardListViewActivity.class));
     }
 
     /* Maintain a persistent database connection for the entire lifetime of the activity
