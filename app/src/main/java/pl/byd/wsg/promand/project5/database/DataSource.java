@@ -90,4 +90,8 @@ public class DataSource {
         }
         return expenseEntryList;
     }
+
+    /*public boolean removeEntry(){
+
+    }*/
 }

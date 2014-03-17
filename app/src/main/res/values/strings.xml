@@ -42,5 +42,6 @@
     <string name="project4">Project 4</string>
     <string name="title_activity_add_screen">AddScreenActivity</string>
     <string name="title_activity_go_to_add_screen">GoToAddScreenActivity</string>
+    <string name="title_activity_expense_entry_detail">ExpenseEntryDetailActivity</string>
 
 </resources>

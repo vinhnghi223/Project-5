@@ -43,7 +43,7 @@ public class AddScreenActivity extends ActionBarActivity {
 
         //References for user input edit text
         projectTextView= (TextView) findViewById(R.id.projectTextView);
-        categoryEditText= (TextView) findViewById(R.id.categoryEditText);
+        categoryEditText= (TextView) findViewById(R.id.categoryTextView);
         inputAmountEditText= (EditText) findViewById(R.id.inputAmountEditText);
         commentEditText= (EditText) findViewById(R.id.commentEditText);
 

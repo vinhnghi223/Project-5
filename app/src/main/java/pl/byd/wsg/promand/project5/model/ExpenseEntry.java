@@ -1,11 +1,14 @@
 package pl.byd.wsg.promand.project5.model;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import java.text.NumberFormat;
 
 /**
  * Created by Le on 3/17/14.
  */
-public class ExpenseEntry {
+public class ExpenseEntry implements Parcelable{
     /* when you're defining a model class--that is a class that represents a single
      data entity-- and you want to represent an integer value to match up with the Android API,
       you should always data type that property in the class as a long and not an int.*/
@@ -71,4 +74,45 @@ public class ExpenseEntry {
         //return project + "\n("+nf.format(amount)+")";
         return "PROJECT: "+project+ "\nCATEGORY: "+category+"\nAMOUNT: "+amount+"\nCOMMENT: "+comment;
     }
+    public ExpenseEntry() {
+    }
+
+    public ExpenseEntry(Parcel in) {
+        id= in.readLong();
+        project=in.readString();
+        category=in.readString();
+        amount=in.readString();
+        comment=in.readString();
+        photo=in.readString();
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeLong(id);
+        dest.writeString(project);
+        dest.writeString(category);
+        dest.writeString(amount);
+        dest.writeString(comment);
+        dest.writeString(photo);
+    }
+
+    public static final Parcelable.Creator<ExpenseEntry> CREATOR =
+            new Parcelable.Creator<ExpenseEntry>() {
+
+                @Override
+                public ExpenseEntry createFromParcel(Parcel source) {
+                    return new ExpenseEntry(source);
+                }
+
+                @Override
+                public ExpenseEntry[] newArray(int size) {
+                    return new ExpenseEntry[size];
+                }
+
+            };
 }

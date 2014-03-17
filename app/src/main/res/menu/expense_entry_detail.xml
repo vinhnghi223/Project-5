@@ -1,0 +1,10 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="pl.byd.wsg.promand.project5.dashboards.ExpenseEntryDetailActivity" >
+
+    <item
+        android:id="@+id/menu_delete"
+        android:orderInCategory="100"
+        android:showAsAction="always"
+        android:title="Delete"/>
+</menu>

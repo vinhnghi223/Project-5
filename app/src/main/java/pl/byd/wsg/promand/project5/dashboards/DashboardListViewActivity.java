@@ -86,10 +86,13 @@ public class DashboardListViewActivity extends ListActivity {
     }
 
     public void goProjects(View v){
+        expenseEntryList=dataSource.findFiltered("project = \"project 1\"","amount ASC");
+        refreshDisplay();
+
         /*Intent intent = new Intent(this, ProjectActivity.class);
         startActivity(intent);*/
 
-
+        /*
         //Creating the instance of PopupMenu
         PopupMenu popup = new PopupMenu(this, v);
         //Inflating the Popup using xml file
@@ -110,11 +113,21 @@ public class DashboardListViewActivity extends ListActivity {
             }
         });
         popup.show();//showing popup menu
+        // */
 
     }
 
     public void goDashboard(View v){
         Intent intent = new Intent(this, DashboardGraphActivity.class);
+        startActivity(intent);
+    }
+
+    @Override
+    protected void onListItemClick(ListView l, View v, int position, long id) {
+        super.onListItemClick(l, v, position, id);
+        ExpenseEntry expenseEntry=expenseEntryList.get(position);
+        Intent intent = new Intent(this, ExpenseEntryDetailActivity.class);
+        intent.putExtra(".model.ExpenseEntry",expenseEntry);
         startActivity(intent);
     }
 }

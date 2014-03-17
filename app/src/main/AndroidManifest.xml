@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="pl.byd.wsg.promand.project5" >
-    <uses-sdk android:minSdkVersion="14" android:targetSdkVersion="19" />  <!--   Added this line for being able to put actions in action bar   MIGUEL  -->
+
+    <uses-sdk
+        android:minSdkVersion="14"
+        android:targetSdkVersion="19" />
+ <!-- Added this line for being able to put actions in action bar   MIGUEL -->
     <uses-feature
         android:name="android.hardware.camera"
         android:required="true" />
@@ -14,7 +18,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name=".logins.LoginActivity"
+            android:name="pl.byd.wsg.promand.project5.logins.LoginActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -23,44 +27,53 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".menus.MenuActivity"
+            android:name="pl.byd.wsg.promand.project5.menus.MenuActivity"
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name=".dashboards.DashboardGraphActivity"
+            android:name="pl.byd.wsg.promand.project5.dashboards.DashboardGraphActivity"
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name=".add.AddScreenActivity"
-            android:label="@string/app_name">
-        </activity>
-        <activity
-            android:name=".dashboards.DashboardListViewActivity"
+            android:name="pl.byd.wsg.promand.project5.add.AddScreenActivity"
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name=".projects.ProjectActivity"
+            android:name="pl.byd.wsg.promand.project5.dashboards.DashboardListViewActivity"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="pl.byd.wsg.promand.project5.projects.ProjectActivity"
             android:label="@string/app_name" >
         </activity>
         <activity
             android:name="pl.byd.wsg.promand.project5.categories.CategoriesActivity"
             android:label="@string/app_name" >
         </activity>
-        <activity android:name="pl.byd.wsg.promand.project5.categories.CarActivity"
+        <activity
+            android:name="pl.byd.wsg.promand.project5.categories.CarActivity"
             android:label="@string/app_name" >
         </activity>
-        <activity android:name="pl.byd.wsg.promand.project5.categories.MealActivity"
+        <activity
+            android:name="pl.byd.wsg.promand.project5.categories.MealActivity"
             android:label="@string/app_name" >
         </activity>
-        <activity android:name="pl.byd.wsg.promand.project5.categories.OfficeActivity"
+        <activity
+            android:name="pl.byd.wsg.promand.project5.categories.OfficeActivity"
             android:label="@string/app_name" >
         </activity>
-        <activity android:name="pl.byd.wsg.promand.project5.categories.RepresentationActivity"
+        <activity
+            android:name="pl.byd.wsg.promand.project5.categories.RepresentationActivity"
             android:label="@string/app_name" >
         </activity>
-        <activity android:name="pl.byd.wsg.promand.project5.categories.TransportActivity"
+        <activity
+            android:name="pl.byd.wsg.promand.project5.categories.TransportActivity"
             android:label="@string/app_name" >
         </activity>
-     </application>
+        <activity
+            android:name="pl.byd.wsg.promand.project5.dashboards.ExpenseEntryDetailActivity"
+            android:label="@string/title_activity_expense_entry_detail" >
+        </activity>
+    </application>
 
 </manifest>
