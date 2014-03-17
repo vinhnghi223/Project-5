@@ -13,6 +13,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import pl.byd.wsg.promand.project5.categories.CategoriesActivity;
@@ -29,7 +30,8 @@ import pl.byd.wsg.promand.project5.R;
  */
 
 public class AddScreenActivity extends ActionBarActivity {
-    EditText projectEditText,categoryEditText,inputAmountEditText,commentEditText;
+    EditText inputAmountEditText,commentEditText;
+    public static TextView projectTextView, categoryEditText;
     DataSource dataSource;
 
     @Override
@@ -40,8 +42,8 @@ public class AddScreenActivity extends ActionBarActivity {
         actionBar.setHomeButtonEnabled(true); //this required API level 14  MIGUEL
 
         //References for user input edit text
-        projectEditText= (EditText) findViewById(R.id.projectEditText);
-        categoryEditText= (EditText) findViewById(R.id.categoryEditText);
+        projectTextView= (TextView) findViewById(R.id.projectTextView);
+        categoryEditText= (TextView) findViewById(R.id.categoryEditText);
         inputAmountEditText= (EditText) findViewById(R.id.inputAmountEditText);
         commentEditText= (EditText) findViewById(R.id.commentEditText);
 
@@ -96,7 +98,7 @@ public class AddScreenActivity extends ActionBarActivity {
         startActivity(intent);    */
 
         //get raw string data input
-        String project=projectEditText.getText().toString();
+        String project=projectTextView.getText().toString();
         String category=categoryEditText.getText().toString();
         String amount= inputAmountEditText.getText().toString();
         String comment=commentEditText.getText().toString();
