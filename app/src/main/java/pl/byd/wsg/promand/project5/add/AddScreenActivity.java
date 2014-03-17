@@ -15,8 +15,10 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import pl.byd.wsg.promand.project5.categories.CategoriesActivity;
+import pl.byd.wsg.promand.project5.database.DataSource;
 import pl.byd.wsg.promand.project5.database.DatabaseOpenHelper;
 import pl.byd.wsg.promand.project5.menus.MenuActivity;
+import pl.byd.wsg.promand.project5.model.ExpenseEntry;
 import pl.byd.wsg.promand.project5.projects.ProjectActivity;
 import pl.byd.wsg.promand.project5.R;
 
@@ -26,7 +28,7 @@ import pl.byd.wsg.promand.project5.R;
 
 public class AddScreenActivity extends ActionBarActivity {
     EditText projectEditText,categoryEditText,inputAmountEditText,commentEditText;
-    DatabaseOpenHelper databaseOpenHelper;
+    DataSource dataSource;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,9 +43,9 @@ public class AddScreenActivity extends ActionBarActivity {
         inputAmountEditText= (EditText) findViewById(R.id.inputAmountEditText);
         commentEditText= (EditText) findViewById(R.id.commentEditText);
 
-        //create an instance of DatabaseOpenHelper class
-        databaseOpenHelper=new DatabaseOpenHelper(this);
-
+        //instantiate DataSource
+        dataSource=new DataSource(this);
+        dataSource.open();
     }
 
     @Override
@@ -91,19 +93,41 @@ public class AddScreenActivity extends ActionBarActivity {
      /*   Intent intent = new Intent(this, AddExpense.class);
         startActivity(intent);    */
 
+        //get raw string data input
         String project=projectEditText.getText().toString();
         String category=categoryEditText.getText().toString();
         String amount= inputAmountEditText.getText().toString();
         String comment=commentEditText.getText().toString();
 
-        //create instance of writable database so that we can modify our database through this instance
-        SQLiteDatabase db= databaseOpenHelper.getWritableDatabase();
+        //setup the expense entry object
+        ExpenseEntry expenseEntry=new ExpenseEntry();
+        expenseEntry.setProject(project);
+        expenseEntry.setCategory(category);
+        expenseEntry.setAmount(amount);
+        expenseEntry.setComment(comment);
+        expenseEntry=dataSource.create(expenseEntry);
 
-        //create instance of ContentValues which act like a map to store our key-value pair
-        ContentValues contentValues=new ContentValues();
-        Toast.makeText(this, "added", Toast.LENGTH_LONG).show();
+        Toast.makeText(this, "Added "+expenseEntry.getAmount(), Toast.LENGTH_LONG).show();
 
         //not  complete
     }
 
+    /* Maintain a persistent database connection for the entire lifetime of the activity
+    The connection object within any activity is cached. So you don't have to worry about calling
+    the open method too many times, but you should make sure that you're explicitly closing the connection
+    whenever the activity is going away. That will eliminate the possibility of what are known as database
+    connection leaks. A database connection leak can cause memory and performance issues. */
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        //As the activity comes to the screen, it's onResume method is called. Thats when dataSource is opened
+        dataSource.open();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        dataSource.close();
+    }
 }
