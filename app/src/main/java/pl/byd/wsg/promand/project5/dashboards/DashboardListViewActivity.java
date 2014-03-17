@@ -11,6 +11,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.PopupMenu;
+import android.widget.Toast;
 
 import java.util.List;
 
@@ -26,6 +28,7 @@ import pl.byd.wsg.promand.project5.projects.ProjectActivity;
  */
 public class DashboardListViewActivity extends ListActivity {
     DataSource dataSource;
+    List<ExpenseEntry> expenseEntryList;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -37,17 +40,19 @@ public class DashboardListViewActivity extends ListActivity {
         //instantiate DataSource
         dataSource=new DataSource(this);
         dataSource.open();
-        List<ExpenseEntry> expenseEntryList=dataSource.findAll();
+        expenseEntryList=dataSource.findAll();
         if (expenseEntryList.size()==0){
             expenseEntryList=dataSource.findAll();
         }
 
-        ListView dataList=(ListView)findViewById(android.R.id.list);
+        refreshDisplay();
+    }
 
+    public void refreshDisplay(){
+        ListView dataList=(ListView)findViewById(android.R.id.list);
         ArrayAdapter<ExpenseEntry> adapter=new ArrayAdapter<ExpenseEntry>(this, android.R.layout.simple_list_item_1,expenseEntryList);
         dataList.setAdapter(adapter);
     }
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
 
@@ -81,8 +86,31 @@ public class DashboardListViewActivity extends ListActivity {
     }
 
     public void goProjects(View v){
-        Intent intent = new Intent(this, ProjectActivity.class);
-        startActivity(intent);
+        /*Intent intent = new Intent(this, ProjectActivity.class);
+        startActivity(intent);*/
+
+
+        //Creating the instance of PopupMenu
+        PopupMenu popup = new PopupMenu(this, v);
+        //Inflating the Popup using xml file
+        popup.getMenuInflater().inflate(R.menu.popup_menu, popup.getMenu());
+
+        //registering popup with OnMenuItemClickListener
+        popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+            public boolean onMenuItemClick(MenuItem item) {
+                //Toast.makeText(this, "You Clicked : " + item.getTitle(), Toast.LENGTH_SHORT).show();
+                if(item.getTitle()=="Project 1"){
+                    expenseEntryList=dataSource.findFiltered("project = \"project 1\"","amount ASC");
+                }
+                if(item.getTitle()=="Project 2"){
+                    expenseEntryList=dataSource.findFiltered("project = \"project 2\"","amount ASC");
+                }
+                refreshDisplay();
+                return true;
+            }
+        });
+        popup.show();//showing popup menu
+
     }
 
     public void goDashboard(View v){

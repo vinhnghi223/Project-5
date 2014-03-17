@@ -61,13 +61,21 @@ public class DataSource {
     }
 
     public List<ExpenseEntry> findAll(){
-        List<ExpenseEntry> expenseEntryList=new ArrayList<ExpenseEntry>();
-
         //Cursor is a reference to the data that's returned from the query
         Cursor cursor=database.query(DatabaseOpenHelper.TABLE_EXPENSE,allColumns,null,null,null,null,null);
+        List<ExpenseEntry> expenseEntryList = cursorToList(cursor);
+        return expenseEntryList;
+    }
 
-        Log.i("MEM", "Returned " + cursor.getCount() + " rows");
+    public List<ExpenseEntry> findFiltered(String selection, String orderBy){
+        //Cursor is a reference to the data that's returned from the query
+        Cursor cursor=database.query(DatabaseOpenHelper.TABLE_EXPENSE,allColumns,selection,null,null,null,orderBy);
+        List<ExpenseEntry> expenseEntryList = cursorToList(cursor);
+        return expenseEntryList;
+    }
 
+    private List<ExpenseEntry> cursorToList(Cursor cursor) {
+        List<ExpenseEntry> expenseEntryList=new ArrayList<ExpenseEntry>();
         if (cursor.getCount()>0){
             while (cursor.moveToNext()){
                 ExpenseEntry expenseEntry=new ExpenseEntry();
