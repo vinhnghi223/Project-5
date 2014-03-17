@@ -28,10 +28,11 @@ public class DatabaseOpenHelper extends SQLiteOpenHelper {
                     COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
                     COLUMN_PROJECT + " TEXT, " +
                     COLUMN_CATEGORY + " TEXT, " +
-                    COLUMN_AMOUNT + " NUMERIC " +
-                    COLUMN_COMMENT+ " TEXT " +
-                    COLUMN_PHOTO + " TEXT, " +
+                    COLUMN_AMOUNT + " TEXT, " +
+                    COLUMN_COMMENT+ " TEXT, " +
+                    COLUMN_PHOTO + " TEXT " +
                     ")";
+//AMOUNT may be NUMERIC
 
     public DatabaseOpenHelper(Context context) {
         /*Each time I want to work with the database in my code,
