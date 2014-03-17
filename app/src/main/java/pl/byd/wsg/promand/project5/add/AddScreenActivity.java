@@ -49,24 +49,9 @@ public class AddScreenActivity extends ActionBarActivity implements DatePickerDi
         final com.fourmob.datetimepicker.date.DatePickerDialog datePickerDialog = com.fourmob.datetimepicker.date.DatePickerDialog.newInstance(this, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH));
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.add_screen);
+        setContentView(R.layout.add_screen_test);
         ActionBar actionBar = getActionBar();
         actionBar.setHomeButtonEnabled(true); //this required API level 14  MIGUEL
-
-        findViewById(R.id.selectDateButton).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                datePickerDialog.setYearRange(1999, 2028);
-                datePickerDialog.show(getSupportFragmentManager(), DATEPICKER_TAG);
-            }
-        });
-
-        if (savedInstanceState != null) {
-            com.fourmob.datetimepicker.date.DatePickerDialog dpd = (com.fourmob.datetimepicker.date.DatePickerDialog) getSupportFragmentManager().findFragmentByTag(DATEPICKER_TAG);
-            if (dpd != null) {
-                dpd.setOnDateSetListener((com.fourmob.datetimepicker.date.DatePickerDialog.OnDateSetListener) this);
-            }
-        }
 
         //References for user input edit text
         projectTextView= (TextView) findViewById(R.id.projectTextView);
@@ -84,6 +69,21 @@ public class AddScreenActivity extends ActionBarActivity implements DatePickerDi
 
         Button nButton = (Button) findViewById(R.id.selectDateButton);
         nButton.setText(dynamicCalendarText);
+
+        findViewById(R.id.selectDateButton).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                datePickerDialog.setYearRange(1999, 2028);
+                datePickerDialog.show(getSupportFragmentManager(), DATEPICKER_TAG);
+            }
+        });
+
+        if (savedInstanceState != null) {
+            com.fourmob.datetimepicker.date.DatePickerDialog dpd = (com.fourmob.datetimepicker.date.DatePickerDialog) getSupportFragmentManager().findFragmentByTag(DATEPICKER_TAG);
+            if (dpd != null) {
+                dpd.setOnDateSetListener((com.fourmob.datetimepicker.date.DatePickerDialog.OnDateSetListener) this);
+            }
+        }
 
     }
 

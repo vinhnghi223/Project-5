@@ -93,17 +93,19 @@
 
          </LinearLayout>
 
-    <!-- <LinearLayout
+    <LinearLayout
          android:layout_width="match_parent"
          android:layout_height="60dp"
          android:layout_marginTop="7dp"
          android:orientation="horizontal">
 
-          <DatePicker
-              android:layout_width="match_parent"
-              android:layout_height="match_parent" />
+                      <Button
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/selectDateButton"
+                style="?android:attr/spinnerStyle"/>
 
-          </LinearLayout>-->
+          </LinearLayout>
 
     <!--Comment EditText-->
           <LinearLayout
