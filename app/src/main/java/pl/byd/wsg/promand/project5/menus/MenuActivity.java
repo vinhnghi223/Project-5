@@ -11,6 +11,7 @@ import android.view.View;
 import pl.byd.wsg.promand.project5.add.AddScreenActivity;
 import pl.byd.wsg.promand.project5.dashboards.DashboardGraphActivity;
 import pl.byd.wsg.promand.project5.R;
+import pl.byd.wsg.promand.project5.dashboards.DashboardListViewActivity;
 
 /**
  * Created by Miguel on 14-03-2014.
@@ -49,6 +50,11 @@ public class MenuActivity extends ActionBarActivity {
 
     public void goAddScreen(View v){
         Intent intent = new Intent(this, AddScreenActivity.class);
+        startActivity(intent);
+    }
+
+    public void goDashboardListView(View v){
+        Intent intent = new Intent(this, DashboardListViewActivity.class);
         startActivity(intent);
     }
 }

@@ -31,11 +31,15 @@
         android:orientation="vertical"
         android:layout_height="match_parent">
 
-        <!--android:id="@+id/listView"-->
+        <!--
         <ListView
             android:layout_width="wrap_content"
             android:layout_height="427dp"
-            android:id="@+id/list"/>
+            android:id="@id/list"/>
+        -->
+        <ListView android:id="@android:id/list"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"/>
 
         <Button
             android:layout_width="match_parent"

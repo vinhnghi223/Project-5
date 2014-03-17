@@ -69,6 +69,6 @@ public class ExpenseEntry {
     public String toString() {
         NumberFormat nf = NumberFormat.getCurrencyInstance();
         //return project + "\n("+nf.format(amount)+")";
-        return project+ "\n"+amount;
+        return project+ ", "+category+", "+amount+"\n"+comment;
     }
 }

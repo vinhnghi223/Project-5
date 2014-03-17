@@ -14,12 +14,12 @@ import android.widget.ListView;
 
 import java.util.List;
 
+import pl.byd.wsg.promand.project5.R;
 import pl.byd.wsg.promand.project5.categories.CategoriesActivity;
 import pl.byd.wsg.promand.project5.database.DataSource;
 import pl.byd.wsg.promand.project5.menus.MenuActivity;
 import pl.byd.wsg.promand.project5.model.ExpenseEntry;
 import pl.byd.wsg.promand.project5.projects.ProjectActivity;
-import pl.byd.wsg.promand.project5.R;
 
 /**
  * Created by Miguel on 14-03-2014.
@@ -30,7 +30,7 @@ public class DashboardListViewActivity extends ListActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.dashboard_listview_test);
+        setContentView(R.layout.dashboard_listview);
         ActionBar actionBar = getActionBar();
         actionBar.setHomeButtonEnabled(true); //this required API level 14  MIGUEL
 
@@ -46,7 +46,6 @@ public class DashboardListViewActivity extends ListActivity {
 
         ArrayAdapter<ExpenseEntry> adapter=new ArrayAdapter<ExpenseEntry>(this, android.R.layout.simple_list_item_1,expenseEntryList);
         dataList.setAdapter(adapter);
-        //setAdapter(adapter);
     }
 
     @Override
