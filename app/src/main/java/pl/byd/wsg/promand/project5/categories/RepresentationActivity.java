@@ -55,7 +55,7 @@ public class RepresentationActivity extends ActionBarActivity {
     public void inputGroceries(View v) {
         Button buttonGroceries = (Button) findViewById(R.id.button_groceries);
         String str = buttonGroceries.getText().toString();
-        AddScreenActivity.projectTextView.setText(str);
+        AddScreenActivity.categoryTextView.setText(str);
 
         Intent returnIntent = new Intent();
         setResult(RESULT_OK, returnIntent);
@@ -65,7 +65,7 @@ public class RepresentationActivity extends ActionBarActivity {
     public void inputUtilities(View v) {
         Button buttonUtilities = (Button) findViewById(R.id.button_utilities);
         String str = buttonUtilities.getText().toString();
-        AddScreenActivity.projectTextView.setText(str);
+        AddScreenActivity.categoryTextView.setText(str);
 
         Intent returnIntent = new Intent();
         setResult(RESULT_OK, returnIntent);
@@ -75,7 +75,7 @@ public class RepresentationActivity extends ActionBarActivity {
     public void inputCleaning(View v) {
         Button buttonCleaning = (Button) findViewById(R.id.button_cleaning);
         String str = buttonCleaning.getText().toString();
-        AddScreenActivity.projectTextView.setText(str);
+        AddScreenActivity.categoryTextView.setText(str);
 
         Intent returnIntent = new Intent();
         setResult(RESULT_OK, returnIntent);
