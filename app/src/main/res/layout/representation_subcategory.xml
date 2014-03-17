@@ -10,26 +10,26 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Groceries"
-        android:id="@+id/button"
+        android:id="@+id/button_groceries"
         android:layout_weight="0.17"
         android:textSize="20dp"
-        android:onClick="openAdd_screen"/>
+        android:onClick="inputGroceries"/>
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Utilities"
-        android:id="@+id/button2"
+        android:id="@+id/button_utilities"
         android:layout_weight="0.17"
         android:textSize="20dp"
-        android:onClick="openAdd_screen"/>
+        android:onClick="inputUtilities"/>
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Cleaning Service"
-        android:id="@+id/button3"
+        android:id="@+id/button_cleaning"
         android:layout_weight="0.17"
         android:textSize="20dp"
-        android:onClick="openAdd_screen"/>
+        android:onClick="inputCleaning"/>
 </LinearLayout>

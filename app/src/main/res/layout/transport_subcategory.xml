@@ -10,45 +10,45 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Plane"
-        android:id="@+id/button"
+        android:id="@+id/button_plane"
         android:layout_gravity="right"
         android:layout_weight="0.20"
         android:textSize="20dp"
-        android:onClick="openAdd_screen"/>
+        android:onClick="inputPlane"/>
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Train"
-        android:id="@+id/button2"
+        android:id="@+id/button_train"
         android:layout_weight="0.20"
         android:textSize="20dp"
-        android:onClick="openAdd_screen"/>
+        android:onClick="inputTrain"/>
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Bus"
-        android:id="@+id/button3"
+        android:id="@+id/button_bus"
         android:layout_weight="0.20"
         android:textSize="20dp"
-        android:onClick="openAdd_screen"/>
+        android:onClick="inputBus"/>
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Taxi"
-        android:id="@+id/button4"
+        android:id="@+id/button_taxi"
         android:layout_weight="0.20"
         android:textSize="20dp"
-        android:onClick="openAdd_screen"/>
+        android:onClick="inputTaxi"/>
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Public transport"
-        android:id="@+id/button5"
+        android:id="@+id/button_public_transport"
         android:layout_weight="0.20"
         android:textSize="20dp"
-        android:onClick="publTranspButton"/>
+        android:onClick="inputPublicTransport"/>
 </LinearLayout>

@@ -70,7 +70,8 @@ public class CategoriesActivity extends ActionBarActivity {
     }
 
     public void openRepresentation_subcategory(View v) {
-        startActivity(new Intent(this, RepresentationActivity.class));
+        Intent intent = new Intent(this, RepresentationActivity.class);
+        startActivityForResult(intent, 1);
     }
 
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {

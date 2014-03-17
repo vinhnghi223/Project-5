@@ -10,27 +10,27 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Furniture"
-        android:id="@+id/button"
+        android:id="@+id/button_furniture"
         android:layout_weight="0.17"
         android:textSize="20dp"
-        android:onClick="openAdd_screen"/>
+        android:onClick="inputFurniture"/>
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Technical books and documents"
-        android:id="@+id/button2"
+        android:id="@+id/button_tech_book"
         android:layout_weight="0.17"
         android:textSize="20dp"
-        android:onClick="openAdd_screen"/>
+        android:onClick="inputTechBook"/>
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="House produkts"
-        android:id="@+id/button3"
+        android:text="House products"
+        android:id="@+id/button_house_products"
         android:layout_weight="0.17"
         android:textSize="20dp"
-        android:onClick="openAdd_screen"/>
+        android:onClick="inputHouseProducts"/>
 
 </LinearLayout>
