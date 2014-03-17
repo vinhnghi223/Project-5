@@ -20,6 +20,6 @@ android {
 
 dependencies {
     compile 'com.android.support:appcompat-v7:+'
-    compile 'com.j256.ormlite:ormlite-android:4.48'
+    compile 'com.github.flavienlaurent.datetimepicker:library:0.0.1'
     compile fileTree(dir: 'libs', include: ['*.jar'])
 }

@@ -8,14 +8,18 @@ import android.database.sqlite.SQLiteDatabase;
 import android.hardware.Camera;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.fourmob.datetimepicker.date.DatePickerDialog;
+import com.sleepbot.datetimepicker.time.TimePickerDialog;
 import pl.byd.wsg.promand.project5.categories.CategoriesActivity;
 import pl.byd.wsg.promand.project5.dashboards.DashboardListViewActivity;
 import pl.byd.wsg.promand.project5.database.DataSource;
@@ -25,21 +29,44 @@ import pl.byd.wsg.promand.project5.model.ExpenseEntry;
 import pl.byd.wsg.promand.project5.projects.ProjectActivity;
 import pl.byd.wsg.promand.project5.R;
 
+import java.util.Calendar;
+
 /**
  * Created by Sergey on 3/14/14.
  */
 
-public class AddScreenActivity extends ActionBarActivity {
+public class AddScreenActivity extends ActionBarActivity implements DatePickerDialog.OnDateSetListener {
     EditText inputAmountEditText,commentEditText;
     public static TextView projectTextView, categoryTextView;
     DataSource dataSource;
 
+    public static final String DATEPICKER_TAG = "datepicker";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        final Calendar calendar = Calendar.getInstance();
+        final com.fourmob.datetimepicker.date.DatePickerDialog datePickerDialog = com.fourmob.datetimepicker.date.DatePickerDialog.newInstance(this, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH));
+
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.add_screen_test);
+        setContentView(R.layout.add_screen);
         ActionBar actionBar = getActionBar();
         actionBar.setHomeButtonEnabled(true); //this required API level 14  MIGUEL
+
+        findViewById(R.id.selectDateButton).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                datePickerDialog.setYearRange(1999, 2028);
+                datePickerDialog.show(getSupportFragmentManager(), DATEPICKER_TAG);
+            }
+        });
+
+        if (savedInstanceState != null) {
+            com.fourmob.datetimepicker.date.DatePickerDialog dpd = (com.fourmob.datetimepicker.date.DatePickerDialog) getSupportFragmentManager().findFragmentByTag(DATEPICKER_TAG);
+            if (dpd != null) {
+                dpd.setOnDateSetListener((com.fourmob.datetimepicker.date.DatePickerDialog.OnDateSetListener) this);
+            }
+        }
 
         //References for user input edit text
         projectTextView= (TextView) findViewById(R.id.projectTextView);
@@ -50,6 +77,14 @@ public class AddScreenActivity extends ActionBarActivity {
         //instantiate DataSource
         dataSource=new DataSource(this);
         dataSource.open();
+
+        int parseMonth = calendar.get(Calendar.MONTH) + 1;
+
+        String dynamicCalendarText = calendar.get(Calendar.DAY_OF_MONTH) + " / " + parseMonth + " / " + calendar.get(Calendar.YEAR);
+
+        Button nButton = (Button) findViewById(R.id.selectDateButton);
+        nButton.setText(dynamicCalendarText);
+
     }
 
     @Override
@@ -134,5 +169,12 @@ public class AddScreenActivity extends ActionBarActivity {
     protected void onPause() {
         super.onPause();
         dataSource.close();
+    }
+
+    @Override
+    public void onDateSet( com.fourmob.datetimepicker.date.DatePickerDialog datePickerDialog, int year, int month, int day) {
+        Button nButton = (Button) findViewById(R.id.selectDateButton);
+        month += 1;
+        nButton.setText(day + " / " + month + " / " + year);
     }
 }
