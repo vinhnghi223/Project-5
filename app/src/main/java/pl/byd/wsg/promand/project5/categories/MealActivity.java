@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 
 import pl.byd.wsg.promand.project5.R;
 import pl.byd.wsg.promand.project5.add.AddScreenActivity;
@@ -47,7 +48,53 @@ public class MealActivity extends ActionBarActivity {
         }
         return super.onOptionsItemSelected(item);
     }
-    public void openAdd_screen(View v){
+/*    public void openAdd_screen(View v){
         startActivity(new Intent(this, AddScreenActivity.class));
+    }*/
+
+    public void inputBreakfast(View v) {
+        Button buttonBreakfast = (Button) findViewById(R.id.button_breakfast);
+        String str = buttonBreakfast.getText().toString();
+        AddScreenActivity.categoryTextView.setText(str);
+
+        Intent returnIntent = new Intent();
+        setResult(RESULT_OK, returnIntent);
+        this.finish();
     }
-}
+    public void inputLunch(View v) {
+        Button buttonLunch = (Button) findViewById(R.id.button_lunch);
+        String str = buttonLunch.getText().toString();
+        AddScreenActivity.categoryTextView.setText(str);
+
+        Intent returnIntent = new Intent();
+        setResult(RESULT_OK, returnIntent);
+        this.finish();
+    }
+    public void inputDinner(View v) {
+        Button buttonDinner = (Button) findViewById(R.id.button_dinner);
+        String str = buttonDinner.getText().toString();
+        AddScreenActivity.categoryTextView.setText(str);
+
+        Intent returnIntent = new Intent();
+        setResult(RESULT_OK, returnIntent);
+        this.finish();
+    }
+    public void inputHB(View v) {
+        Button buttonHB = (Button) findViewById(R.id.button_hb);
+        String str = buttonHB.getText().toString();
+        AddScreenActivity.categoryTextView.setText(str);
+
+        Intent returnIntent = new Intent();
+        setResult(RESULT_OK, returnIntent);
+        this.finish();
+    }
+    public void inputFull(View v) {
+        Button buttonFull = (Button) findViewById(R.id.button_all);
+        String str = buttonFull.getText().toString();
+        AddScreenActivity.categoryTextView.setText(str);
+
+        Intent returnIntent = new Intent();
+        setResult(RESULT_OK, returnIntent);
+        this.finish();
+    }
+ }
