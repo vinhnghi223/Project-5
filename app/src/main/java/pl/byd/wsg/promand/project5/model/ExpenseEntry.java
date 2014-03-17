@@ -2,7 +2,6 @@ package pl.byd.wsg.promand.project5.model;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-
 import java.text.NumberFormat;
 
 /**
@@ -60,7 +59,6 @@ public class ExpenseEntry implements Parcelable{
     public String getComment() {
         return comment;
     }
-
     public void setPhoto(String photo) {
         this.photo = photo;
     }
@@ -103,16 +101,13 @@ public class ExpenseEntry implements Parcelable{
 
     public static final Parcelable.Creator<ExpenseEntry> CREATOR =
             new Parcelable.Creator<ExpenseEntry>() {
-
                 @Override
                 public ExpenseEntry createFromParcel(Parcel source) {
                     return new ExpenseEntry(source);
                 }
-
                 @Override
                 public ExpenseEntry[] newArray(int size) {
                     return new ExpenseEntry[size];
                 }
-
             };
 }
