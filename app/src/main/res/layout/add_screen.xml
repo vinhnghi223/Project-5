@@ -67,13 +67,6 @@
                 android:id="@+id/selectDateButton"
                 style="?android:attr/spinnerStyle"/>
 
-            <!--
-
-            <DatePicker
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:calendarViewShown="false"/> -->
-
         </LinearLayout>
 
         <LinearLayout
