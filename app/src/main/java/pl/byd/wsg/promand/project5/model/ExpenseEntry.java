@@ -17,6 +17,7 @@ public class ExpenseEntry implements Parcelable{
     private String category;
     //private double amount; //for testing, use string for simplicity
     private String amount;
+    private String date;
     private String comment;
     private String photo;
 
@@ -65,12 +66,18 @@ public class ExpenseEntry implements Parcelable{
     public String getPhoto() {
         return photo;
     }
+    public void setDate(String date) {
+        this.date = date;
+    }
+    public String getDate() {
+        return date;
+    }
 
     @Override
     public String toString() {
         NumberFormat nf = NumberFormat.getCurrencyInstance();
         //return project + "\n("+nf.format(amount)+")";
-        return "PROJECT: "+project+ "\nCATEGORY: "+category+"\nAMOUNT: "+amount+"\nCOMMENT: "+comment;
+        return "PROJECT: "+project+ "\nCATEGORY: "+category+"\nAMOUNT: "+amount+"\nDATE: "+date+"\nCOMMENT: "+comment;
     }
     public ExpenseEntry() {
     }
@@ -80,6 +87,7 @@ public class ExpenseEntry implements Parcelable{
         project=in.readString();
         category=in.readString();
         amount=in.readString();
+        date=in.readString();
         comment=in.readString();
         photo=in.readString();
     }
@@ -95,6 +103,7 @@ public class ExpenseEntry implements Parcelable{
         dest.writeString(project);
         dest.writeString(category);
         dest.writeString(amount);
+        dest.writeString(date);
         dest.writeString(comment);
         dest.writeString(photo);
     }
