@@ -2,8 +2,13 @@ package pl.byd.wsg.promand.project5.database;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import pl.byd.wsg.promand.project5.model.ExpenseEntry;
 
@@ -17,6 +22,15 @@ public class DataSource {
      */
     SQLiteOpenHelper dbHelper; //
     SQLiteDatabase database;
+
+    private static final String[] allColumns={
+            DatabaseOpenHelper.COLUMN_ID,
+            DatabaseOpenHelper.COLUMN_PROJECT,
+            DatabaseOpenHelper.COLUMN_CATEGORY,
+            DatabaseOpenHelper.COLUMN_AMOUNT,
+            DatabaseOpenHelper.COLUMN_COMMENT,
+            DatabaseOpenHelper.COLUMN_PHOTO
+    };
 
     public DataSource(Context context){
         //create an instance of DatabaseOpenHelper class
@@ -44,5 +58,28 @@ public class DataSource {
         long insertId=database.insert(DatabaseOpenHelper.TABLE_EXPENSE,null,contentValues);
         expenseEntry.setId(insertId);
         return expenseEntry;
+    }
+
+    public List<ExpenseEntry> findAll(){
+        List<ExpenseEntry> ExpenseEntries=new ArrayList<ExpenseEntry>();
+
+        //Cursor is a reference to the data that's returned from the query
+        Cursor cursor=database.query(DatabaseOpenHelper.TABLE_EXPENSE,allColumns,null,null,null,null,null);
+
+        Log.i("MEM", "Returned " + cursor.getCount() + " rows");
+
+        if (cursor.getCount()>0){
+            while (cursor.moveToNext()){
+                ExpenseEntry expenseEntry=new ExpenseEntry();
+                expenseEntry.setId(cursor.getLong(cursor.getColumnIndex(DatabaseOpenHelper.COLUMN_ID)));
+                expenseEntry.setProject(cursor.getString(cursor.getColumnIndex(DatabaseOpenHelper.COLUMN_PROJECT)));
+                expenseEntry.setCategory(cursor.getString(cursor.getColumnIndex(DatabaseOpenHelper.COLUMN_CATEGORY)));
+                expenseEntry.setAmount(cursor.getString(cursor.getColumnIndex(DatabaseOpenHelper.COLUMN_AMOUNT)));
+                expenseEntry.setComment(cursor.getString(cursor.getColumnIndex(DatabaseOpenHelper.COLUMN_COMMENT)));
+                expenseEntry.setPhoto(cursor.getString(cursor.getColumnIndex(DatabaseOpenHelper.COLUMN_PHOTO)));
+                ExpenseEntries.add(expenseEntry);
+            }
+        }
+        return ExpenseEntries;
     }
 }
