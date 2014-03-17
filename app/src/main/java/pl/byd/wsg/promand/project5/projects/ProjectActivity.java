@@ -5,10 +5,16 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 
 import pl.byd.wsg.promand.project5.R;
+import pl.byd.wsg.promand.project5.add.AddScreenActivity;
 import pl.byd.wsg.promand.project5.menus.MenuActivity;
 
 /**
@@ -47,6 +53,14 @@ public class ProjectActivity extends ActionBarActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+
+    public void inputProject1(View v){
+        Button buttonProj1 = (Button) findViewById(R.id.buttonProj1);
+        String str = buttonProj1.getText().toString();
+        AddScreenActivity.projectTextView.setText(str);
+
+    }
+
 
 
 

@@ -28,13 +28,13 @@
             android:onClick="goProjects"
             android:layout_weight="0.60" />
 
-        <EditText
-            android:id="@+id/projectEditText"
+        <TextView
+            android:id="@+id/projectTextView"
+            android:editable = "true"
             android:layout_width="100dp"
             android:inputType="text"
             android:layout_height="40dp"
             android:text=""
-            android:hint="Enter project"
             android:layout_weight="0.70" />
     </LinearLayout>
 
@@ -51,13 +51,13 @@
             android:layout_marginTop="7dp"
             android:id="@+id/chooseCategoryButton"
             android:onClick="openCategoryChooser"/>
-        <EditText
-            android:id="@+id/categoryEditText"
+        <TextView
+            android:id="@+id/categoryTextView"
+            android:editable = "true"
             android:layout_width="100dp"
             android:inputType="text"
             android:layout_height="40dp"
             android:text=""
-            android:hint="Enter category"
             android:layout_weight="0.70" />
     </LinearLayout>
 
