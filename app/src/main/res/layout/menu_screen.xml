@@ -65,7 +65,8 @@
                 android:text="@string/QR"
                 android:id="@+id/buttonQR"
                 android:layout_gravity="center_vertical"
-                android:layout_marginLeft="10dp"/>
+                android:layout_marginLeft="10dp"
+                android:onClick="goQRcode"/>
             </LinearLayout>
     </LinearLayout>
 
