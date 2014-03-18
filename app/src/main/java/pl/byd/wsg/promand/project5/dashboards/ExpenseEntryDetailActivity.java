@@ -42,10 +42,12 @@ public class ExpenseEntryDetailActivity extends Activity {
         entryDetail.setText(expenseEntry.toString());
 
         //PHOTO MODULE
-        previewImageThumbnail= (ImageView) findViewById(R.id.imageView2);
         byte[] byteArray = expenseEntry.getPhoto();
-        Bitmap photo = BitmapFactory.decodeByteArray(byteArray, 0, byteArray.length);
-        previewImageThumbnail.setImageBitmap(photo);
+        if(byteArray!=null){
+            previewImageThumbnail= (ImageView) findViewById(R.id.imageView2);
+            Bitmap photo = BitmapFactory.decodeByteArray(byteArray, 0, byteArray.length);
+            previewImageThumbnail.setImageBitmap(photo);
+        }
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
