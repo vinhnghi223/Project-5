@@ -40,7 +40,8 @@
                 android:text="@string/OCR"
                 android:id="@+id/buttonOCR"
                 android:layout_gravity="center_vertical"
-                android:layout_marginRight="10dp"/>
+                android:layout_marginRight="10dp"
+                android:onClick="goOcrView"/>
             </LinearLayout>
 
         <LinearLayout

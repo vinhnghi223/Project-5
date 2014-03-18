@@ -42,28 +42,27 @@ public class AddScreenActivity extends ActionBarActivity implements DatePickerDi
     public static TextView projectTextView, categoryTextView;
     DataSource dataSource;
 
+    final Calendar calendar = Calendar.getInstance();
+    final com.fourmob.datetimepicker.date.DatePickerDialog datePickerDialog = com.fourmob.datetimepicker.date.DatePickerDialog.newInstance(this, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH));
+
     public static final String DATEPICKER_TAG = "datepicker";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
-        final Calendar calendar = Calendar.getInstance();
-        final com.fourmob.datetimepicker.date.DatePickerDialog datePickerDialog = com.fourmob.datetimepicker.date.DatePickerDialog.newInstance(this, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH));
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.add_screen_test);
         ActionBar actionBar = getActionBar();
         actionBar.setHomeButtonEnabled(true); //this required API level 14  MIGUEL
 
         //References for user input edit text
-        projectTextView= (TextView) findViewById(R.id.projectTextView);
-        categoryTextView= (TextView) findViewById(R.id.categoryTextView);
-        inputAmountEditText= (EditText) findViewById(R.id.inputAmountEditText);
-        selectDateButton=(Button) findViewById(R.id.selectDateButton);
-        commentEditText= (EditText) findViewById(R.id.commentEditText);
+        projectTextView = (TextView) findViewById(R.id.projectTextView);
+        categoryTextView = (TextView) findViewById(R.id.categoryTextView);
+        inputAmountEditText = (EditText) findViewById(R.id.inputAmountEditText);
+        selectDateButton = (Button) findViewById(R.id.selectDateButton);
+        commentEditText = (EditText) findViewById(R.id.commentEditText);
 
         //instantiate DataSource
-        dataSource=new DataSource(this);
+        dataSource = new DataSource(this);
         dataSource.open();
 
         int parseMonth = calendar.get(Calendar.MONTH) + 1;
