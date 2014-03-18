@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/scrollView_car_subcategory">
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:weightSum="1"
@@ -8,73 +12,66 @@
 
     <Button
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="114dp"
         android:text="Diesel fuel"
         android:id="@+id/button_diesel"
-        android:layout_weight="0.40"
         android:textSize="20dp"
         android:onClick="inputDieselFuel"/>
 
     <Button
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="114dp"
         android:text="Petrol fuel"
         android:id="@+id/button_petrol"
-        android:layout_weight="0.40"
         android:textSize="20dp"
         android:onClick="inputFuel"/>
 
     <Button
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="114dp"
         android:text="Parking"
         android:id="@+id/button_parking"
-        android:layout_weight="0.40"
         android:textSize="20dp"
         android:onClick="inputPark"/>
 
     <Button
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="114dp"
         android:text="Vehicle maintenance"
         android:id="@+id/button_maintenance"
-        android:layout_weight="0.40"
         android:textSize="20dp"
         android:onClick="inputMain"/>
 
     <Button
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="114dp"
         android:text="Oil change"
         android:id="@+id/button_oil"
-        android:layout_weight="0.40 "
         android:textSize="20dp"
         android:onClick="inputOil"/>
 
     <Button
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="114dp"
         android:text="Tires"
         android:id="@+id/button_tires"
-        android:layout_weight="0.40"
         android:textSize="20dp"
         android:onClick="inputTire"/>
 
     <Button
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="127dp"
         android:text="Vehicle tune-up"
         android:id="@+id/button_tune_up"
-        android:layout_weight="0.40"
         android:textSize="20dp"
         android:onClick="inputTuneUp"/>
 
     <Button
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="114dp"
         android:text="Other"
         android:id="@+id/button_other"
-        android:layout_weight="0.40"
         android:textSize="20dp"
         android:onClick="inputOther"/>
 </LinearLayout>
+</ScrollView>

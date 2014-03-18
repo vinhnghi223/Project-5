@@ -1,10 +1,13 @@
 package pl.byd.wsg.promand.project5.add;
 
 import android.app.ActionBar;
+import android.app.AlertDialog;
 import android.content.ContentValues;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
+import android.graphics.Bitmap;
 import android.hardware.Camera;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
@@ -13,8 +16,10 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -30,6 +35,7 @@ import pl.byd.wsg.promand.project5.model.ExpenseEntry;
 import pl.byd.wsg.promand.project5.projects.ProjectActivity;
 import pl.byd.wsg.promand.project5.R;
 
+import java.io.ByteArrayOutputStream;
 import java.util.Calendar;
 
 /**
@@ -38,33 +44,75 @@ import java.util.Calendar;
 
 public class AddScreenActivity extends ActionBarActivity implements DatePickerDialog.OnDateSetListener {
     EditText inputAmountEditText,commentEditText;
-    Button selectDateButton;
     public static TextView projectTextView, categoryTextView;
+    Button selectDateButton;
     DataSource dataSource;
 
-    final Calendar calendar = Calendar.getInstance();
-    final com.fourmob.datetimepicker.date.DatePickerDialog datePickerDialog = com.fourmob.datetimepicker.date.DatePickerDialog.newInstance(this, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH));
+    //PHOTO MODULE
+    Button addImage;
+    ImageView previewImageThumbnail;
+    Bitmap yourImage=null;
+    byte imageInByte[];
 
     public static final String DATEPICKER_TAG = "datepicker";
+    private static final int CAMERA_REQUEST = 1;
+    private static final int PICK_FROM_GALLERY = 2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        final Calendar calendar = Calendar.getInstance();
+        final com.fourmob.datetimepicker.date.DatePickerDialog datePickerDialog = com.fourmob.datetimepicker.date.DatePickerDialog.newInstance(this, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH));
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.add_screen_test);
         ActionBar actionBar = getActionBar();
         actionBar.setHomeButtonEnabled(true); //this required API level 14  MIGUEL
 
         //References for user input edit text
-        projectTextView = (TextView) findViewById(R.id.projectTextView);
-        categoryTextView = (TextView) findViewById(R.id.categoryTextView);
-        inputAmountEditText = (EditText) findViewById(R.id.inputAmountEditText);
-        selectDateButton = (Button) findViewById(R.id.selectDateButton);
-        commentEditText = (EditText) findViewById(R.id.commentEditText);
+        projectTextView= (TextView) findViewById(R.id.projectTextView);
+        categoryTextView= (TextView) findViewById(R.id.categoryTextView);
+        inputAmountEditText= (EditText) findViewById(R.id.inputAmountEditText);
+        selectDateButton=(Button) findViewById(R.id.selectDateButton);
+        commentEditText= (EditText) findViewById(R.id.commentEditText);
 
-        //instantiate DataSource
-        dataSource = new DataSource(this);
+        //----------------------PHOTO MODULE------------------------------
+        previewImageThumbnail= (ImageView) findViewById(R.id.imageView);
+        //open dialog for choose camera/gallery
+        final String[] option = new String[] { "Take from Camera",
+                "Select from Gallery" };
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
+                android.R.layout.select_dialog_item, option);
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
+        builder.setTitle("Select Option");
+        builder.setAdapter(adapter, new DialogInterface.OnClickListener() {
+
+            public void onClick(DialogInterface dialog, int which) {
+                Log.e("Selected Item", String.valueOf(which));
+                if (which == 0) {
+                    callCamera();
+                }
+                if (which == 1) {
+                    callGallery();
+                }
+            }
+        });
+        final AlertDialog dialog = builder.create();
+
+        addImage = (Button) findViewById(R.id.photoButton);
+
+        addImage.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                dialog.show();
+            }
+        });
+
+        //INSTANTIATE DATASOURCE
+        dataSource=new DataSource(this);
         dataSource.open();
 
+        //------------------DATE PICKER MODULE---------------------
         int parseMonth = calendar.get(Calendar.MONTH) + 1;
 
         String dynamicCalendarText = calendar.get(Calendar.DAY_OF_MONTH) + " / " + parseMonth + " / " + calendar.get(Calendar.YEAR);
@@ -148,6 +196,7 @@ public class AddScreenActivity extends ActionBarActivity implements DatePickerDi
         startActivityForResult(intent, 4);
     }
 
+    @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         Log.d("MS", "Inside onActivityResult");
         if (requestCode == 4) {
@@ -174,17 +223,68 @@ public class AddScreenActivity extends ActionBarActivity implements DatePickerDi
                 Log.d("MS", "It's in   resultCode == RESULT_CANCELED");
             }
         }
+
+        //---------------------PHOTO MODULE---------------------------------
+        //if (resultCode != RESULT_OK) {
+        if (requestCode == CAMERA_REQUEST && resultCode == RESULT_OK) {
+            Bundle extras = data.getExtras();
+            if (extras != null) {
+                setImage(extras);
+                createImageInByte(extras);
+                //return;
+            }
+        }
+        if (requestCode == PICK_FROM_GALLERY && resultCode == RESULT_OK) {
+            Bundle extras2 = data.getExtras();
+            if (extras2 != null) {
+                setImage(extras2);
+                createImageInByte(extras2);
+            }
+        }
     }//onActivityResult
 
-    public void takePhoto(View v){
-      /*  Intent intent = new Intent(this, Camera.class);
-        startActivity(intent);  */
+
+
+    public void setImage(Bundle extras){
+        Bitmap imageBitmap = (Bitmap) extras.get("data");
+        previewImageThumbnail.setImageBitmap(imageBitmap);
+    }
+
+    public void createImageInByte(Bundle extras){
+        yourImage = extras.getParcelable("data");
+        ByteArrayOutputStream stream = new ByteArrayOutputStream();
+        yourImage.compress(Bitmap.CompressFormat.PNG, 100, stream);
+        imageInByte = stream.toByteArray();
+        //db.addContact(new Contact("Android", imageInByte));
+    }
+
+    public void callCamera() {
+        Intent cameraIntent = new Intent(
+                android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
+        cameraIntent.putExtra("crop", "true");
+        cameraIntent.putExtra("aspectX", 0);
+        cameraIntent.putExtra("aspectY", 0);
+        cameraIntent.putExtra("outputX", 200);
+        cameraIntent.putExtra("outputY", 150);
+        startActivityForResult(cameraIntent, CAMERA_REQUEST);
+    }
+
+    public void callGallery() {
+        Intent intent = new Intent();
+        intent.setType("image/*");
+        intent.setAction(Intent.ACTION_GET_CONTENT);
+        intent.putExtra("crop", "true");
+        intent.putExtra("aspectX", 0);
+        intent.putExtra("aspectY", 0);
+        intent.putExtra("outputX", 200);
+        intent.putExtra("outputY", 150);
+        intent.putExtra("return-data", true);
+        startActivityForResult(
+                Intent.createChooser(intent, "Complete action using"),
+                PICK_FROM_GALLERY);
     }
 
     public void submitExpense(View v){
-     /*   Intent intent = new Intent(this, AddExpense.class);
-        startActivity(intent);    */
-
         //get raw string data input
         String project=projectTextView.getText().toString();
         String category=categoryTextView.getText().toString();
@@ -199,11 +299,11 @@ public class AddScreenActivity extends ActionBarActivity implements DatePickerDi
         expenseEntry.setAmount(amount);
         expenseEntry.setDate(date);
         expenseEntry.setComment(comment);
+        expenseEntry.setPhoto(imageInByte);
         expenseEntry=dataSource.create(expenseEntry);
 
-        Toast.makeText(this, "Added "+expenseEntry.getAmount(), Toast.LENGTH_LONG).show();
-        Log.i("Added", expenseEntry.getAmount());
-        //not  complete
+        Toast.makeText(this, "One Entry Added "+expenseEntry.getAmount(), Toast.LENGTH_LONG).show();
+
         startActivity(new Intent(this, DashboardListViewActivity.class));
     }
 
@@ -212,7 +312,6 @@ public class AddScreenActivity extends ActionBarActivity implements DatePickerDi
     the open method too many times, but you should make sure that you're explicitly closing the connection
     whenever the activity is going away. That will eliminate the possibility of what are known as database
     connection leaks. A database connection leak can cause memory and performance issues. */
-
     @Override
     protected void onResume() {
         super.onResume();

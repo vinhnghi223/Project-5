@@ -86,7 +86,7 @@ public class DataSource {
                 expenseEntry.setAmount(cursor.getString(cursor.getColumnIndex(DatabaseOpenHelper.COLUMN_AMOUNT)));
                 expenseEntry.setDate(cursor.getString(cursor.getColumnIndex(DatabaseOpenHelper.COLUMN_DATE)));
                 expenseEntry.setComment(cursor.getString(cursor.getColumnIndex(DatabaseOpenHelper.COLUMN_COMMENT)));
-                expenseEntry.setPhoto(cursor.getString(cursor.getColumnIndex(DatabaseOpenHelper.COLUMN_PHOTO)));
+                expenseEntry.setPhoto(cursor.getBlob(cursor.getColumnIndex(DatabaseOpenHelper.COLUMN_PHOTO)));
 
                 expenseEntryList.add(expenseEntry);
             }

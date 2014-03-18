@@ -19,7 +19,8 @@ public class ExpenseEntry implements Parcelable{
     private String amount;
     private String date;
     private String comment;
-    private String photo;
+    //private String photo;
+    private byte[] photo;
 
     public void setId(long id) {
         this.id = id;
@@ -60,12 +61,20 @@ public class ExpenseEntry implements Parcelable{
     public String getComment() {
         return comment;
     }
-    public void setPhoto(String photo) {
+    /*public void setPhoto(String photo) {
         this.photo = photo;
     }
     public String getPhoto() {
         return photo;
+    }*/
+
+    public byte[] getPhoto() {
+        return photo;
     }
+    public void setPhoto(byte[] photo) {
+        this.photo = photo;
+    }
+
     public void setDate(String date) {
         this.date = date;
     }
@@ -89,7 +98,9 @@ public class ExpenseEntry implements Parcelable{
         amount=in.readString();
         date=in.readString();
         comment=in.readString();
-        photo=in.readString();
+        //photo=in.readString();
+        //in.readByteArray(photo);
+        photo=in.createByteArray();
     }
 
     @Override
@@ -105,7 +116,8 @@ public class ExpenseEntry implements Parcelable{
         dest.writeString(amount);
         dest.writeString(date);
         dest.writeString(comment);
-        dest.writeString(photo);
+        //dest.writeString(photo);
+        dest.writeByteArray(photo);
     }
 
     public static final Parcelable.Creator<ExpenseEntry> CREATOR =
