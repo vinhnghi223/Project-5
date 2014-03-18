@@ -87,7 +87,30 @@ public class AddScreenActivity extends ActionBarActivity implements DatePickerDi
                 dpd.setOnDateSetListener((com.fourmob.datetimepicker.date.DatePickerDialog.OnDateSetListener) this);
             }
         }
-
+        //obtain  Intent Object send  from Modify (ExpenseEntryDetailActivity)
+        Intent intent = this.getIntent();
+        Log.d("MS", "Before checking from which intent it came");
+        /* Obtain String from Intent  */
+        if(intent !=null) {
+            Log.d("MS", "Inside intent!=null");
+            String strdata = intent.getStringExtra("Uniqid");
+            Log.d("MS", "strdata=" + strdata);
+            if (strdata != null) {
+                if (strdata.equals("from_modify")) {
+                    Log.d("MS", "inside strdata.equals(from_modify)");
+                    String strProj = intent.getStringExtra("project");
+                    String strCat = intent.getStringExtra("category");
+                    String strAmount = intent.getStringExtra("amount");
+                    String strDat = intent.getStringExtra("date");
+                    String strComm = intent.getStringExtra("comment");
+                    projectTextView.setText(strProj);
+                    categoryTextView.setText(strCat);
+                    inputAmountEditText.setText(strAmount);
+                    selectDateButton.setText(strDat);
+                    commentEditText.setText(strComm);
+                }
+            }
+        }
     }
 
     @Override

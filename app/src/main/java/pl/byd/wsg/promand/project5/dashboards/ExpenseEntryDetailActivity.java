@@ -1,13 +1,17 @@
 package pl.byd.wsg.promand.project5.dashboards;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import pl.byd.wsg.promand.project5.R;
+import pl.byd.wsg.promand.project5.add.AddScreenActivity;
+import pl.byd.wsg.promand.project5.categories.CategoriesActivity;
 import pl.byd.wsg.promand.project5.database.DataSource;
 import pl.byd.wsg.promand.project5.model.ExpenseEntry;
 
@@ -59,10 +63,35 @@ public class ExpenseEntryDetailActivity extends Activity {
         case R.id.menu_delete:
             if (datasource.removeEntry(expenseEntry)) {
                 setResult(-1);
-                finish();
+                Intent intent = new Intent(this, DashboardListViewActivity.class);
+                startActivityForResult(intent, 1);
             }
             break;
+        case R.id.menu_modify:
+            String project = expenseEntry.getProject();
+            String category = expenseEntry.getCategory();
+            String amount = expenseEntry.getAmount();
+            String date = expenseEntry.getDate();
+            String comment = expenseEntry.getComment();
+
+            Intent intent = new Intent();
+            intent.setClass(this,AddScreenActivity.class);
+            intent.putExtra("Uniqid", "from_modify");
+            Log.d("MS", "Value Uniqid=" + intent.getStringExtra("Uniqid"));
+            intent.putExtra("project", project);
+            intent.putExtra("category",category);
+            intent.putExtra("amount",amount);
+            intent.putExtra("date",date);
+            intent.putExtra("comment",comment);
+            startActivity(intent);
+            if (datasource.removeEntry(expenseEntry)) {
+                setResult(-1);
+                refreshDisplay();
+                this.finish();
+            }
         }
+
+
         return super.onOptionsItemSelected(item);
     }
 
@@ -76,4 +105,20 @@ public class ExpenseEntryDetailActivity extends Activity {
         super.onPause();
         datasource.close();
     }
+
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        Log.d("MS", "Inside onActivityResult");
+        if (requestCode == 1) {
+            Log.d("MS", "Inside requestCode");
+            if(resultCode == RESULT_OK){
+                Log.d("MS", "Inside OK");
+                this.finish();
+            }
+            if (resultCode == RESULT_CANCELED) {
+                Log.d("MS", "It's in   resultCode == RESULT_CANCELED");
+            }
+        }
+
+    }//onActivityResult
+
 }

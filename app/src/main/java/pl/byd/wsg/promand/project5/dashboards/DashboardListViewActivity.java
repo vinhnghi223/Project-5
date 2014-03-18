@@ -48,6 +48,8 @@ public class DashboardListViewActivity extends ListActivity {
             expenseEntryList=dataSource.findAll();  /// NECESSARY??
         }
         refreshDisplay();
+        Intent returnIntent = new Intent();
+        setResult(RESULT_OK,returnIntent);
     }
 
     public void refreshDisplay(){
@@ -157,6 +159,7 @@ public class DashboardListViewActivity extends ListActivity {
 
         startActivityForResult(intent, EXPENSE_ENTRY_DETAIL_ACTIVITY);
     }
+
 
 
 

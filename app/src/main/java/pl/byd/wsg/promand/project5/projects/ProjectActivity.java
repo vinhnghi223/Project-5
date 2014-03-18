@@ -90,7 +90,7 @@ public class ProjectActivity extends ActionBarActivity {
         Button buttonProj4 = (Button) findViewById(R.id.buttonProj4);
         String str = buttonProj4.getText().toString();
         Intent returnIntent = new Intent();
-        returnIntent.putExtra("str",str);
+        returnIntent.putExtra("result",str);
         setResult(RESULT_OK,returnIntent);
         this.finish();
     }
