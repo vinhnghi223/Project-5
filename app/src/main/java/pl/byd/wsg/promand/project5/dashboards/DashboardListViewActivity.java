@@ -29,6 +29,7 @@ import pl.byd.wsg.promand.project5.projects.ProjectActivity;
 public class DashboardListViewActivity extends ListActivity {
     DataSource dataSource;
     List<ExpenseEntry> expenseEntryList;
+    private static final int EXPENSE_ENTRY_DETAIL_ACTIVITY = 1001;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -128,6 +129,21 @@ public class DashboardListViewActivity extends ListActivity {
         ExpenseEntry expenseEntry=expenseEntryList.get(position);
         Intent intent = new Intent(this, ExpenseEntryDetailActivity.class);
         intent.putExtra(".model.ExpenseEntry",expenseEntry);
-        startActivity(intent);
+
+        startActivityForResult(intent, EXPENSE_ENTRY_DETAIL_ACTIVITY);
     }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == EXPENSE_ENTRY_DETAIL_ACTIVITY && resultCode == -1) {
+            dataSource.open();
+            expenseEntryList = dataSource.findAll();
+            refreshDisplay();
+        }
+    }
+
+
+
+
 }

@@ -55,7 +55,7 @@ public class OfficeActivity extends ActionBarActivity {
     public void inputFurniture(View v) {
         Button buttonFurniture = (Button) findViewById(R.id.button_furniture);
         String str = buttonFurniture.getText().toString();
-        AddScreenActivity.projectTextView.setText(str);
+        AddScreenActivity.categoryTextView.setText(str);
 
         Intent returnIntent = new Intent();
         setResult(RESULT_OK, returnIntent);
@@ -65,7 +65,7 @@ public class OfficeActivity extends ActionBarActivity {
     public void inputTechBook(View v) {
         Button buttonTechBook = (Button) findViewById(R.id.button_tech_book);
         String str = buttonTechBook.getText().toString();
-        AddScreenActivity.projectTextView.setText(str);
+        AddScreenActivity.categoryTextView.setText(str);
 
         Intent returnIntent = new Intent();
         setResult(RESULT_OK, returnIntent);
@@ -75,7 +75,7 @@ public class OfficeActivity extends ActionBarActivity {
     public void inputHouseProducts(View v) {
         Button buttonHouseProducts = (Button) findViewById(R.id.button_house_products);
         String str = buttonHouseProducts.getText().toString();
-        AddScreenActivity.projectTextView.setText(str);
+        AddScreenActivity.categoryTextView.setText(str);
 
         Intent returnIntent = new Intent();
         setResult(RESULT_OK, returnIntent);

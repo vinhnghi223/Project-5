@@ -51,8 +51,9 @@ public class CategoriesActivity extends ActionBarActivity {
     }
 
     public void openMeal_subcategory(View v){
-        startActivity(new Intent(this, MealActivity.class));
-        this.finish();  //GOTTA TRY ALL OF THIS IN EVERY TIME I GET OUT OF AN ACTIVITY
+        Intent intent = new Intent(this, MealActivity.class);
+        startActivityForResult(intent, 1);
+
     }
     public void openTransport_subcategory(View v){
         Intent intent = new Intent(this, TransportActivity.class);

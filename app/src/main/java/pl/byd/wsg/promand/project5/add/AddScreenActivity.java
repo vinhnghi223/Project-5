@@ -37,6 +37,7 @@ import java.util.Calendar;
 
 public class AddScreenActivity extends ActionBarActivity implements DatePickerDialog.OnDateSetListener {
     EditText inputAmountEditText,commentEditText;
+    Button selectDateButton;
     public static TextView projectTextView, categoryTextView;
     DataSource dataSource;
 
@@ -57,6 +58,7 @@ public class AddScreenActivity extends ActionBarActivity implements DatePickerDi
         projectTextView= (TextView) findViewById(R.id.projectTextView);
         categoryTextView= (TextView) findViewById(R.id.categoryTextView);
         inputAmountEditText= (EditText) findViewById(R.id.inputAmountEditText);
+        selectDateButton=(Button) findViewById(R.id.selectDateButton);
         commentEditText= (EditText) findViewById(R.id.commentEditText);
 
         //instantiate DataSource
@@ -136,6 +138,7 @@ public class AddScreenActivity extends ActionBarActivity implements DatePickerDi
         String project=projectTextView.getText().toString();
         String category=categoryTextView.getText().toString();
         String amount= inputAmountEditText.getText().toString();
+        String date=selectDateButton.getText().toString();
         String comment=commentEditText.getText().toString();
 
         //setup the expense entry object
@@ -143,6 +146,7 @@ public class AddScreenActivity extends ActionBarActivity implements DatePickerDi
         expenseEntry.setProject(project);
         expenseEntry.setCategory(category);
         expenseEntry.setAmount(amount);
+        expenseEntry.setDate(date);
         expenseEntry.setComment(comment);
         expenseEntry=dataSource.create(expenseEntry);
 

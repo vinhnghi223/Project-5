@@ -19,6 +19,7 @@ public class DatabaseOpenHelper extends SQLiteOpenHelper {
     public static final String COLUMN_PROJECT = "project";
     public static final String COLUMN_CATEGORY = "category";
     public static final String COLUMN_AMOUNT = "amount";
+    public static final String COLUMN_DATE = "date";
     public static final String COLUMN_COMMENT = "comment";
     public static final String COLUMN_PHOTO = "photo";
 
@@ -29,6 +30,7 @@ public class DatabaseOpenHelper extends SQLiteOpenHelper {
                     COLUMN_PROJECT + " TEXT, " +
                     COLUMN_CATEGORY + " TEXT, " +
                     COLUMN_AMOUNT + " TEXT, " +
+                    COLUMN_DATE + " TEXT, " +
                     COLUMN_COMMENT+ " TEXT, " +
                     COLUMN_PHOTO + " TEXT " +
                     ")";
@@ -48,9 +50,12 @@ public class DatabaseOpenHelper extends SQLiteOpenHelper {
         db.execSQL(TABLE_CREATE);
     }
 
+    //hav to change the database version when change table structure, so that it will run this onUpgrade function below
+    //on production same thing happens all the time, we have to migrate it by code, now for testing, we just need to uninstall the app out of the device and install again
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("DROP TABLE IF EXIST "+ TABLE_EXPENSE);
+        //db.execSQL("ALTER TABLE " + TABLE_EXPENSE +" ADD COLUMN "+ COLUMN_DATE +" TEXT; ");
         onCreate(db);
     }
 }

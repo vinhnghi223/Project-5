@@ -2,7 +2,6 @@ package pl.byd.wsg.promand.project5.model;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-
 import java.text.NumberFormat;
 
 /**
@@ -18,6 +17,7 @@ public class ExpenseEntry implements Parcelable{
     private String category;
     //private double amount; //for testing, use string for simplicity
     private String amount;
+    private String date;
     private String comment;
     private String photo;
 
@@ -60,19 +60,24 @@ public class ExpenseEntry implements Parcelable{
     public String getComment() {
         return comment;
     }
-
     public void setPhoto(String photo) {
         this.photo = photo;
     }
     public String getPhoto() {
         return photo;
     }
+    public void setDate(String date) {
+        this.date = date;
+    }
+    public String getDate() {
+        return date;
+    }
 
     @Override
     public String toString() {
         NumberFormat nf = NumberFormat.getCurrencyInstance();
         //return project + "\n("+nf.format(amount)+")";
-        return "PROJECT: "+project+ "\nCATEGORY: "+category+"\nAMOUNT: "+amount+"\nCOMMENT: "+comment;
+        return "PROJECT: "+project+ "\nCATEGORY: "+category+"\nAMOUNT: "+amount+"\nDATE: "+date+"\nCOMMENT: "+comment;
     }
     public ExpenseEntry() {
     }
@@ -82,6 +87,7 @@ public class ExpenseEntry implements Parcelable{
         project=in.readString();
         category=in.readString();
         amount=in.readString();
+        date=in.readString();
         comment=in.readString();
         photo=in.readString();
     }
@@ -97,22 +103,20 @@ public class ExpenseEntry implements Parcelable{
         dest.writeString(project);
         dest.writeString(category);
         dest.writeString(amount);
+        dest.writeString(date);
         dest.writeString(comment);
         dest.writeString(photo);
     }
 
     public static final Parcelable.Creator<ExpenseEntry> CREATOR =
             new Parcelable.Creator<ExpenseEntry>() {
-
                 @Override
                 public ExpenseEntry createFromParcel(Parcel source) {
                     return new ExpenseEntry(source);
                 }
-
                 @Override
                 public ExpenseEntry[] newArray(int size) {
                     return new ExpenseEntry[size];
                 }
-
             };
 }
