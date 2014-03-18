@@ -27,6 +27,7 @@ public class DataSource {
             DatabaseOpenHelper.COLUMN_PROJECT,
             DatabaseOpenHelper.COLUMN_CATEGORY,
             DatabaseOpenHelper.COLUMN_AMOUNT,
+            DatabaseOpenHelper.COLUMN_DATE,
             DatabaseOpenHelper.COLUMN_COMMENT,
             DatabaseOpenHelper.COLUMN_PHOTO
     };
@@ -52,6 +53,7 @@ public class DataSource {
         contentValues.put(DatabaseOpenHelper.COLUMN_PROJECT,expenseEntry.getProject());
         contentValues.put(DatabaseOpenHelper.COLUMN_CATEGORY,expenseEntry.getCategory());
         contentValues.put(DatabaseOpenHelper.COLUMN_AMOUNT,expenseEntry.getAmount());
+        contentValues.put(DatabaseOpenHelper.COLUMN_DATE,expenseEntry.getDate());
         contentValues.put(DatabaseOpenHelper.COLUMN_COMMENT,expenseEntry.getComment());
         contentValues.put(DatabaseOpenHelper.COLUMN_PHOTO,expenseEntry.getPhoto());
         long insertId=database.insert(DatabaseOpenHelper.TABLE_EXPENSE,null,contentValues);
@@ -82,8 +84,10 @@ public class DataSource {
                 expenseEntry.setProject(cursor.getString(cursor.getColumnIndex(DatabaseOpenHelper.COLUMN_PROJECT)));
                 expenseEntry.setCategory(cursor.getString(cursor.getColumnIndex(DatabaseOpenHelper.COLUMN_CATEGORY)));
                 expenseEntry.setAmount(cursor.getString(cursor.getColumnIndex(DatabaseOpenHelper.COLUMN_AMOUNT)));
+                expenseEntry.setDate(cursor.getString(cursor.getColumnIndex(DatabaseOpenHelper.COLUMN_DATE)));
                 expenseEntry.setComment(cursor.getString(cursor.getColumnIndex(DatabaseOpenHelper.COLUMN_COMMENT)));
                 expenseEntry.setPhoto(cursor.getString(cursor.getColumnIndex(DatabaseOpenHelper.COLUMN_PHOTO)));
+
                 expenseEntryList.add(expenseEntry);
             }
         }
