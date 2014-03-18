@@ -2,6 +2,8 @@ package pl.byd.wsg.promand.project5.dashboards;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -19,6 +21,9 @@ public class ExpenseEntryDetailActivity extends Activity {
 
     ExpenseEntry expenseEntry;
     DataSource datasource;
+    TextView entryDetail;
+    Bitmap photo;
+    ImageView previewImageThumbnail;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,25 +38,20 @@ public class ExpenseEntryDetailActivity extends Activity {
     }
 
     public void refreshDisplay(){
-        TextView entryDetail = (TextView) findViewById(R.id.entryDetail);
+        entryDetail = (TextView) findViewById(R.id.entryDetail);
         entryDetail.setText(expenseEntry.toString());
 
-        /*ImageView iv = (ImageView) findViewById(R.id.imageView);
-        int imageResource = getResources().getIdentifier(
-                expenseEntry.getPhoto(), "drawable", getPackageName());
-        if (imageResource != 0) {
-            iv.setImageResource(imageResource);
-        }*/
+        //PHOTO MODULE
+        previewImageThumbnail= (ImageView) findViewById(R.id.imageView2);
+        byte[] byteArray = expenseEntry.getPhoto();
+        Bitmap photo = BitmapFactory.decodeByteArray(byteArray, 0, byteArray.length);
+        previewImageThumbnail.setImageBitmap(photo);
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.expense_entry_detail, menu);
-
         return true;
-
-
     }
 
     @Override
@@ -90,8 +90,6 @@ public class ExpenseEntryDetailActivity extends Activity {
                 this.finish();
             }
         }
-
-
         return super.onOptionsItemSelected(item);
     }
 
