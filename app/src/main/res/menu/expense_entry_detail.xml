@@ -7,4 +7,10 @@
         android:orderInCategory="100"
         android:showAsAction="always"
         android:title="Delete"/>
+    <item
+        android:id="@+id/menu_modify"
+        android:orderInCategory="100"
+        android:showAsAction="always"
+        android:title="Modify"/>
+
 </menu>
