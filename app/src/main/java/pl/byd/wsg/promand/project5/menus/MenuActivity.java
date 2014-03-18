@@ -1,6 +1,5 @@
 package pl.byd.wsg.promand.project5.menus;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
@@ -8,6 +7,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import pl.byd.wsg.promand.project5.QRcode.QRActivity;
 import pl.byd.wsg.promand.project5.add.AddScreenActivity;
 import pl.byd.wsg.promand.project5.dashboards.DashboardGraphActivity;
 import pl.byd.wsg.promand.project5.R;
@@ -55,6 +55,11 @@ public class MenuActivity extends ActionBarActivity {
 
     public void goDashboardListView(View v){
         Intent intent = new Intent(this, DashboardListViewActivity.class);
+        startActivity(intent);
+    }
+
+    public void goQRcode(View v){
+        Intent intent = new Intent(this, QRActivity.class);
         startActivity(intent);
     }
 }

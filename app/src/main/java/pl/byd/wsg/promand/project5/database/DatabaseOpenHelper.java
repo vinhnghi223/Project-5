@@ -32,7 +32,7 @@ public class DatabaseOpenHelper extends SQLiteOpenHelper {
                     COLUMN_AMOUNT + " TEXT, " +
                     COLUMN_DATE + " TEXT, " +
                     COLUMN_COMMENT+ " TEXT, " +
-                    COLUMN_PHOTO + " TEXT " +
+                    COLUMN_PHOTO + " BLOB " +
                     ")";
 //AMOUNT may be NUMERIC
 
