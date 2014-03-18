@@ -55,45 +55,45 @@ public class MealActivity extends ActionBarActivity {
     public void inputBreakfast(View v) {
         Button buttonBreakfast = (Button) findViewById(R.id.button_breakfast);
         String str = buttonBreakfast.getText().toString();
-        AddScreenActivity.categoryTextView.setText(str);
 
         Intent returnIntent = new Intent();
+        returnIntent.putExtra("result",str);
         setResult(RESULT_OK, returnIntent);
         this.finish();
     }
     public void inputLunch(View v) {
         Button buttonLunch = (Button) findViewById(R.id.button_lunch);
         String str = buttonLunch.getText().toString();
-        AddScreenActivity.categoryTextView.setText(str);
 
         Intent returnIntent = new Intent();
+        returnIntent.putExtra("result",str);
         setResult(RESULT_OK, returnIntent);
         this.finish();
     }
     public void inputDinner(View v) {
         Button buttonDinner = (Button) findViewById(R.id.button_dinner);
         String str = buttonDinner.getText().toString();
-        AddScreenActivity.categoryTextView.setText(str);
 
         Intent returnIntent = new Intent();
+        returnIntent.putExtra("result",str);
         setResult(RESULT_OK, returnIntent);
         this.finish();
     }
     public void inputHB(View v) {
         Button buttonHB = (Button) findViewById(R.id.button_hb);
         String str = buttonHB.getText().toString();
-        AddScreenActivity.categoryTextView.setText(str);
 
         Intent returnIntent = new Intent();
+        returnIntent.putExtra("result",str);
         setResult(RESULT_OK, returnIntent);
         this.finish();
     }
     public void inputFull(View v) {
         Button buttonFull = (Button) findViewById(R.id.button_all);
         String str = buttonFull.getText().toString();
-        AddScreenActivity.categoryTextView.setText(str);
 
         Intent returnIntent = new Intent();
+        returnIntent.putExtra("result",str);
         setResult(RESULT_OK, returnIntent);
         this.finish();
     }
