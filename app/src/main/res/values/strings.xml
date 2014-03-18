@@ -43,6 +43,7 @@
     <string name="title_activity_add_screen">AddScreenActivity</string>
     <string name="title_activity_go_to_add_screen">GoToAddScreenActivity</string>
     <string name="title_activity_expense_entry_detail">ExpenseEntryDetailActivity</string>
+    <string name="title_activity_ocr">OcrActivity</string>
     <string name="title_activity_qr">QRActivity</string>
     <string name="title_activity_intent_result">IntentResult</string>
     <string name="title_activity_intent_integrator">IntentIntegrator</string>
