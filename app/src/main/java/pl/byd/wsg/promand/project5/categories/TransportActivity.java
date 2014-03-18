@@ -56,9 +56,9 @@ public class TransportActivity extends ActionBarActivity {
     public void inputPlane(View v) {
         Button buttonPlane = (Button) findViewById(R.id.button_plane);
         String str = buttonPlane.getText().toString();
-        AddScreenActivity.categoryTextView.setText(str);
 
         Intent returnIntent = new Intent();
+        returnIntent.putExtra("result",str);
         setResult(RESULT_OK, returnIntent);
         this.finish();
     }
@@ -66,9 +66,9 @@ public class TransportActivity extends ActionBarActivity {
     public void inputTrain(View v) {
         Button buttonTrain = (Button) findViewById(R.id.button_train);
         String str = buttonTrain.getText().toString();
-        AddScreenActivity.categoryTextView.setText(str);
 
         Intent returnIntent = new Intent();
+        returnIntent.putExtra("result",str);
         setResult(RESULT_OK, returnIntent);
         this.finish();
     }

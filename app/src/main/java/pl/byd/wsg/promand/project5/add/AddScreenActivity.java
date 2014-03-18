@@ -21,6 +21,7 @@ import android.widget.Toast;
 import com.fourmob.datetimepicker.date.DatePickerDialog;
 import com.sleepbot.datetimepicker.time.TimePickerDialog;
 import pl.byd.wsg.promand.project5.categories.CategoriesActivity;
+import pl.byd.wsg.promand.project5.categories.RepresentationActivity;
 import pl.byd.wsg.promand.project5.dashboards.DashboardListViewActivity;
 import pl.byd.wsg.promand.project5.database.DataSource;
 import pl.byd.wsg.promand.project5.database.DatabaseOpenHelper;
@@ -117,13 +118,41 @@ public class AddScreenActivity extends ActionBarActivity implements DatePickerDi
 
     public void openCategoryChooser(View v){
         Intent intent = new Intent(this, CategoriesActivity.class);
-        startActivity(intent);
+        startActivityForResult(intent, 3);
     }
 
     public void goProjects(View v){
         Intent intent = new Intent(this, ProjectActivity.class);
-        startActivity(intent);
+        startActivityForResult(intent, 4);
     }
+
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        Log.d("MS", "Inside onActivityResult");
+        if (requestCode == 4) {
+            Log.d("MS", "Inside requestCode");
+            if(resultCode == RESULT_OK){
+                Log.d("MS", "Inside OK");
+                String result=data.getStringExtra("result");
+                Log.d("MS", "Result="+result);
+                projectTextView.setText(result);
+            }
+            if (resultCode == RESULT_CANCELED) {
+                Log.d("MS", "It's in   resultCode == RESULT_CANCELED");
+            }
+        }
+        if (requestCode == 3) {
+            Log.d("MS", "Inside requestCode 3");
+            if (resultCode == RESULT_OK) {
+                Log.d("MS", "Inside OK");
+                String result = data.getStringExtra("result");
+                Log.d("MS", "Result=" + result);
+                categoryTextView.setText(result);
+            }
+            if (resultCode == RESULT_CANCELED) {
+                Log.d("MS", "It's in   resultCode == RESULT_CANCELED");
+            }
+        }
+    }//onActivityResult
 
     public void takePhoto(View v){
       /*  Intent intent = new Intent(this, Camera.class);

@@ -6,6 +6,7 @@ import android.app.ListActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -42,10 +43,10 @@ public class DashboardListViewActivity extends ListActivity {
         dataSource=new DataSource(this);
         dataSource.open();
         expenseEntryList=dataSource.findAll();
-        if (expenseEntryList.size()==0){
-            expenseEntryList=dataSource.findAll();
-        }
 
+        if (expenseEntryList.size()==0){
+            expenseEntryList=dataSource.findAll();  /// NECESSARY??
+        }
         refreshDisplay();
     }
 
@@ -83,12 +84,13 @@ public class DashboardListViewActivity extends ListActivity {
 
     public void goCategories(View v){
         Intent intent = new Intent(this, CategoriesActivity.class);
-        startActivity(intent);
+        startActivityForResult(intent, 2);
     }
 
-    public void goProjects(View v){
-        expenseEntryList=dataSource.findFiltered("project = \"project 1\"","amount ASC");
-        refreshDisplay();
+    public void filterProjects(View v){
+        Intent intent = new Intent(this, ProjectActivity.class);
+        startActivityForResult(intent, 1);
+
 
         /*Intent intent = new Intent(this, ProjectActivity.class);
         startActivity(intent);*/
@@ -118,6 +120,29 @@ public class DashboardListViewActivity extends ListActivity {
 
     }
 
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == 1) {
+            if(resultCode == RESULT_OK){
+                String result=data.getStringExtra("result");
+                expenseEntryList=dataSource.findFiltered("project = \""+result+"\"" ,"amount ASC");
+                refreshDisplay();
+            }
+            if (resultCode == RESULT_CANCELED) {
+                Log.d("MS", "It's in   resultCode == RESULT_CANCELED");
+            }
+        }
+        if (requestCode ==2){
+            if (resultCode==RESULT_OK){
+                String result=data.getStringExtra("result");
+                expenseEntryList=dataSource.findFiltered("category = \""+result+"\"" ,"amount ASC");
+                refreshDisplay();
+            }
+            if (resultCode == RESULT_CANCELED){
+                Log.d("MS", "It's in   resultCode == RESULT_CANCELED");
+            }
+        }
+    }//onActivityResult
+
     public void goDashboard(View v){
         Intent intent = new Intent(this, DashboardGraphActivity.class);
         startActivity(intent);
@@ -132,17 +157,6 @@ public class DashboardListViewActivity extends ListActivity {
 
         startActivityForResult(intent, EXPENSE_ENTRY_DETAIL_ACTIVITY);
     }
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == EXPENSE_ENTRY_DETAIL_ACTIVITY && resultCode == -1) {
-            dataSource.open();
-            expenseEntryList = dataSource.findAll();
-            refreshDisplay();
-        }
-    }
-
 
 
 
