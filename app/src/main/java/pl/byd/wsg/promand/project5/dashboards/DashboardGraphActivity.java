@@ -44,7 +44,7 @@ public class DashboardGraphActivity extends ActionBarActivity implements DatePic
 
     //TODO Calculation for DB
 
-    float c1_total_amount = (float) 10.12;
+    float c1_total_amount = (float) 30.12;
     float c2_total_amount = (float) 20.15;
     float c3_total_amount = (float) 30.43;
     float c4_total_amount = (float) 40.04;
@@ -59,31 +59,40 @@ public class DashboardGraphActivity extends ActionBarActivity implements DatePic
         ActionBar actionBar = getActionBar();
         actionBar.setHomeButtonEnabled(true); //this required API level 14  MIGUEL
 
+        dataSource=new DataSource(this);
+        dataSource.open();
+
+        Float meal_total = dataSource.sumAllMeal();
+        Float transport_total = dataSource.sumAllTransport();
+        Float comcar_total = dataSource.sumAllCompanyCar();
+        Float office_total = dataSource.sumAllOfficeMaterials();
+        Float repexp_total = dataSource.sumAllRepresentationExpenses();
+
         //Create Bar chart for categories by default
         ArrayList<Bar> points = new ArrayList<Bar>();
         Bar d = new Bar();
         d.setColor(Color.parseColor("#33B5E5"));
         d.setName("Meals");
-        d.setValue(c1_total_amount);
+        d.setValue(meal_total);
         Bar d2 = new Bar();
         d2.setColor(Color.parseColor("#AA66CC"));
         d2.setName("Transport");
-        d2.setValue(c2_total_amount);
+        d2.setValue(transport_total);
 
         Bar d3 = new Bar();
         d3.setColor(Color.parseColor("#99CC00"));
         d3.setName("Company Car");
-        d3.setValue(c3_total_amount);
+        d3.setValue(comcar_total);
 
         Bar d4 = new Bar();
         d4.setColor(Color.parseColor("#FFBB33"));
         d4.setName("Office Material");
-        d4.setValue(c4_total_amount);
+        d4.setValue(office_total);
 
         Bar d5 = new Bar();
         d5.setColor(Color.parseColor("#FF4444"));
         d5.setName("Representation Expenses");
-        d5.setValue(c5_total_amount);
+        d5.setValue(repexp_total);
 
         points.add(d);
         points.add(d2);
@@ -150,31 +159,37 @@ public class DashboardGraphActivity extends ActionBarActivity implements DatePic
 
         //Change Bar chart to Category view
         //TODO some logic with DB
+        Float meal_total = dataSource.sumAllMeal();
+        Float transport_total = dataSource.sumAllTransport();
+        Float comcar_total = dataSource.sumAllCompanyCar();
+        Float office_total = dataSource.sumAllOfficeMaterials();
+        Float repexp_total = dataSource.sumAllRepresentationExpenses();
 
+        //Create Bar chart for categories by default
         ArrayList<Bar> points = new ArrayList<Bar>();
         Bar d = new Bar();
         d.setColor(Color.parseColor("#33B5E5"));
         d.setName("Meals");
-        d.setValue(c1_total_amount);
+        d.setValue(meal_total);
         Bar d2 = new Bar();
         d2.setColor(Color.parseColor("#AA66CC"));
         d2.setName("Transport");
-        d2.setValue(c2_total_amount);
+        d2.setValue(transport_total);
 
         Bar d3 = new Bar();
         d3.setColor(Color.parseColor("#99CC00"));
         d3.setName("Company Car");
-        d3.setValue(c3_total_amount);
+        d3.setValue(comcar_total);
 
         Bar d4 = new Bar();
         d4.setColor(Color.parseColor("#FFBB33"));
         d4.setName("Office Material");
-        d4.setValue(c4_total_amount);
+        d4.setValue(office_total);
 
         Bar d5 = new Bar();
         d5.setColor(Color.parseColor("#FF4444"));
         d5.setName("Representation Expenses");
-        d5.setValue(c5_total_amount);
+        d5.setValue(repexp_total);
 
         points.add(d);
         points.add(d2);
@@ -194,26 +209,32 @@ public class DashboardGraphActivity extends ActionBarActivity implements DatePic
 
         //Change Bar chart to Project view
         //TODO some logic with DB
+
+        Float project1_total = dataSource.sumAllProject("Project 1");
+        Float project2_total = dataSource.sumAllProject("Project 2");
+        Float project3_total = dataSource.sumAllProject("Project 3");
+        Float project4_total = dataSource.sumAllProject("Project 4");
+
         ArrayList<Bar> points = new ArrayList<Bar>();
         Bar d = new Bar();
         d.setColor(Color.parseColor("#33B5E5"));
         d.setName("Project 1");
-        d.setValue(c1_total_amount);
+        d.setValue(project1_total);
 
         Bar d2 = new Bar();
         d2.setColor(Color.parseColor("#AA66CC"));
         d2.setName("Project 2");
-        d2.setValue(c2_total_amount);
+        d2.setValue(project2_total);
 
         Bar d3 = new Bar();
         d3.setColor(Color.parseColor("#99CC00"));
         d3.setName("Project 3");
-        d3.setValue(c3_total_amount);
+        d3.setValue(project3_total);
 
         Bar d4 = new Bar();
         d4.setColor(Color.parseColor("#FFBB33"));
         d4.setName("Project 4");
-        d4.setValue(c4_total_amount);
+        d4.setValue(project4_total);
 
         points.add(d);
         points.add(d2);

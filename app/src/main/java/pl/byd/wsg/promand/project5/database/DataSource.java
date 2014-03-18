@@ -95,8 +95,233 @@ public class DataSource {
     }
 
     public boolean removeEntry(ExpenseEntry expenseEntry){
-        String where=DatabaseOpenHelper.COLUMN_ID+"="+expenseEntry.getId();
+        String where=DatabaseOpenHelper.COLUMN_ID + "=" + expenseEntry.getId();
         int result = database.delete(DatabaseOpenHelper.TABLE_EXPENSE,where,null);
         return (result==1);
     }
+
+    public Float sumAllMeal(){
+
+        float columntotal = 0;
+        float total_sum = 0;
+
+        Cursor cursor1 = database.rawQuery("SELECT SUM(" + DatabaseOpenHelper.COLUMN_AMOUNT + ") FROM expense WHERE category = 'Breakfast'", null);
+        if(cursor1.moveToFirst()) {
+            columntotal = cursor1.getFloat(0);
+        }
+        total_sum += columntotal;
+        cursor1.close();
+
+        Cursor cursor2 = database.rawQuery("SELECT SUM(" + DatabaseOpenHelper.COLUMN_AMOUNT + ") FROM expense WHERE category = 'Lunch'", null);
+        if(cursor2.moveToFirst()) {
+            columntotal = cursor2.getFloat(0);
+        }
+        total_sum += columntotal;
+        cursor2.close();
+
+        Cursor cursor3 = database.rawQuery("SELECT SUM(" + DatabaseOpenHelper.COLUMN_AMOUNT + ") FROM expense WHERE category = 'Dinner'", null);
+        if(cursor3.moveToFirst()) {
+            columntotal = cursor3.getFloat(0);
+        }
+        total_sum += columntotal;
+        cursor3.close();
+
+        Cursor cursor4 = database.rawQuery("SELECT SUM(" + DatabaseOpenHelper.COLUMN_AMOUNT + ") FROM expense WHERE category = 'Half board'", null);
+        if(cursor4.moveToFirst()) {
+            columntotal = cursor4.getFloat(0);
+        }
+        total_sum += columntotal;
+        cursor4.close();
+
+        Cursor cursor5 = database.rawQuery("SELECT SUM(" + DatabaseOpenHelper.COLUMN_AMOUNT + ") FROM expense WHERE category = 'Full board'", null);
+        if(cursor5.moveToFirst()) {
+            columntotal = cursor5.getFloat(0);
+        }
+        total_sum += columntotal;
+        cursor5.close();
+
+        //Float  sumtotal = (float)columntotal;
+
+        return total_sum;
+    }
+
+    public Float sumAllTransport(){
+
+        float columntotal = 0;
+        float total_sum = 0;
+
+        Cursor cursor1 = database.rawQuery("SELECT SUM(" + DatabaseOpenHelper.COLUMN_AMOUNT + ") FROM expense WHERE category = 'Plane'", null);
+        if(cursor1.moveToFirst()) {
+            columntotal = cursor1.getFloat(0);
+        }
+        total_sum += columntotal;
+        cursor1.close();
+
+        Cursor cursor2 = database.rawQuery("SELECT SUM(" + DatabaseOpenHelper.COLUMN_AMOUNT + ") FROM expense WHERE category = 'Train'", null);
+        if(cursor2.moveToFirst()) {
+            columntotal = cursor2.getFloat(0);
+        }
+        total_sum += columntotal;
+        cursor2.close();
+
+        Cursor cursor3 = database.rawQuery("SELECT SUM(" + DatabaseOpenHelper.COLUMN_AMOUNT + ") FROM expense WHERE category = 'Bus'", null);
+        if(cursor3.moveToFirst()) {
+            columntotal = cursor3.getFloat(0);
+        }
+        total_sum += columntotal;
+        cursor3.close();
+
+        Cursor cursor4 = database.rawQuery("SELECT SUM(" + DatabaseOpenHelper.COLUMN_AMOUNT + ") FROM expense WHERE category = 'Taxi'", null);
+        if(cursor4.moveToFirst()) {
+            columntotal = cursor4.getFloat(0);
+        }
+        total_sum += columntotal;
+        cursor4.close();
+
+        Cursor cursor5 = database.rawQuery("SELECT SUM(" + DatabaseOpenHelper.COLUMN_AMOUNT + ") FROM expense WHERE category = 'Public Transport'", null);
+        if(cursor5.moveToFirst()) {
+            columntotal = cursor5.getFloat(0);
+        }
+        total_sum += columntotal;
+        cursor5.close();
+
+        //Float  sumtotal = (float)columntotal;
+
+        return total_sum;
+    }
+
+    public Float sumAllCompanyCar(){
+
+        float columntotal = 0;
+        float total_sum = 0;
+
+        Cursor cursor1 = database.rawQuery("SELECT SUM(" + DatabaseOpenHelper.COLUMN_AMOUNT + ") FROM expense WHERE category = 'Diesel fuel'", null);
+        if(cursor1.moveToFirst()) {
+            columntotal = cursor1.getFloat(0);
+        }
+        total_sum += columntotal;
+        cursor1.close();
+
+        Cursor cursor2 = database.rawQuery("SELECT SUM(" + DatabaseOpenHelper.COLUMN_AMOUNT + ") FROM expense WHERE category = 'Petrol fuel'", null);
+        if(cursor2.moveToFirst()) {
+            columntotal = cursor2.getFloat(0);
+        }
+        total_sum += columntotal;
+        cursor2.close();
+
+        Cursor cursor3 = database.rawQuery("SELECT SUM(" + DatabaseOpenHelper.COLUMN_AMOUNT + ") FROM expense WHERE category = 'Vehicle maintenance'", null);
+        if(cursor3.moveToFirst()) {
+            columntotal = cursor3.getFloat(0);
+        }
+        total_sum += columntotal;
+        cursor3.close();
+
+        Cursor cursor4 = database.rawQuery("SELECT SUM(" + DatabaseOpenHelper.COLUMN_AMOUNT + ") FROM expense WHERE category = 'Oil change'", null);
+        if(cursor4.moveToFirst()) {
+            columntotal = cursor4.getFloat(0);
+        }
+        total_sum += columntotal;
+        cursor4.close();
+
+        Cursor cursor5 = database.rawQuery("SELECT SUM(" + DatabaseOpenHelper.COLUMN_AMOUNT + ") FROM expense WHERE category = 'Full board'", null);
+        if(cursor5.moveToFirst()) {
+            columntotal = cursor5.getFloat(0);
+        }
+        total_sum += columntotal;
+        cursor5.close();
+
+        //Float  sumtotal = (float)columntotal;
+
+        return total_sum;
+    }
+
+    public Float sumAllOfficeMaterials(){
+
+        float columntotal = 0;
+        float total_sum = 0;
+
+        Cursor cursor1 = database.rawQuery("SELECT SUM(" + DatabaseOpenHelper.COLUMN_AMOUNT + ") FROM expense WHERE category = 'Furniture'", null);
+        if(cursor1.moveToFirst()) {
+            columntotal = cursor1.getFloat(0);
+        }
+        total_sum += columntotal;
+        cursor1.close();
+
+        Cursor cursor2 = database.rawQuery("SELECT SUM(" + DatabaseOpenHelper.COLUMN_AMOUNT + ") FROM expense WHERE category = 'Technical books and documents'", null);
+        if(cursor2.moveToFirst()) {
+            columntotal = cursor2.getFloat(0);
+        }
+        total_sum += columntotal;
+        cursor2.close();
+
+        Cursor cursor3 = database.rawQuery("SELECT SUM(" + DatabaseOpenHelper.COLUMN_AMOUNT + ") FROM expense WHERE category = 'House products'", null);
+        if(cursor3.moveToFirst()) {
+            columntotal = cursor3.getFloat(0);
+        }
+        total_sum += columntotal;
+        cursor3.close();
+
+        //Float  sumtotal = (float)columntotal;
+
+        return total_sum;
+    }
+
+    public Float sumAllRepresentationExpenses(){
+
+        float columntotal = 0;
+        float total_sum = 0;
+
+        Cursor cursor1 = database.rawQuery("SELECT SUM(" + DatabaseOpenHelper.COLUMN_AMOUNT + ") FROM expense WHERE category = 'Groceries'", null);
+        if(cursor1.moveToFirst()) {
+            columntotal = cursor1.getFloat(0);
+        }
+        total_sum += columntotal;
+        cursor1.close();
+
+        Cursor cursor2 = database.rawQuery("SELECT SUM(" + DatabaseOpenHelper.COLUMN_AMOUNT + ") FROM expense WHERE category = 'Utilities'", null);
+        if(cursor2.moveToFirst()) {
+            columntotal = cursor2.getFloat(0);
+        }
+        total_sum += columntotal;
+        cursor2.close();
+
+        Cursor cursor3 = database.rawQuery("SELECT SUM(" + DatabaseOpenHelper.COLUMN_AMOUNT + ") FROM expense WHERE category = 'Cleaning Service'", null);
+        if(cursor3.moveToFirst()) {
+            columntotal = cursor3.getFloat(0);
+        }
+        total_sum += columntotal;
+        cursor3.close();
+
+        Cursor cursor4 = database.rawQuery("SELECT SUM(" + DatabaseOpenHelper.COLUMN_AMOUNT + ") FROM expense WHERE category = 'Half board'", null);
+        if(cursor4.moveToFirst()) {
+            columntotal = cursor4.getFloat(0);
+        }
+        total_sum += columntotal;
+        cursor4.close();
+
+        Cursor cursor5 = database.rawQuery("SELECT SUM(" + DatabaseOpenHelper.COLUMN_AMOUNT + ") FROM expense WHERE category = 'Full board'", null);
+        if(cursor5.moveToFirst()) {
+            columntotal = cursor5.getFloat(0);
+        }
+        total_sum += columntotal;
+        cursor5.close();
+
+        //Float  sumtotal = (float)columntotal;
+
+        return total_sum;
+    }
+
+    public Float sumAllProject(String project_name){
+
+        float columntotal = 0;
+
+        Cursor cursor1 = database.rawQuery("SELECT SUM(" + DatabaseOpenHelper.COLUMN_AMOUNT + ") FROM expense WHERE project = '" + project_name +  "'", null);
+        if(cursor1.moveToFirst()) {
+            columntotal = cursor1.getFloat(0);
+        }
+        cursor1.close();
+
+        return columntotal;
+    }
+
 }
