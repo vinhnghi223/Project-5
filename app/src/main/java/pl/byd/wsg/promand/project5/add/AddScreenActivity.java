@@ -170,7 +170,7 @@ public class AddScreenActivity extends ActionBarActivity implements DatePickerDi
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
+        getMenuInflater().inflate(R.menu.add_screen_menu, menu);
         return true;
     }
 
@@ -320,6 +320,8 @@ public class AddScreenActivity extends ActionBarActivity implements DatePickerDi
 
         startActivity(new Intent(this, DashboardListViewActivity.class));
     }
+
+}
 
     /* Maintain a persistent database connection for the entire lifetime of the activity
     The connection object within any activity is cached. So you don't have to worry about calling
