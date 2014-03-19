@@ -11,16 +11,18 @@
         android:layout_height="wrap_content">
 
         <Button
+            android:textSize="18sp"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="50sp"
             android:id="@+id/buttonGoToListView"
             android:onClick="GoToListView"
             android:text="Item List"
             android:layout_weight="0.5"/>
 
         <Button
+            android:textSize="18sp"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="50sp"
             android:id="@+id/buttonGoToGraphView"
             android:onClick="GoToGraphView"
             android:text="Graph"
@@ -29,39 +31,47 @@
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="50sp"
         android:gravity="center"
         android:orientation="horizontal">
         <Button
-            android:layout_width="200dp"
+            android:textSize="18sp"
+            android:layout_width="wrap_content"
+            android:layout_weight="0.3"
             android:layout_height="match_parent"
             android:id="@+id/filteredByButton"
             style="?android:attr/spinnerStyle"
             android:text="Filtered By"/>
         <TextView
-            android:layout_width="50dp"
+            android:textSize="18sp"
+            android:layout_width="wrap_content"
+            android:layout_weight="0.1"
             android:text="@string/from"
             android:layout_height="match_parent"/>
         <Button
-            android:layout_width="100dp"
+            android:textSize="18sp"
+            android:layout_width="wrap_content"
+            android:layout_weight="0.3"
             android:layout_height="match_parent"
             android:id="@+id/graphview_selectDateFromButton"
             style="?android:attr/spinnerStyle"/>
-
         <TextView
-            android:layout_width="50dp"
+            android:textSize="18sp"
+            android:layout_width="wrap_content"
+            android:layout_weight="0.1"
             android:text="@string/to"
             android:layout_height="match_parent"/>
         <Button
-            android:layout_width="100dp"
+            android:textSize="18sp"
+            android:layout_width="wrap_content"
+            android:layout_weight="0.3"
             android:layout_height="match_parent"
             android:id="@+id/graphview_selectDateToButton"
             style="?android:attr/spinnerStyle"/>
-
         </LinearLayout>
-
     <pl.byd.wsg.promand.project5.graphs.BarGraph
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/pieGraph" />
+        android:id="@+id/pieGraph"
+        android:textSize="18sp"/>
 </LinearLayout>

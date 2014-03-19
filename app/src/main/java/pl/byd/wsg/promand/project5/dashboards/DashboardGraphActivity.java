@@ -4,6 +4,7 @@ package pl.byd.wsg.promand.project5.dashboards;
 import android.app.ActionBar;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
@@ -16,6 +17,8 @@ import android.widget.EditText;
 import android.widget.PopupMenu;
 import android.widget.TextView;
 import com.fourmob.datetimepicker.date.DatePickerDialog;
+
+import pl.byd.wsg.promand.project5.add.AddScreenActivity;
 import pl.byd.wsg.promand.project5.categories.CategoriesActivity;
 import pl.byd.wsg.promand.project5.database.DataSource;
 import pl.byd.wsg.promand.project5.graphs.Bar;
@@ -66,8 +69,10 @@ public class DashboardGraphActivity extends ActionBarActivity implements DatePic
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.dashboard_graphview);
+        //SET UP ACTION BAR
         ActionBar actionBar = getActionBar();
         actionBar.setHomeButtonEnabled(true); //this required API level 14  MIGUEL
+
 
         //SET BUTTON COLOR
         btnListView=(Button) findViewById(R.id.buttonGoToListView);
@@ -213,6 +218,10 @@ public class DashboardGraphActivity extends ActionBarActivity implements DatePic
         // as you specify a parent activity in AndroidManifest.xml.
         switch (item.getItemId())
         {
+            case R.id.menu_add:
+                Intent GoToAddScreenIntent = new Intent(this, AddScreenActivity.class);
+                startActivity(GoToAddScreenIntent);
+                break;
             case android.R.id.home:
                 Intent intent = new Intent(this, MenuActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);

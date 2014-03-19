@@ -4,6 +4,7 @@ import android.app.ActionBar;
 import android.app.ListActivity;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -42,8 +43,10 @@ public class DashboardListViewActivity extends ListActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.dashboard_listview);
+        //SET UP ACTION BAR
         ActionBar actionBar = getActionBar();
         actionBar.setHomeButtonEnabled(true); //this required API level 14  MIGUEL
+
 
         //SET UP BUTTON
         btnListView=(Button) findViewById(R.id.buttonGoToListView);

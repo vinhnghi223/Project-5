@@ -10,16 +10,18 @@
         android:layout_height="wrap_content">
 
         <Button
+            android:textSize="18sp"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="50sp"
             android:id="@+id/buttonGoToListView"
             android:onClick="GoToListView"
             android:text="Item List"
             android:layout_weight="0.5"/>
 
         <Button
+            android:textSize="18sp"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="50sp"
             android:id="@+id/buttonGoToGraphView"
             android:onClick="GoToGraphView"
             android:text="Graph"
@@ -28,10 +30,12 @@
     </LinearLayout>
 
     <LinearLayout
+        android:textSize="18sp"
         android:layout_width="match_parent"
         android:orientation="horizontal"
         android:layout_height="wrap_content">
     <Button
+        android:textSize="18sp"
         android:layout_width="match_parent"
         android:editable="true"
         android:layout_height="match_parent"
@@ -52,7 +56,8 @@
         -->
         <ListView android:id="@android:id/list"
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:textSize="18sp"/>
 
     </LinearLayout>
 
