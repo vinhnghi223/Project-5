@@ -27,6 +27,8 @@ import android.widget.Toast;
 
 import com.fourmob.datetimepicker.date.DatePickerDialog;
 import com.sleepbot.datetimepicker.time.TimePickerDialog;
+
+import pl.byd.wsg.promand.project5.QRcode.QRActivity;
 import pl.byd.wsg.promand.project5.categories.CategoriesActivity;
 import pl.byd.wsg.promand.project5.categories.RepresentationActivity;
 import pl.byd.wsg.promand.project5.dashboards.DashboardListViewActivity;
@@ -34,6 +36,7 @@ import pl.byd.wsg.promand.project5.database.DataSource;
 import pl.byd.wsg.promand.project5.database.DatabaseOpenHelper;
 import pl.byd.wsg.promand.project5.menus.MenuActivity;
 import pl.byd.wsg.promand.project5.model.ExpenseEntry;
+import pl.byd.wsg.promand.project5.ocr.OCR;
 import pl.byd.wsg.promand.project5.projects.ProjectActivity;
 import pl.byd.wsg.promand.project5.R;
 
@@ -197,6 +200,17 @@ public class AddScreenActivity extends FragmentActivity implements DatePickerDia
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
                 return true;
+            case R.id.menu_close:
+                System.exit(0);
+                break;
+            case R.id.menu_ocr:
+                Intent ocrIntent = new Intent(this, QRActivity.class);
+                startActivity(ocrIntent);
+                break;
+            case R.id.menu_qr:
+                Intent qrIntent = new Intent(this, OCR.class);
+                startActivity(qrIntent);
+                break;
         }
         return super.onOptionsItemSelected(item);
     }
