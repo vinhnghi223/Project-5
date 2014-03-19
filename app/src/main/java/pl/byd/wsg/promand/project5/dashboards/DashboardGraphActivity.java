@@ -222,6 +222,9 @@ public class DashboardGraphActivity extends FragmentActivity implements DatePick
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
                 return true;
+            case R.id.menu_close:
+                System.exit(0);
+                break;
         }
         return super.onOptionsItemSelected(item);
     }

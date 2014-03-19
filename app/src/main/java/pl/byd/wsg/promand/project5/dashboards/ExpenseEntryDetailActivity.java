@@ -70,43 +70,46 @@ public class ExpenseEntryDetailActivity extends FragmentActivity {
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         switch (item.getItemId()) {
-        case android.R.id.home:
-            Intent intent0 = new Intent(this, MenuActivity.class);
-            intent0.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-            startActivity(intent0);
-            return true;
-        case R.id.menu_delete:
-            if (datasource.removeEntry(expenseEntry)) {
-                setResult(-1);
-                Intent intent1 = new Intent(this, DashboardListViewActivity.class);
-                startActivityForResult(intent1, 1);
-            }
-            break;
-        case R.id.menu_modify:
-            String project = expenseEntry.getProject();
-            String category = expenseEntry.getCategory();
-            String amount = expenseEntry.getAmount();
-            String date = expenseEntry.getDate();
-            String comment = expenseEntry.getComment();
-            byte[] byteArray2=byteArray;
+            case android.R.id.home:
+                Intent intent0 = new Intent(this, MenuActivity.class);
+                intent0.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intent0);
+                return true;
+            case R.id.menu_delete:
+                if (datasource.removeEntry(expenseEntry)) {
+                    setResult(-1);
+                    Intent intent1 = new Intent(this, DashboardListViewActivity.class);
+                    startActivityForResult(intent1, 1);
+                }
+                break;
+            case R.id.menu_modify:
+                String project = expenseEntry.getProject();
+                String category = expenseEntry.getCategory();
+                String amount = expenseEntry.getAmount();
+                String date = expenseEntry.getDate();
+                String comment = expenseEntry.getComment();
+                byte[] byteArray2=byteArray;
 
-            Intent intent = new Intent();
-            intent.setClass(this,AddScreenActivity.class);
-            intent.putExtra("Uniqid", "from_modify");
-            Log.d("MS", "Value Uniqid=" + intent.getStringExtra("Uniqid"));
-            intent.putExtra("project", project);
-            intent.putExtra("category",category);
-            intent.putExtra("amount",amount);
-            intent.putExtra("date",date);
-            intent.putExtra("comment",comment);
-            intent.putExtra("photo",byteArray2);
+                Intent intent = new Intent();
+                intent.setClass(this,AddScreenActivity.class);
+                intent.putExtra("Uniqid", "from_modify");
+                Log.d("MS", "Value Uniqid=" + intent.getStringExtra("Uniqid"));
+                intent.putExtra("project", project);
+                intent.putExtra("category",category);
+                intent.putExtra("amount",amount);
+                intent.putExtra("date",date);
+                intent.putExtra("comment",comment);
+                intent.putExtra("photo",byteArray2);
 
-            startActivity(intent);
+                startActivity(intent);
 
-            if (datasource.removeEntry(expenseEntry)) {
-                setResult(-1);
-                this.finish();
-            }
+                if (datasource.removeEntry(expenseEntry)) {
+                    setResult(-1);
+                    this.finish();
+                }
+            case R.id.menu_close:
+                System.exit(0);
+                break;
         }
         return super.onOptionsItemSelected(item);
     }
