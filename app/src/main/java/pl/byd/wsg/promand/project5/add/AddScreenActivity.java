@@ -115,9 +115,16 @@ public class AddScreenActivity extends ActionBarActivity implements DatePickerDi
         //------------------DATE PICKER MODULE---------------------
         int parseMonth = calendar.get(Calendar.MONTH) + 1;
 
-        String dynamicCalendarText = calendar.get(Calendar.DAY_OF_MONTH) + " / " + parseMonth + " / " + calendar.get(Calendar.YEAR);
+        String dynamicCalendarText = calendar.get(Calendar.YEAR) + "-" + parseMonth + "-" + calendar.get(Calendar.DAY_OF_MONTH);
 
         Button nButton = (Button) findViewById(R.id.selectDateButton);
+        if(parseMonth < 10){
+            dynamicCalendarText = calendar.get(Calendar.YEAR) + "-" +  "0" + parseMonth + "-" + calendar.get(Calendar.DAY_OF_MONTH);
+
+            if(calendar.get(Calendar.DAY_OF_MONTH) < 10){
+                dynamicCalendarText = + calendar.get(Calendar.YEAR) + "-" + "0" + parseMonth + "-" + "0" + calendar.get(Calendar.DAY_OF_MONTH);
+            }
+        }
         nButton.setText(dynamicCalendarText);
 
         findViewById(R.id.selectDateButton).setOnClickListener(new View.OnClickListener() {
@@ -329,6 +336,13 @@ public class AddScreenActivity extends ActionBarActivity implements DatePickerDi
     public void onDateSet( com.fourmob.datetimepicker.date.DatePickerDialog datePickerDialog, int year, int month, int day) {
         Button nButton = (Button) findViewById(R.id.selectDateButton);
         month += 1;
-        nButton.setText(day + " / " + month + " / " + year);
+        nButton.setText(year + "-" + month + "-" + day);
+        if(month < 10){
+            nButton.setText(year + "-" + "0" + month + "-" + day);
+
+            if(day < 10){
+                nButton.setText(year + "-" + "0" + month + "-" + "0" + day);
+            }
+        }
     }
 }
