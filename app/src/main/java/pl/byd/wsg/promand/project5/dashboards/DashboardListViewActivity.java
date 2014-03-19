@@ -1,12 +1,10 @@
 package pl.byd.wsg.promand.project5.dashboards;
 
 import android.app.ActionBar;
-import android.app.Activity;
 import android.app.ListActivity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -15,7 +13,6 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.PopupMenu;
-import android.widget.Toast;
 
 import java.util.List;
 
@@ -68,10 +65,11 @@ public class DashboardListViewActivity extends ListActivity {
                 //registering popup with OnMenuItemClickListener
                 popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                     public boolean onMenuItemClick(MenuItem item) {
-                        if(item.getTitle()=="Projects"){
-                            goCategories();
+                        Log.i("MenuItemClick", "Item Id"+item.getItemId());
+                        if(item.getTitle().toString().equals("Projects")){
+                            filteredByProjects();
                         }else{
-                            filterProjects();
+                            filteredByCategories();
                         }
                         return true;
                     }
@@ -134,12 +132,12 @@ public class DashboardListViewActivity extends ListActivity {
         //this.finish();
         startActivity(intent);
     }
-    public void goCategories(){
+    public void filteredByCategories(){
         Intent intent = new Intent(this, CategoriesActivity.class);
         startActivityForResult(intent, 2);
     }
 
-    public void filterProjects(){
+    public void filteredByProjects(){
         Intent intent = new Intent(this, ProjectActivity.class);
         startActivityForResult(intent, 1);
     }

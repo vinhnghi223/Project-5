@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -88,7 +89,8 @@ public class DashboardGraphActivity extends ActionBarActivity implements DatePic
                 //registering popup with OnMenuItemClickListener
                 popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                     public boolean onMenuItemClick(MenuItem item) {
-                        if(item.getTitle()=="Projects"){
+                        Log.i("MenuItemClick", "Item Id"+item.getItemId());
+                        if(item.getTitle().toString().equals("Projects")){
                             goProjects();
                         }else{
                             goCategories();
@@ -222,13 +224,7 @@ public class DashboardGraphActivity extends ActionBarActivity implements DatePic
         return super.onOptionsItemSelected(item);
     }
 
-    public void goCategories(View v){
-        goCategories();
-    }
     public void goCategories(){
-        //Intent intent = new Intent(this, CategoriesActivity.class);
-        //startActivity(intent);
-
         Button fromButton = (Button) findViewById(R.id.graphview_selectDateFromButton);
         Button toButton = (Button) findViewById(R.id.graphview_selectDateToButton);
 
@@ -273,18 +269,10 @@ public class DashboardGraphActivity extends ActionBarActivity implements DatePic
 
         BarGraph g = (BarGraph)findViewById(R.id.pieGraph);
         g.setBars(points);
-
     }
 
-    public void goProjects(View v){
-        goProjects();
-    }
     public void goProjects(){
-        //Intent intent = new Intent(this, DashboardGraphActivity.class);
-        //startActivity(intent);
-
         //Change Bar chart to Project view
-
         Button fromButton = (Button) findViewById(R.id.graphview_selectDateFromButton);
         Button toButton = (Button) findViewById(R.id.graphview_selectDateToButton);
 

@@ -3,7 +3,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:weightSum="1">
     <LinearLayout
         android:layout_width="match_parent"
         android:orientation="horizontal"
@@ -59,29 +60,8 @@
 
         </LinearLayout>
 
-
     <pl.byd.wsg.promand.project5.graphs.BarGraph
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:id="@+id/pieGraph"/>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:orientation="horizontal"
-        android:layout_height="wrap_content">
-
-        <Button
-            android:layout_width="200dp"
-            android:layout_height="50dp"
-            android:text="@string/categories"
-            android:id="@+id/buttonGoCat"
-            android:onClick="goCategories" />
-
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:id="@+id/buttonGoProj"
-            android:text="@string/project"
-            android:onClick="goProjects" />
-    </LinearLayout>
+        android:layout_height="match_parent"
+        android:id="@+id/pieGraph" />
 </LinearLayout>
