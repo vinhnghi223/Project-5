@@ -41,6 +41,7 @@
             android:layout_weight="0.9"
             android:layout_marginTop="5dp"
             android:textColorHint="#ffffff"
+            android:textColor="#ffffff"
             android:fontFamily="sans_serif_light"
             android:gravity="center"
             android:textIsSelectable="false"/>
