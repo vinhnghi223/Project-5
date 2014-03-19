@@ -64,11 +64,27 @@ public class DashboardGraphActivity extends ActionBarActivity implements DatePic
         dataSource=new DataSource(this);
         dataSource.open();
 
-        Float meal_total = dataSource.sumAllMeal();
-        Float transport_total = dataSource.sumAllTransport();
-        Float comcar_total = dataSource.sumAllCompanyCar();
-        Float office_total = dataSource.sumAllOfficeMaterials();
-        Float repexp_total = dataSource.sumAllRepresentationExpenses();
+        int parseMonth = calendar.get(Calendar.MONTH) + 1;
+
+        String dynamicCalendarText = calendar.get(Calendar.YEAR) + "-" + parseMonth + "-" + calendar.get(Calendar.DAY_OF_MONTH);
+        if(parseMonth < 10){
+            dynamicCalendarText = calendar.get(Calendar.YEAR) + "-" +  "0" + parseMonth + "-" + calendar.get(Calendar.DAY_OF_MONTH);
+
+            if(calendar.get(Calendar.DAY_OF_MONTH) < 10){
+                dynamicCalendarText = + calendar.get(Calendar.YEAR) + "-" + "0" + parseMonth + "-" + "0" + calendar.get(Calendar.DAY_OF_MONTH);
+            }
+        }
+
+        Button nButton = (Button) findViewById(R.id.graphview_selectDateFromButton);
+        nButton.setText(dynamicCalendarText);
+        Button tButton = (Button) findViewById(R.id.graphview_selectDateToButton);
+        tButton.setText(dynamicCalendarText);
+
+        Float meal_total = dataSource.sumAllMeal(nButton.getText().toString(), tButton.getText().toString());
+        Float transport_total = dataSource.sumAllTransport(nButton.getText().toString(), tButton.getText().toString());
+        Float comcar_total = dataSource.sumAllCompanyCar(nButton.getText().toString(), tButton.getText().toString());
+        Float office_total = dataSource.sumAllOfficeMaterials(nButton.getText().toString(), tButton.getText().toString());
+        Float repexp_total = dataSource.sumAllRepresentationExpenses(nButton.getText().toString(), tButton.getText().toString());
 
         //Create Bar chart for categories by default
         ArrayList<Bar> points = new ArrayList<Bar>();
@@ -104,15 +120,6 @@ public class DashboardGraphActivity extends ActionBarActivity implements DatePic
 
         BarGraph g = (BarGraph)findViewById(R.id.pieGraph);
         g.setBars(points);
-
-        int parseMonth = calendar.get(Calendar.MONTH) + 1;
-
-        String dynamicCalendarText = calendar.get(Calendar.DAY_OF_MONTH) + " / " + parseMonth + " / " + calendar.get(Calendar.YEAR);
-
-        Button nButton = (Button) findViewById(R.id.graphview_selectDateFromButton);
-        nButton.setText(dynamicCalendarText);
-        Button tButton = (Button) findViewById(R.id.graphview_selectDateToButton);
-        tButton.setText(dynamicCalendarText);
 
         findViewById(R.id.graphview_selectDateFromButton).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -174,16 +181,16 @@ public class DashboardGraphActivity extends ActionBarActivity implements DatePic
 
 
     public void goCategories(View v){
-        //Intent intent = new Intent(this, CategoriesActivity.class);
-        //startActivity(intent);
+
+        Button fromButton = (Button) findViewById(R.id.graphview_selectDateFromButton);
+        Button toButton = (Button) findViewById(R.id.graphview_selectDateToButton);
 
         //Change Bar chart to Category view
-        //TODO some logic with DB
-        Float meal_total = dataSource.sumAllMeal();
-        Float transport_total = dataSource.sumAllTransport();
-        Float comcar_total = dataSource.sumAllCompanyCar();
-        Float office_total = dataSource.sumAllOfficeMaterials();
-        Float repexp_total = dataSource.sumAllRepresentationExpenses();
+        Float meal_total = dataSource.sumAllMeal(fromButton.getText().toString(), toButton.getText().toString());
+        Float transport_total = dataSource.sumAllTransport(fromButton.getText().toString(), toButton.getText().toString());
+        Float comcar_total = dataSource.sumAllCompanyCar(fromButton.getText().toString(), toButton.getText().toString());
+        Float office_total = dataSource.sumAllOfficeMaterials(fromButton.getText().toString(), toButton.getText().toString());
+        Float repexp_total = dataSource.sumAllRepresentationExpenses(fromButton.getText().toString(), toButton.getText().toString());
 
         //Create Bar chart for categories by default
         ArrayList<Bar> points = new ArrayList<Bar>();
@@ -220,20 +227,18 @@ public class DashboardGraphActivity extends ActionBarActivity implements DatePic
         BarGraph g = (BarGraph)findViewById(R.id.pieGraph);
         g.setBars(points);
 
-
     }
 
     public void goProjects(View v){
-        //Intent intent = new Intent(this, DashboardGraphActivity.class);
-        //startActivity(intent);
-
         //Change Bar chart to Project view
-        //TODO some logic with DB
 
-        Float project1_total = dataSource.sumAllProject("Project 1");
-        Float project2_total = dataSource.sumAllProject("Project 2");
-        Float project3_total = dataSource.sumAllProject("Project 3");
-        Float project4_total = dataSource.sumAllProject("Project 4");
+        Button fromButton = (Button) findViewById(R.id.graphview_selectDateFromButton);
+        Button toButton = (Button) findViewById(R.id.graphview_selectDateToButton);
+
+        Float project1_total = dataSource.sumAllProject("Project 1", fromButton.getText().toString(), toButton.getText().toString());
+        Float project2_total = dataSource.sumAllProject("Project 2", fromButton.getText().toString(), toButton.getText().toString());
+        Float project3_total = dataSource.sumAllProject("Project 3", fromButton.getText().toString(), toButton.getText().toString());
+        Float project4_total = dataSource.sumAllProject("Project 4", fromButton.getText().toString(), toButton.getText().toString());
 
         ArrayList<Bar> points = new ArrayList<Bar>();
         Bar d = new Bar();
@@ -272,9 +277,28 @@ public class DashboardGraphActivity extends ActionBarActivity implements DatePic
 
     @Override
     public void onDateSet( com.fourmob.datetimepicker.date.DatePickerDialog datePickerDialog, int year, int month, int day) {
-        Button nButton = (Button) findViewById(R.id.graphview_selectDateToButton);
-        month += 1;
-        nButton.setText(day + " / " + month + " / " + year);
-    }
+        if(datePickerDialog.getTag() == "to_datepicker"){
+            Button nButton = (Button) findViewById(R.id.graphview_selectDateFromButton);
+            month += 1;
+            nButton.setText(year + "-" + month + "-" + day);
+            if(month < 10){
+                nButton.setText(year + "-" + "0" + month + "-" + day);
 
+                if(day < 10){
+                    nButton.setText(year + "-" + "0" + month + "-" + "0" + day);
+                }
+            }
+        } else if(datePickerDialog.getTag() == "from_datepicker") {
+            Button nButton = (Button) findViewById(R.id.graphview_selectDateToButton);
+            month += 1;
+            nButton.setText(day + " / " + month + " / " + year);
+            if(month < 10){
+                nButton.setText(year + "-" + "0" + month + "-" + day);
+
+                if(day < 10){
+                    nButton.setText(year + "-" + "0" + month + "-" + "0" + day);
+                }
+            }
+        }
+    }
 }
