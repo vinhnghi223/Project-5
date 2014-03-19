@@ -42,7 +42,7 @@ public class ExpenseEntryDetailActivity extends FragmentActivity {
 
     public void refreshDisplay(){
         entryDetail = (TextView) findViewById(R.id.entryDetail);
-        entryDetail.setText(expenseEntry.toString());
+        entryDetail.setText(expenseEntry.getText());
 
         //PHOTO MODULE
         byteArray = expenseEntry.getPhoto();

@@ -82,10 +82,15 @@ public class ExpenseEntry implements Parcelable{
         return date;
     }
 
+    //For listview
     @Override
     public String toString() {
         NumberFormat nf = NumberFormat.getCurrencyInstance();
         //return project + "\n("+nf.format(amount)+")";
+        return "PROJECT: "+project+ "\nCATEGORY: "+category+"\nAMOUNT: "+amount+"\nDATE: ";
+    }
+    //For detail view
+    public String getText() {
         return "PROJECT: "+project+ "\nCATEGORY: "+category+"\nAMOUNT: "+amount+"\nDATE: "+date+"\nCOMMENT: "+comment;
     }
     public ExpenseEntry() {
