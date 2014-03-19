@@ -312,10 +312,10 @@ public class AddScreenActivity extends FragmentActivity implements DatePickerDia
         String comment=commentEditText.getText().toString();
 
         if(project.equals("Choose Project")) {
-            Toast.makeText(getApplicationContext(), "Please, choose Project",
+            Toast.makeText(getApplicationContext(), "Please, choose a project",
                     Toast.LENGTH_LONG).show();
         } else if(category.equals("Choose Category")) {
-            Toast.makeText(getApplicationContext(), "Please, choose Category",
+            Toast.makeText(getApplicationContext(), "Please, choose a category",
                     Toast.LENGTH_LONG).show();
         } else if(amount.equals("")){
             Toast.makeText(getApplicationContext(), "Expense can't be empty",
@@ -331,6 +331,8 @@ public class AddScreenActivity extends FragmentActivity implements DatePickerDia
             expenseEntry.setComment(comment);
             expenseEntry.setPhoto(imageInByte);
             dataSource.create(expenseEntry);
+            Toast.makeText(getApplicationContext(), "Entry saved successfully",
+                    Toast.LENGTH_LONG).show();
         startActivity(new Intent(this, DashboardListViewActivity.class));
     }
 }

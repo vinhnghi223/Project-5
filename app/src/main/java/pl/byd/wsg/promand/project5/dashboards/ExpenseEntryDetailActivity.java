@@ -11,6 +11,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import pl.byd.wsg.promand.project5.R;
 import pl.byd.wsg.promand.project5.add.AddScreenActivity;
 import pl.byd.wsg.promand.project5.database.DataSource;
@@ -70,6 +72,8 @@ public class ExpenseEntryDetailActivity extends FragmentActivity {
                 return true;
             case R.id.menu_delete:
                 if (datasource.removeEntry(expenseEntry)) {
+                    Toast.makeText(getApplicationContext(), "One entry deleted",
+                            Toast.LENGTH_LONG).show();
                     setResult(-1);
                     Intent intent1 = new Intent(this, DashboardListViewActivity.class);
                     startActivityForResult(intent1, 1);
