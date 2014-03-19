@@ -21,7 +21,7 @@ import android.widget.Toast;
 
 import com.fourmob.datetimepicker.date.DatePickerDialog;
 
-import pl.byd.wsg.promand.project5.QRcode.QRActivity;
+
 import pl.byd.wsg.promand.project5.QRcode.android.IntentIntegrator;
 import pl.byd.wsg.promand.project5.categories.CategoriesActivity;
 
@@ -50,6 +50,7 @@ public class AddScreenActivity extends FragmentActivity implements DatePickerDia
     ImageView addImage;
     ImageView previewImageThumbnail;
     Bitmap imageBitmap=null;
+    //Bitmap photo;
     byte imageInByte[];
 
     public static final String DATEPICKER_TAG = "datepicker";
@@ -156,17 +157,17 @@ public class AddScreenActivity extends FragmentActivity implements DatePickerDia
                     String strAmount = intent.getStringExtra("amount");
                     String strDat = intent.getStringExtra("date");
                     String strComm = intent.getStringExtra("comment");
-                    byte[] byteArray = intent.getByteArrayExtra("photo");
+                    imageInByte = intent.getByteArrayExtra("photo"); //byteArray is an array of byte
 
                     projectTextView.setText(strProj);
                     categoryTextView.setText(strCat);
                     inputAmountEditText.setText(strAmount);
                     selectDateButton.setText(strDat);
                     commentEditText.setText(strComm);
-                    if(byteArray!=null){
+                    if(imageInByte!=null){
                         previewImageThumbnail= (ImageView) findViewById(R.id.imageView);
-                        Bitmap photo = BitmapFactory.decodeByteArray(byteArray, 0, byteArray.length);
-                        previewImageThumbnail.setImageBitmap(photo);
+                        imageBitmap = BitmapFactory.decodeByteArray(imageInByte, 0, imageInByte.length); //photo become bitmap
+                        previewImageThumbnail.setImageBitmap(imageBitmap);
                     }
                 }
             }
@@ -330,7 +331,9 @@ public class AddScreenActivity extends FragmentActivity implements DatePickerDia
             expenseEntry.setAmount(amount);
             expenseEntry.setDate(date);
             expenseEntry.setComment(comment);
+
             expenseEntry.setPhoto(imageInByte);
+
             dataSource.create(expenseEntry);
             Toast.makeText(getApplicationContext(), "Entry saved successfully",
                     Toast.LENGTH_LONG).show();
