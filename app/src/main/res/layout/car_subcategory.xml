@@ -8,70 +8,119 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:weightSum="1"
-    android:background="#ffffff">
+    android:background="#CFD3E8">
 
     <Button
         android:layout_width="match_parent"
-        android:layout_height="114dp"
+        android:layout_height="114sp"
         android:text="Diesel fuel"
         android:id="@+id/button_diesel"
-        android:textSize="20dp"
-        android:onClick="inputDieselFuel"/>
+        android:textSize="36sp"
+        android:onClick="inputDieselFuel"
+        android:layout_marginBottom="10sp"
+        android:layout_marginLeft="10sp"
+        android:layout_marginRight="10sp"
+        android:layout_marginTop="10sp"
+        android:background="#ffffff"
+        android:textColor="#33b5e5"
+        android:textStyle="bold"/>
 
     <Button
         android:layout_width="match_parent"
-        android:layout_height="114dp"
+        android:layout_height="114sp"
         android:text="Petrol fuel"
         android:id="@+id/button_petrol"
-        android:textSize="20dp"
-        android:onClick="inputFuel"/>
+        android:textSize="36sp"
+        android:onClick="inputFuel"
+        android:layout_marginBottom="10sp"
+        android:layout_marginLeft="10sp"
+        android:layout_marginRight="10sp"
+        android:background="#ffffff"
+        android:textColor="#33b5e5"
+        android:textStyle="bold"/>
 
     <Button
         android:layout_width="match_parent"
-        android:layout_height="114dp"
+        android:layout_height="114sp"
         android:text="Parking"
         android:id="@+id/button_parking"
-        android:textSize="20dp"
-        android:onClick="inputPark"/>
+        android:textSize="36sp"
+        android:onClick="inputPark"
+        android:layout_marginBottom="10sp"
+        android:layout_marginLeft="10sp"
+        android:layout_marginRight="10sp"
+        android:background="#ffffff"
+        android:textColor="#33b5e5"
+        android:textStyle="bold"/>
 
     <Button
         android:layout_width="match_parent"
-        android:layout_height="114dp"
+        android:layout_height="114sp"
         android:text="Vehicle maintenance"
         android:id="@+id/button_maintenance"
-        android:textSize="20dp"
-        android:onClick="inputMain"/>
+        android:textSize="36sp"
+        android:onClick="inputMain"
+        android:layout_marginBottom="10sp"
+        android:layout_marginLeft="10sp"
+        android:layout_marginRight="10sp"
+        android:background="#ffffff"
+        android:textColor="#33b5e5"
+        android:textStyle="bold"/>
 
     <Button
         android:layout_width="match_parent"
-        android:layout_height="114dp"
+        android:layout_height="114sp"
         android:text="Oil change"
         android:id="@+id/button_oil"
-        android:textSize="20dp"
-        android:onClick="inputOil"/>
+        android:textSize="36sp"
+        android:onClick="inputOil"
+        android:layout_marginBottom="10sp"
+        android:layout_marginLeft="10sp"
+        android:layout_marginRight="10sp"
+        android:background="#ffffff"
+        android:textColor="#33b5e5"
+        android:textStyle="bold"/>
 
     <Button
         android:layout_width="match_parent"
-        android:layout_height="114dp"
+        android:layout_height="114sp"
         android:text="Tires"
         android:id="@+id/button_tires"
-        android:textSize="20dp"
-        android:onClick="inputTire"/>
+        android:textSize="36dp"
+        android:onClick="inputTire"
+        android:layout_marginBottom="10sp"
+        android:layout_marginLeft="10sp"
+        android:layout_marginRight="10sp"
+        android:background="#ffffff"
+        android:textColor="#33b5e5"
+        android:textStyle="bold"/>
 
     <Button
         android:layout_width="match_parent"
-        android:layout_height="127dp"
+        android:layout_height="127sp"
         android:text="Vehicle tune-up"
         android:id="@+id/button_tune_up"
-        android:textSize="20dp"
-        android:onClick="inputTuneUp"/>
+        android:textSize="36sp"
+        android:onClick="inputTuneUp"
+        android:layout_marginBottom="10sp"
+        android:layout_marginLeft="10sp"
+        android:layout_marginRight="10sp"
+        android:background="#ffffff"
+        android:textColor="#33b5e5"
+        android:textStyle="bold"/>
 
     <Button
         android:layout_width="match_parent"
-        android:layout_height="114dp"
+        android:layout_height="114sp"
         android:text="Other"
         android:id="@+id/button_other"
-        android:textSize="20dp"
-        android:onClick="inputOther"/>
+        android:textSize="36sp"
+        android:onClick="inputOther"
+        android:layout_marginBottom="10sp"
+        android:layout_marginLeft="10sp"
+        android:layout_marginRight="10sp"
+        android:background="#ffffff"
+        android:textColor="#33b5e5"
+        android:textStyle="bold"/>
 </LinearLayout>
 </ScrollView>

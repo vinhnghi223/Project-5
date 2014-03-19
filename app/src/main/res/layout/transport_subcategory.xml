@@ -3,7 +3,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#ffffff"
+    android:background="#CFD3E8"
     android:weightSum="1">
 
     <Button
@@ -13,8 +13,15 @@
         android:id="@+id/button_plane"
         android:layout_gravity="right"
         android:layout_weight="0.20"
-        android:textSize="20dp"
-        android:onClick="inputPlane"/>
+        android:textSize="36sp"
+        android:onClick="inputPlane"
+        android:layout_marginTop="10sp"
+        android:layout_marginBottom="10sp"
+        android:layout_marginLeft="10sp"
+        android:layout_marginRight="10sp"
+        android:background="#ffffff"
+        android:textColor="#33b5e5"
+        android:textStyle="bold"/>
 
     <Button
         android:layout_width="match_parent"
@@ -22,8 +29,14 @@
         android:text="Train"
         android:id="@+id/button_train"
         android:layout_weight="0.20"
-        android:textSize="20dp"
-        android:onClick="inputTrain"/>
+        android:textSize="36sp"
+        android:onClick="inputTrain"
+        android:layout_marginBottom="10sp"
+        android:layout_marginLeft="10sp"
+        android:layout_marginRight="10sp"
+        android:background="#ffffff"
+        android:textColor="#33b5e5"
+        android:textStyle="bold"/>
 
     <Button
         android:layout_width="match_parent"
@@ -31,8 +44,14 @@
         android:text="Bus"
         android:id="@+id/button_bus"
         android:layout_weight="0.20"
-        android:textSize="20dp"
-        android:onClick="inputBus"/>
+        android:textSize="36sp"
+        android:onClick="inputBus"
+        android:layout_marginBottom="10sp"
+        android:layout_marginLeft="10sp"
+        android:layout_marginRight="10sp"
+        android:background="#ffffff"
+        android:textColor="#33b5e5"
+        android:textStyle="bold"/>
 
     <Button
         android:layout_width="match_parent"
@@ -40,8 +59,14 @@
         android:text="Taxi"
         android:id="@+id/button_taxi"
         android:layout_weight="0.20"
-        android:textSize="20dp"
-        android:onClick="inputTaxi"/>
+        android:textSize="36sp"
+        android:onClick="inputTaxi"
+        android:layout_marginBottom="10sp"
+        android:layout_marginLeft="10sp"
+        android:layout_marginRight="10sp"
+        android:background="#ffffff"
+        android:textColor="#33b5e5"
+        android:textStyle="bold"/>
 
     <Button
         android:layout_width="match_parent"
@@ -49,6 +74,12 @@
         android:text="Public transport"
         android:id="@+id/button_public_transport"
         android:layout_weight="0.20"
-        android:textSize="20dp"
-        android:onClick="inputPublicTransport"/>
+        android:textSize="36sp"
+        android:onClick="inputPublicTransport"
+        android:layout_marginBottom="10sp"
+        android:layout_marginLeft="10sp"
+        android:layout_marginRight="10sp"
+        android:background="#ffffff"
+        android:textColor="#33b5e5"
+        android:textStyle="bold"/>
 </LinearLayout>

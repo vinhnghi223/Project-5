@@ -2,7 +2,8 @@
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#CFD3E8">
 
     <Button
         android:layout_width="match_parent"
@@ -11,8 +12,15 @@
         android:id="@+id/buttonProj1"
         android:layout_gravity="right"
         android:layout_weight="0.20"
-        android:textSize="20dp"
-        android:onClick="inputProject1"/>
+        android:textSize="36sp"
+        android:onClick="inputProject1"
+        android:layout_marginTop="10sp"
+        android:layout_marginBottom="10sp"
+        android:layout_marginLeft="10sp"
+        android:layout_marginRight="10sp"
+        android:background="#ffffff"
+        android:textColor="#33b5e5"
+        android:textStyle="bold"/>
 
     <Button
         android:layout_width="match_parent"
@@ -20,8 +28,14 @@
         android:text="@string/project2"
         android:id="@+id/buttonProj2"
         android:layout_weight="0.20"
-        android:textSize="20dp"
-        android:onClick="inputProject2"/>
+        android:textSize="36sp"
+        android:onClick="inputProject2"
+        android:layout_marginBottom="10sp"
+        android:layout_marginLeft="10sp"
+        android:layout_marginRight="10sp"
+        android:background="#ffffff"
+        android:textColor="#33b5e5"
+        android:textStyle="bold"/>
 
     <Button
         android:layout_width="match_parent"
@@ -29,8 +43,14 @@
         android:text="@string/project3"
         android:id="@+id/buttonProj3"
         android:layout_weight="0.20"
-        android:textSize="20dp"
-        android:onClick="inputProject3"/>
+        android:textSize="36sp"
+        android:onClick="inputProject3"
+        android:layout_marginBottom="10sp"
+        android:layout_marginLeft="10sp"
+        android:layout_marginRight="10sp"
+        android:background="#ffffff"
+        android:textColor="#33b5e5"
+        android:textStyle="bold"/>
 
     <Button
         android:layout_width="match_parent"
@@ -38,7 +58,13 @@
         android:text="@string/project4"
         android:id="@+id/buttonProj4"
         android:layout_weight="0.20"
-        android:textSize="20dp"
-        android:onClick="inputProject4"/>
+        android:textSize="36sp"
+        android:onClick="inputProject4"
+        android:layout_marginBottom="10sp"
+        android:layout_marginLeft="10sp"
+        android:layout_marginRight="10sp"
+        android:background="#ffffff"
+        android:textColor="#33b5e5"
+        android:textStyle="bold"/>
 
 </LinearLayout>

@@ -3,7 +3,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#ffffff"
+    android:background="#CFD3E8"
     android:weightSum="1">
 
     <Button
@@ -12,8 +12,15 @@
         android:text="Furniture"
         android:id="@+id/button_furniture"
         android:layout_weight="0.17"
-        android:textSize="20dp"
-        android:onClick="inputFurniture"/>
+        android:textSize="36sp"
+        android:onClick="inputFurniture"
+        android:layout_marginTop="10sp"
+        android:layout_marginBottom="10sp"
+        android:layout_marginLeft="10sp"
+        android:layout_marginRight="10sp"
+        android:background="#ffffff"
+        android:textColor="#33b5e5"
+        android:textStyle="bold"/>
 
     <Button
         android:layout_width="match_parent"
@@ -21,8 +28,14 @@
         android:text="Technical books and documents"
         android:id="@+id/button_tech_book"
         android:layout_weight="0.17"
-        android:textSize="20dp"
-        android:onClick="inputTechBook"/>
+        android:textSize="36sp"
+        android:onClick="inputTechBook"
+        android:layout_marginBottom="10sp"
+        android:layout_marginLeft="10sp"
+        android:layout_marginRight="10sp"
+        android:background="#ffffff"
+        android:textColor="#33b5e5"
+        android:textStyle="bold"/>
 
     <Button
         android:layout_width="match_parent"
@@ -30,7 +43,13 @@
         android:text="House products"
         android:id="@+id/button_house_products"
         android:layout_weight="0.17"
-        android:textSize="20dp"
-        android:onClick="inputHouseProducts"/>
+        android:textSize="36sp"
+        android:onClick="inputHouseProducts"
+        android:layout_marginBottom="10sp"
+        android:layout_marginLeft="10sp"
+        android:layout_marginRight="10sp"
+        android:background="#ffffff"
+        android:textColor="#33b5e5"
+        android:textStyle="bold"/>
 
 </LinearLayout>
