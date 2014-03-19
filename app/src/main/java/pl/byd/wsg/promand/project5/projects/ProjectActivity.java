@@ -1,7 +1,5 @@
 package pl.byd.wsg.promand.project5.projects;
-
 import android.app.ActionBar;
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
@@ -10,12 +8,9 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.TextView;
-
 import pl.byd.wsg.promand.project5.R;
-import pl.byd.wsg.promand.project5.add.AddScreenActivity;
-import pl.byd.wsg.promand.project5.menus.MenuActivity;
+import pl.byd.wsg.promand.project5.dashboards.DashboardListViewActivity;
+
 
 /**
  * Created by Miguel on 14-03-2014.
@@ -44,7 +39,7 @@ public class ProjectActivity extends ActionBarActivity {
         switch (item.getItemId())
         {
             case android.R.id.home:
-                Intent intent = new Intent(this, MenuActivity.class);
+                Intent intent = new Intent(this, DashboardListViewActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
                 return true;
@@ -92,8 +87,4 @@ public class ProjectActivity extends ActionBarActivity {
         setResult(RESULT_OK,returnIntent);
         this.finish();
     }
-
-
-
-
 }

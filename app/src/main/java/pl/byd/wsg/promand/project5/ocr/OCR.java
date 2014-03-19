@@ -28,7 +28,8 @@ import android.widget.EditText;
 
 import com.googlecode.tesseract.android.TessBaseAPI;
 import pl.byd.wsg.promand.project5.R;
-import pl.byd.wsg.promand.project5.menus.MenuActivity;
+import pl.byd.wsg.promand.project5.dashboards.DashboardListViewActivity;
+
 
 /**
  * Created by sergio on 3/17/14.
@@ -136,7 +137,7 @@ public class OCR extends Activity {
         switch (item.getItemId())
         {
             case android.R.id.home:
-                Intent intent = new Intent(this, MenuActivity.class);
+                Intent intent = new Intent(this, DashboardListViewActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
                 return true;

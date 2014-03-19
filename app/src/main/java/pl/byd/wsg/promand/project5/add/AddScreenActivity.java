@@ -26,15 +26,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.fourmob.datetimepicker.date.DatePickerDialog;
-import com.sleepbot.datetimepicker.time.TimePickerDialog;
 
 import pl.byd.wsg.promand.project5.QRcode.QRActivity;
 import pl.byd.wsg.promand.project5.categories.CategoriesActivity;
-import pl.byd.wsg.promand.project5.categories.RepresentationActivity;
+
 import pl.byd.wsg.promand.project5.dashboards.DashboardListViewActivity;
 import pl.byd.wsg.promand.project5.database.DataSource;
-import pl.byd.wsg.promand.project5.database.DatabaseOpenHelper;
-import pl.byd.wsg.promand.project5.menus.MenuActivity;
+
 import pl.byd.wsg.promand.project5.model.ExpenseEntry;
 import pl.byd.wsg.promand.project5.ocr.OCR;
 import pl.byd.wsg.promand.project5.projects.ProjectActivity;

@@ -1,24 +1,19 @@
 package pl.byd.wsg.promand.project5.dashboards;
 
 import android.app.ActionBar;
-import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
-import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import pl.byd.wsg.promand.project5.R;
 import pl.byd.wsg.promand.project5.add.AddScreenActivity;
-import pl.byd.wsg.promand.project5.categories.CategoriesActivity;
 import pl.byd.wsg.promand.project5.database.DataSource;
-import pl.byd.wsg.promand.project5.menus.MenuActivity;
 import pl.byd.wsg.promand.project5.model.ExpenseEntry;
 
 public class ExpenseEntryDetailActivity extends FragmentActivity {
@@ -71,7 +66,7 @@ public class ExpenseEntryDetailActivity extends FragmentActivity {
         // as you specify a parent activity in AndroidManifest.xml.
         switch (item.getItemId()) {
             case android.R.id.home:
-                Intent intent0 = new Intent(this, MenuActivity.class);
+                Intent intent0 = new Intent(this, DashboardListViewActivity.class);
                 intent0.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent0);
                 return true;

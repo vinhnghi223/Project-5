@@ -20,14 +20,9 @@ import android.widget.TextView;
 import com.fourmob.datetimepicker.date.DatePickerDialog;
 
 import pl.byd.wsg.promand.project5.add.AddScreenActivity;
-import pl.byd.wsg.promand.project5.categories.CategoriesActivity;
 import pl.byd.wsg.promand.project5.database.DataSource;
 import pl.byd.wsg.promand.project5.graphs.Bar;
 import pl.byd.wsg.promand.project5.graphs.BarGraph;
-import pl.byd.wsg.promand.project5.graphs.PieGraph;
-import pl.byd.wsg.promand.project5.graphs.PieSlice;
-import pl.byd.wsg.promand.project5.menus.MenuActivity;
-import pl.byd.wsg.promand.project5.projects.ProjectActivity;
 import pl.byd.wsg.promand.project5.R;
 
 import java.util.ArrayList;
@@ -218,7 +213,7 @@ public class DashboardGraphActivity extends FragmentActivity implements DatePick
                 startActivity(GoToAddScreenIntent);
                 break;
             case android.R.id.home:
-                Intent intent = new Intent(this, MenuActivity.class);
+                Intent intent = new Intent(this, DashboardListViewActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
                 return true;

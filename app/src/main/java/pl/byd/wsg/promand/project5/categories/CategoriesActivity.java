@@ -1,7 +1,5 @@
 package pl.byd.wsg.promand.project5.categories;
-
 import android.app.ActionBar;
-import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
@@ -9,10 +7,9 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-
 import pl.byd.wsg.promand.project5.R;
 import pl.byd.wsg.promand.project5.dashboards.DashboardListViewActivity;
-import pl.byd.wsg.promand.project5.menus.MenuActivity;
+
 
 public class CategoriesActivity extends ActionBarActivity {
 

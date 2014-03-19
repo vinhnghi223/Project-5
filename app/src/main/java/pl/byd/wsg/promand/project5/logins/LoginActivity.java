@@ -5,15 +5,12 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Gravity;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
 import pl.byd.wsg.promand.project5.dashboards.DashboardListViewActivity;
-import pl.byd.wsg.promand.project5.menus.MenuActivity;
 import pl.byd.wsg.promand.project5.R;
 
 
@@ -46,7 +43,6 @@ public class LoginActivity extends Activity {
             startActivity(intent);
             this.finish();
         }
-
         else {
 
             Toast toast_login_failed = Toast.makeText(this, "Incorrect PIN - try again", Toast.LENGTH_SHORT);
