@@ -22,6 +22,7 @@ import android.widget.Toast;
 import com.fourmob.datetimepicker.date.DatePickerDialog;
 
 import pl.byd.wsg.promand.project5.QRcode.QRActivity;
+import pl.byd.wsg.promand.project5.QRcode.android.IntentIntegrator;
 import pl.byd.wsg.promand.project5.categories.CategoriesActivity;
 
 import pl.byd.wsg.promand.project5.dashboards.DashboardListViewActivity;
@@ -195,8 +196,8 @@ public class AddScreenActivity extends FragmentActivity implements DatePickerDia
                 System.exit(0);
                 break;
             case R.id.menu_qr:
-                Intent ocrIntent = new Intent(this, QRActivity.class);
-                startActivity(ocrIntent);
+                IntentIntegrator scanIntegrator = new IntentIntegrator(this);
+                scanIntegrator.initiateScan();
                 break;
             case R.id.menu_ocr:
                 Intent qrIntent = new Intent(this, OCR.class);
