@@ -45,6 +45,7 @@ public class DashboardListViewActivity extends ListActivity {
         setContentView(R.layout.dashboard_listview);
         //SET UP ACTION BAR
         ActionBar actionBar = getActionBar();
+
         actionBar.setHomeButtonEnabled(true); //this required API level 14  MIGUEL
 
 
@@ -94,15 +95,10 @@ public class DashboardListViewActivity extends ListActivity {
         setResult(RESULT_OK,returnIntent);
     }
 
-    public void refreshDisplay(){
-        ListView dataList=(ListView)findViewById(android.R.id.list);
-        ArrayAdapter<ExpenseEntry> adapter=new ArrayAdapter<ExpenseEntry>(this, android.R.layout.simple_list_item_1,expenseEntryList);
-        dataList.setAdapter(adapter);
-    }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
+        getMenuInflater().inflate(R.menu.menu_dashboard, menu);
         return true;
     }
 
@@ -122,14 +118,20 @@ public class DashboardListViewActivity extends ListActivity {
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
                 return true;
-            case R.id.action_settings:
-                return true;
         }
         return super.onOptionsItemSelected(item);
     }
 
+    public void refreshDisplay(){
+        ListView dataList=(ListView)findViewById(android.R.id.list);
+        ArrayAdapter<ExpenseEntry> adapter=new ArrayAdapter<ExpenseEntry>(this, android.R.layout.simple_list_item_1,expenseEntryList);
+        dataList.setAdapter(adapter);
+    }
+
+
     public void GoToListView(View v){
     }
+
     public void GoToGraphView(View v){
         Intent intent = new Intent(this, DashboardGraphActivity.class);
         //this.finish();

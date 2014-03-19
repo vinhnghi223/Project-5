@@ -3,9 +3,5 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="pl.byd.wsg.promand.project5.logins.LoginActivity" >
 
-    <item
-        android:id="@+id/menu_add"
-        android:orderInCategory="100"
-        android:showAsAction="always"
-        android:title="+ Add New Entry"/>
+
 </menu>

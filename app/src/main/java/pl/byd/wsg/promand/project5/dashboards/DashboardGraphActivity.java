@@ -71,7 +71,7 @@ public class DashboardGraphActivity extends ActionBarActivity implements DatePic
         setContentView(R.layout.dashboard_graphview);
         //SET UP ACTION BAR
         ActionBar actionBar = getActionBar();
-        actionBar.setHomeButtonEnabled(true); //this required API level 14  MIGUEL
+        actionBar.setHomeButtonEnabled(true);//this required API level 14  MIGUEL
 
 
         //SET BUTTON COLOR
@@ -197,17 +197,11 @@ public class DashboardGraphActivity extends ActionBarActivity implements DatePic
         }
 
     }
-    public void GoToListView(View v){
-        Intent intent = new Intent(this, DashboardListViewActivity.class);
-        //this.finish();
-        startActivity(intent);
-    }
-    public void GoToGraphView(View v){
-    }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
+        getMenuInflater().inflate(R.menu.menu_dashboard, menu);
         return true;
     }
 
@@ -227,11 +221,18 @@ public class DashboardGraphActivity extends ActionBarActivity implements DatePic
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
                 return true;
-            case R.id.action_settings:
-                return true;
         }
         return super.onOptionsItemSelected(item);
     }
+
+    public void GoToListView(View v){
+        Intent intent = new Intent(this, DashboardListViewActivity.class);
+        //this.finish();
+        startActivity(intent);
+    }
+    public void GoToGraphView(View v){
+    }
+
 
     public void goCategories(){
         Button fromButton = (Button) findViewById(R.id.graphview_selectDateFromButton);

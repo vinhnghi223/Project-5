@@ -20,12 +20,15 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
 import com.googlecode.tesseract.android.TessBaseAPI;
 import pl.byd.wsg.promand.project5.R;
+import pl.byd.wsg.promand.project5.menus.MenuActivity;
 
 /**
  * Created by sergio on 3/17/14.
@@ -73,20 +76,28 @@ public class OCR extends Activity {
         // This area needs work and optimization
         if (!(new File(DATA_PATH + "tessdata/" + lang + ".traineddata")).exists()) {
             try {
-
+                Log.v("MS  ", "inside try");
                 AssetManager assetManager = getAssets();
-                InputStream in = assetManager.open("tessdata/" + lang + ".traineddata");
+                String[] files = assetManager.list("");
+                for(int i=0; i<files.length; i++) {
+                    Log.d("MS","files.length="+files.length);
+                    Log.d("MS", "insideAssetManager="+files[i]);
+                }
+                InputStream in = assetManager.open(lang + ".traineddata");
+                Log.v("MS  ", "after InputStream");
                 //GZIPInputStream gin = new GZIPInputStream(in);
                 OutputStream out = new FileOutputStream(DATA_PATH
                         + "tessdata/" + lang + ".traineddata");
-
+                Log.v("MS  ", "after OutputStream");
                 // Transfer bytes from in to out
                 byte[] buf = new byte[1024];
                 int len;
+                Log.v("MS  ", "after new byte");
                 //while ((lenf = gin.read(buff)) > 0) {
                 while ((len = in.read(buf)) > 0) {
                     out.write(buf, 0, len);
                 }
+                Log.v("MS  ", "after While");
                 in.close();
                 //gin.close();
                 out.close();
@@ -109,9 +120,33 @@ public class OCR extends Activity {
         _path = DATA_PATH + "/ocr.jpg";
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        switch (item.getItemId())
+        {
+            case android.R.id.home:
+                Intent intent = new Intent(this, MenuActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intent);
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
     public class ButtonClickHandler implements View.OnClickListener {
         public void onClick(View view) {
-            Log.v(TAG, "Starting Camera app");
+            Log.v(TAG, "Starting Camera app1");
             startCameraActivity();
         }
     }

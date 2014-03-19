@@ -170,7 +170,7 @@ public class AddScreenActivity extends ActionBarActivity implements DatePickerDi
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_add_screen, menu);
+        getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
 
@@ -185,8 +185,6 @@ public class AddScreenActivity extends ActionBarActivity implements DatePickerDi
                 Intent intent = new Intent(this, MenuActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
-                return true;
-            case R.id.action_settings:
                 return true;
         }
         return super.onOptionsItemSelected(item);
