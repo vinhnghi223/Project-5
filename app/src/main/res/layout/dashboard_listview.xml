@@ -4,28 +4,41 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-
     <LinearLayout
         android:layout_width="match_parent"
         android:orientation="horizontal"
         android:layout_height="wrap_content">
 
         <Button
-            android:layout_width="200dp"
+            android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:id="@+id/buttonGoCat"
-            android:onClick="goCategories"
-            android:text="@string/categories"/>
+            android:id="@+id/buttonGoToListView"
+            android:onClick="GoToListView"
+            android:text="Item List"
+            android:layout_weight="0.5"/>
 
         <Button
             android:layout_width="match_parent"
             android:layout_height="50dp"
-
-            android:id="@+id/buttonFilterProj"
-            android:onClick="filterProjects"
-            android:text="@string/project"/>
+            android:id="@+id/buttonGoToGraphView"
+            android:onClick="GoToGraphView"
+            android:text="Graph"
+            android:layout_weight="0.5"
+            android:layout_gravity="top|center_horizontal"/>
     </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_height="wrap_content">
+    <Button
+        android:layout_width="match_parent"
+        android:editable="true"
+        android:layout_height="match_parent"
+        android:id="@+id/filteredByButton"
+        style="?android:attr/spinnerStyle"
+        android:text="Filtered By"/>
+    </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:orientation="vertical"
@@ -40,15 +53,6 @@
         <ListView android:id="@android:id/list"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"/>
-
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Dashboard"
-            android:id="@+id/buttonGoDash"
-            android:onClick="goDashboard"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true" />
 
     </LinearLayout>
 

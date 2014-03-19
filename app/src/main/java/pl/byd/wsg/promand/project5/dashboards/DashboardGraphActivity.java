@@ -12,6 +12,7 @@ import android.view.View;
 
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.PopupMenu;
 import android.widget.TextView;
 import com.fourmob.datetimepicker.date.DatePickerDialog;
 import pl.byd.wsg.promand.project5.categories.CategoriesActivity;
@@ -37,6 +38,12 @@ public class DashboardGraphActivity extends ActionBarActivity implements DatePic
     public static TextView projectTextView, categoryTextView;
     DataSource dataSource;
 
+    //SET UP BUTTON
+    static final String LIGHT_BLUE="#33B5E5";
+    Button btnListView;
+    Button btnGraphView;
+    Button btnFilteredBy;
+
     final Calendar calendar = Calendar.getInstance();
     final com.fourmob.datetimepicker.date.DatePickerDialog from_datePickerDialog = com.fourmob.datetimepicker.date.DatePickerDialog.newInstance(this, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH));
 
@@ -58,6 +65,38 @@ public class DashboardGraphActivity extends ActionBarActivity implements DatePic
         setContentView(R.layout.dashboard_graphview);
         ActionBar actionBar = getActionBar();
         actionBar.setHomeButtonEnabled(true); //this required API level 14  MIGUEL
+
+        //SET BUTTON COLOR
+        btnListView=(Button) findViewById(R.id.buttonGoToListView);
+        btnListView.setBackgroundColor(Color.WHITE);
+        btnListView.setTextColor(Color.parseColor(LIGHT_BLUE));
+        btnGraphView=(Button) findViewById(R.id.buttonGoToGraphView);
+        btnGraphView.setBackgroundColor(Color.parseColor(LIGHT_BLUE));
+        btnGraphView.setTextColor(Color.WHITE);
+
+        //FILTER BY
+        btnFilteredBy = (Button) findViewById(R.id.filteredByButton);
+        btnFilteredBy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //Creating the instance of PopupMenu
+                PopupMenu popup = new PopupMenu(DashboardGraphActivity.this, btnFilteredBy);
+                //Inflating the Popup using xml file
+                popup.getMenuInflater().inflate(R.menu.popup_menu, popup.getMenu());
+                //registering popup with OnMenuItemClickListener
+                popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                    public boolean onMenuItemClick(MenuItem item) {
+                        if(item.getTitle()=="Projects"){
+                            goProjects();
+                        }else{
+                            goCategories();
+                        }
+                        return true;
+                    }
+                });
+                popup.show();//showing popup menu
+            }
+        });//closing the setOnClickListener method
 
         dataSource=new DataSource(this);
         dataSource.open();
@@ -126,7 +165,13 @@ public class DashboardGraphActivity extends ActionBarActivity implements DatePic
         }
 
     }
-
+    public void GoToListView(View v){
+        Intent intent = new Intent(this, DashboardListViewActivity.class);
+        //this.finish();
+        startActivity(intent);
+    }
+    public void GoToGraphView(View v){
+    }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -152,8 +197,10 @@ public class DashboardGraphActivity extends ActionBarActivity implements DatePic
         return super.onOptionsItemSelected(item);
     }
 
-
     public void goCategories(View v){
+        goCategories();
+    }
+    public void goCategories(){
         //Intent intent = new Intent(this, CategoriesActivity.class);
         //startActivity(intent);
 
@@ -204,6 +251,9 @@ public class DashboardGraphActivity extends ActionBarActivity implements DatePic
     }
 
     public void goProjects(View v){
+        goProjects();
+    }
+    public void goProjects(){
         //Intent intent = new Intent(this, DashboardGraphActivity.class);
         //startActivity(intent);
 
@@ -243,11 +293,6 @@ public class DashboardGraphActivity extends ActionBarActivity implements DatePic
 
         BarGraph g = (BarGraph)findViewById(R.id.pieGraph);
         g.setBars(points);
-    }
-
-    public void goReportList(View v){
-        Intent intent = new Intent(this, DashboardListViewActivity.class);
-        startActivity(intent);
     }
 
     @Override

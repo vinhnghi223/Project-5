@@ -3,24 +3,44 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_marginTop="20dp"
     android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_height="wrap_content">
 
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:id="@+id/buttonGoToListView"
+            android:onClick="GoToListView"
+            android:text="Item List"
+            android:layout_weight="0.5"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:id="@+id/buttonGoToGraphView"
+            android:onClick="GoToGraphView"
+            android:text="Graph"
+            android:layout_weight="0.5"
+            android:layout_gravity="top|center_horizontal"/>
+    </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:gravity="center"
         android:orientation="horizontal">
-
+        <Button
+            android:layout_width="200dp"
+            android:layout_height="match_parent"
+            android:id="@+id/filteredByButton"
+            style="?android:attr/spinnerStyle"
+            android:text="Filtered By"/>
         <TextView
             android:layout_width="50dp"
             android:text="@string/from"
             android:layout_height="match_parent"/>
-        <!--
-        <DatePicker
-            android:layout_width="100dp"
-            android:layout_height="70dp"/> -->
-
         <Button
             android:layout_width="100dp"
             android:layout_height="match_parent"
@@ -31,11 +51,6 @@
             android:layout_width="50dp"
             android:text="@string/to"
             android:layout_height="match_parent"/>
-        <!--
-        <DatePicker
-            android:layout_width="100dp"
-            android:layout_height="70dp"/> -->
-
         <Button
             android:layout_width="100dp"
             android:layout_height="match_parent"
@@ -43,14 +58,7 @@
             style="?android:attr/spinnerStyle"/>
 
         </LinearLayout>
-<!--
-    <ImageView
-        android:layout_width="wrap_content"
-        android:contentDescription="Chart"
-        android:layout_height="wrap_content"
-        android:id="@+id/imageView"
-        android:src="@drawable/ic_launcher"
-        android:layout_gravity="center"/> -->
+
 
     <pl.byd.wsg.promand.project5.graphs.BarGraph
         android:layout_width="match_parent"
@@ -76,18 +84,4 @@
             android:text="@string/project"
             android:onClick="goProjects" />
     </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:orientation="vertical"
-        android:layout_height="match_parent">
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:id="@+id/buttonGoReportList"
-            android:onClick="goReportList"
-            android:text="@string/list"/>
-    </LinearLayout>
-
-
 </LinearLayout>

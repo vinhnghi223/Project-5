@@ -47,5 +47,6 @@
     <string name="title_activity_qr">QRActivity</string>
     <string name="title_activity_intent_result">IntentResult</string>
     <string name="title_activity_intent_integrator">IntentIntegrator</string>
+    <string name="title_activity_dashboard">Dashboard</string>
 
 </resources>
