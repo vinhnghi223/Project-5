@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
 import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.view.Menu;
@@ -36,7 +37,7 @@ import java.util.Calendar;
  * Created by Miguel on 14-03-2014.
  */
 
-public class DashboardGraphActivity extends ActionBarActivity implements DatePickerDialog.OnDateSetListener {
+public class DashboardGraphActivity extends FragmentActivity implements DatePickerDialog.OnDateSetListener {
     EditText inputAmountEditText,commentEditText;
     Button selectDateButton;
     public static TextView projectTextView, categoryTextView;

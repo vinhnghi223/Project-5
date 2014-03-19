@@ -8,7 +8,9 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.hardware.Camera;
+import android.support.v4.app.FragmentActivity;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
@@ -42,16 +44,18 @@ import java.util.Calendar;
  * Created by Sergey on 3/14/14.
  */
 
-public class AddScreenActivity extends ActionBarActivity implements DatePickerDialog.OnDateSetListener {
+public class AddScreenActivity extends FragmentActivity implements DatePickerDialog.OnDateSetListener {
     EditText inputAmountEditText,commentEditText;
     public static TextView projectTextView, categoryTextView;
     Button selectDateButton;
     DataSource dataSource;
+    ExpenseEntry expenseEntry;
 
     //PHOTO MODULE
     ImageView addImage;
     ImageView previewImageThumbnail;
     Bitmap yourImage=null;
+    Bitmap imageBitmap=null;
     byte imageInByte[];
 
     public static final String DATEPICKER_TAG = "datepicker";
@@ -157,11 +161,18 @@ public class AddScreenActivity extends ActionBarActivity implements DatePickerDi
                     String strAmount = intent.getStringExtra("amount");
                     String strDat = intent.getStringExtra("date");
                     String strComm = intent.getStringExtra("comment");
+                    byte[] byteArray = intent.getByteArrayExtra("photo");
+
                     projectTextView.setText(strProj);
                     categoryTextView.setText(strCat);
                     inputAmountEditText.setText(strAmount);
                     selectDateButton.setText(strDat);
                     commentEditText.setText(strComm);
+                    if(byteArray!=null){
+                        previewImageThumbnail= (ImageView) findViewById(R.id.imageView);
+                        Bitmap photo = BitmapFactory.decodeByteArray(byteArray, 0, byteArray.length);
+                        previewImageThumbnail.setImageBitmap(photo);
+                    }
                 }
             }
         }
@@ -250,14 +261,15 @@ public class AddScreenActivity extends ActionBarActivity implements DatePickerDi
 
 
     public void setImage(Bundle extras){
-        Bitmap imageBitmap = (Bitmap) extras.get("data");
+        imageBitmap = (Bitmap) extras.get("data");
         previewImageThumbnail.setImageBitmap(imageBitmap);
     }
 
     public void createImageInByte(Bundle extras){
-        yourImage = extras.getParcelable("data");
+        //yourImage = extras.getParcelable("data");
         ByteArrayOutputStream stream = new ByteArrayOutputStream();
-        yourImage.compress(Bitmap.CompressFormat.PNG, 100, stream);
+        //yourImage.compress(Bitmap.CompressFormat.PNG, 100, stream);*/
+        imageBitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
         imageInByte = stream.toByteArray();
         //db.addContact(new Contact("Android", imageInByte));
     }
@@ -268,8 +280,8 @@ public class AddScreenActivity extends ActionBarActivity implements DatePickerDi
         cameraIntent.putExtra("crop", "true");
         cameraIntent.putExtra("aspectX", 0);
         cameraIntent.putExtra("aspectY", 0);
-        cameraIntent.putExtra("outputX", 200);
-        cameraIntent.putExtra("outputY", 150);
+        cameraIntent.putExtra("outputX", 400);
+        cameraIntent.putExtra("outputY", 300);
         startActivityForResult(cameraIntent, CAMERA_REQUEST);
     }
 
@@ -316,7 +328,7 @@ public class AddScreenActivity extends ActionBarActivity implements DatePickerDi
             expenseEntry.setDate(date);
             expenseEntry.setComment(comment);
             expenseEntry.setPhoto(imageInByte);
-            expenseEntry=dataSource.create(expenseEntry);
+            dataSource.create(expenseEntry);
 
         startActivity(new Intent(this, DashboardListViewActivity.class));
     }

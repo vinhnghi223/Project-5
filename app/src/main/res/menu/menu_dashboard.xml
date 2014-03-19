@@ -6,10 +6,10 @@
         android:id="@+id/menu_add"
         android:orderInCategory="100"
         android:showAsAction="always"
-        android:title="+ Add New Entry"/>
+        android:title="ADD NEW"/>
     <item
-        android:id="@+id/menu_add11"
+        android:id="@+id/menu_close"
         android:orderInCategory="100"
         android:showAsAction="always"
-        android:title="+ Add New Entry11"/>
+        android:title="CLOSE"/>
 </menu>
