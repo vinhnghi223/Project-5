@@ -18,7 +18,7 @@ import pl.byd.wsg.promand.project5.dashboards.DashboardListViewActivity;
 public class ProjectActivity extends ActionBarActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.project_screen);
+        setContentView(R.layout.project_activity);
         ActionBar actionBar = getActionBar();
         actionBar.setHomeButtonEnabled(true); //this required API level 14  MIGUEL
     }

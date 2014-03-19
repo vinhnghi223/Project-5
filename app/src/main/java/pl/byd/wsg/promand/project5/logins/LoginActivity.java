@@ -19,7 +19,7 @@ public class LoginActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.login_page);
+        setContentView(R.layout.login_activity);
         ActionBar actionBar = getActionBar();
         actionBar.hide();
 

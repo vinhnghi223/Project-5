@@ -21,19 +21,17 @@ public class ExpenseEntryDetailActivity extends FragmentActivity {
     ExpenseEntry expenseEntry;
     DataSource datasource;
     TextView entryDetail;
-    Bitmap photo;
     ImageView previewImageThumbnail;
     byte[] byteArray;
-    Bundle b=null; //The bundle b object to hold the bundle got back from the intent
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_expense_entry_detail);
+        setContentView(R.layout.expense_entry_detail_activity);
         ActionBar actionBar = getActionBar();
         actionBar.setHomeButtonEnabled(true); //this required API level 14  MIGUEL
 
-        b=getIntent().getExtras();
+        Bundle b=getIntent().getExtras();
         expenseEntry=b.getParcelable(".model.ExpenseEntry");
         refreshDisplay();
 
@@ -55,7 +53,7 @@ public class ExpenseEntryDetailActivity extends FragmentActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.expense_entry_detail, menu);
+        getMenuInflater().inflate(R.menu.menu_expense_entry_detail_activity, menu);
         return true;
     }
 
@@ -134,5 +132,4 @@ public class ExpenseEntryDetailActivity extends FragmentActivity {
         }
 
     }//onActivityResult
-
 }

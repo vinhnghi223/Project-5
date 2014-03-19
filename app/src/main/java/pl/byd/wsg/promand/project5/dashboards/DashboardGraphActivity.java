@@ -4,10 +4,8 @@ package pl.byd.wsg.promand.project5.dashboards;
 import android.app.ActionBar;
 import android.content.Intent;
 import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
-import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -64,7 +62,7 @@ public class DashboardGraphActivity extends FragmentActivity implements DatePick
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.dashboard_graphview);
+        setContentView(R.layout.dashboard_graph_activity);
         //SET UP ACTION BAR
         ActionBar actionBar = getActionBar();
         actionBar.setHomeButtonEnabled(true);//this required API level 14  MIGUEL
@@ -86,7 +84,7 @@ public class DashboardGraphActivity extends FragmentActivity implements DatePick
                 //Creating the instance of PopupMenu
                 PopupMenu popup = new PopupMenu(DashboardGraphActivity.this, btnFilteredBy);
                 //Inflating the Popup using xml file
-                popup.getMenuInflater().inflate(R.menu.popup_menu, popup.getMenu());
+                popup.getMenuInflater().inflate(R.menu.menu_filter, popup.getMenu());
                 //registering popup with OnMenuItemClickListener
                 popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                     public boolean onMenuItemClick(MenuItem item) {
@@ -197,7 +195,7 @@ public class DashboardGraphActivity extends FragmentActivity implements DatePick
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_dashboard, menu);
+        getMenuInflater().inflate(R.menu.menu_dashboard_activites, menu);
         return true;
     }
 

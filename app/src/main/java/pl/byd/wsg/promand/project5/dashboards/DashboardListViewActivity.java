@@ -4,7 +4,6 @@ import android.app.ActionBar;
 import android.app.ListActivity;
 import android.content.Intent;
 import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -39,12 +38,10 @@ public class DashboardListViewActivity extends ListActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.dashboard_listview);
+        setContentView(R.layout.dashboard_listview_activity);
         //SET UP ACTION BAR
         ActionBar actionBar = getActionBar();
-
         actionBar.setHomeButtonEnabled(true); //this required API level 14  MIGUEL
-
 
         //SET UP BUTTON
         btnListView=(Button) findViewById(R.id.buttonGoToListView);
@@ -54,7 +51,7 @@ public class DashboardListViewActivity extends ListActivity {
         btnGraphView.setBackgroundColor(Color.WHITE);
         btnGraphView.setTextColor(Color.parseColor(LIGHT_BLUE));
 
-        //FILTER BY
+        //FILTER MODULE
         btnFilteredBy = (Button) findViewById(R.id.filteredByButton);
         btnFilteredBy.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -62,7 +59,7 @@ public class DashboardListViewActivity extends ListActivity {
                 //Creating the instance of PopupMenu
                 PopupMenu popup = new PopupMenu(DashboardListViewActivity.this, btnFilteredBy);
                 //Inflating the Popup using xml file
-                popup.getMenuInflater().inflate(R.menu.popup_menu, popup.getMenu());
+                popup.getMenuInflater().inflate(R.menu.menu_filter, popup.getMenu());
                 //registering popup with OnMenuItemClickListener
                 popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                     public boolean onMenuItemClick(MenuItem item) {
@@ -95,7 +92,7 @@ public class DashboardListViewActivity extends ListActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_dashboard, menu);
+        getMenuInflater().inflate(R.menu.menu_dashboard_activites, menu);
         return true;
     }
 
@@ -127,7 +124,6 @@ public class DashboardListViewActivity extends ListActivity {
         ArrayAdapter<ExpenseEntry> adapter=new ArrayAdapter<ExpenseEntry>(this, android.R.layout.simple_list_item_1,expenseEntryList);
         dataList.setAdapter(adapter);
     }
-
 
     public void GoToListView(View v){
     }
@@ -176,11 +172,6 @@ public class DashboardListViewActivity extends ListActivity {
         ExpenseEntry expenseEntry=expenseEntryList.get(position);
         Intent intent = new Intent(this, ExpenseEntryDetailActivity.class);
         intent.putExtra(".model.ExpenseEntry",expenseEntry);
-
         startActivityForResult(intent, EXPENSE_ENTRY_DETAIL_ACTIVITY);
     }
-
-
-
-
 }

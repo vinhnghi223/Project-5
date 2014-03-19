@@ -48,7 +48,7 @@ public class AddScreenActivity extends FragmentActivity implements DatePickerDia
     //PHOTO MODULE
     ImageView addImage;
     ImageView previewImageThumbnail;
-    Bitmap imageBitmap = null;
+    Bitmap imageBitmap=null;
     byte imageInByte[];
 
     public static final String DATEPICKER_TAG = "datepicker";
@@ -62,11 +62,11 @@ public class AddScreenActivity extends FragmentActivity implements DatePickerDia
         final com.fourmob.datetimepicker.date.DatePickerDialog datePickerDialog = com.fourmob.datetimepicker.date.DatePickerDialog.newInstance(this, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH));
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.add_screen_test);
+        setContentView(R.layout.add_screen_activity);
         ActionBar actionBar = getActionBar();
         actionBar.setHomeButtonEnabled(true); //this required API level 14  MIGUEL
 
-        //References for user input edit text
+        //------------------FIND VIEW BY ID------------------
         projectTextView= (Button) findViewById(R.id.chooseProjectButton);
         categoryTextView= (Button) findViewById(R.id.chooseCategoryButton);
         inputAmountEditText= (EditText) findViewById(R.id.inputAmountEditText);
@@ -105,7 +105,7 @@ public class AddScreenActivity extends FragmentActivity implements DatePickerDia
             }
         });
 
-        //INSTANTIATE DATASOURCE
+        //------------------INSTANTIATE DATASOURCE------------------
         dataSource=new DataSource(this);
         dataSource.open();
 
@@ -135,9 +135,10 @@ public class AddScreenActivity extends FragmentActivity implements DatePickerDia
         if (savedInstanceState != null) {
             com.fourmob.datetimepicker.date.DatePickerDialog dpd = (com.fourmob.datetimepicker.date.DatePickerDialog) getSupportFragmentManager().findFragmentByTag(DATEPICKER_TAG);
             if (dpd != null) {
-                dpd.setOnDateSetListener(this);
+                dpd.setOnDateSetListener((com.fourmob.datetimepicker.date.DatePickerDialog.OnDateSetListener) this);
             }
         }
+        //------------------MODIFY FUNCTIONALITY------------------
         //obtain  Intent Object send  from Modify (ExpenseEntryDetailActivity)
         Intent intent = this.getIntent();
         Log.d("MS", "Before checking from which intent it came");
@@ -173,12 +174,16 @@ public class AddScreenActivity extends FragmentActivity implements DatePickerDia
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.add_screen_menu, menu);
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_add_screen_activity, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
         switch (item.getItemId())
         {
             case android.R.id.home:
@@ -240,11 +245,13 @@ public class AddScreenActivity extends FragmentActivity implements DatePickerDia
         }
 
         //---------------------PHOTO MODULE---------------------------------
+        //if (resultCode != RESULT_OK) {
         if (requestCode == CAMERA_REQUEST && resultCode == RESULT_OK) {
             Bundle extras = data.getExtras();
             if (extras != null) {
                 setImage(extras);
                 createImageInByte(extras);
+                //return;
             }
         }
         if (requestCode == PICK_FROM_GALLERY && resultCode == RESULT_OK) {
@@ -254,9 +261,7 @@ public class AddScreenActivity extends FragmentActivity implements DatePickerDia
                 createImageInByte(extras2);
             }
         }
-    }
-
-
+    }//onActivityResult
 
     public void setImage(Bundle extras){
         imageBitmap = (Bitmap) extras.get("data");
@@ -264,13 +269,17 @@ public class AddScreenActivity extends FragmentActivity implements DatePickerDia
     }
 
     public void createImageInByte(Bundle extras){
+        //yourImage = extras.getParcelable("data");
         ByteArrayOutputStream stream = new ByteArrayOutputStream();
+        //yourImage.compress(Bitmap.CompressFormat.PNG, 100, stream);*/
         imageBitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
         imageInByte = stream.toByteArray();
+        //db.addContact(new Contact("Android", imageInByte));
     }
 
     public void callCamera() {
-        Intent cameraIntent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
+        Intent cameraIntent = new Intent(
+                android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
         cameraIntent.putExtra("crop", "true");
         cameraIntent.putExtra("aspectX", 0);
         cameraIntent.putExtra("aspectY", 0);
@@ -289,7 +298,9 @@ public class AddScreenActivity extends FragmentActivity implements DatePickerDia
         intent.putExtra("outputX", 200);
         intent.putExtra("outputY", 150);
         intent.putExtra("return-data", true);
-        startActivityForResult(Intent.createChooser(intent, "Complete action using"), PICK_FROM_GALLERY);
+        startActivityForResult(
+                Intent.createChooser(intent, "Complete action using"),
+                PICK_FROM_GALLERY);
     }
 
     public void submitExpense(View v){
@@ -310,6 +321,8 @@ public class AddScreenActivity extends FragmentActivity implements DatePickerDia
             Toast.makeText(getApplicationContext(), "Expense can't be empty",
                     Toast.LENGTH_LONG).show();
         } else {
+            //get raw string data input
+            //setup the expense entry object
             ExpenseEntry expenseEntry=new ExpenseEntry();
             expenseEntry.setProject(project);
             expenseEntry.setCategory(category);
@@ -318,15 +331,19 @@ public class AddScreenActivity extends FragmentActivity implements DatePickerDia
             expenseEntry.setComment(comment);
             expenseEntry.setPhoto(imageInByte);
             dataSource.create(expenseEntry);
-
         startActivity(new Intent(this, DashboardListViewActivity.class));
     }
-
 }
 
+    /* Maintain a persistent database connection for the entire lifetime of the activity
+    The connection object within any activity is cached. So you don't have to worry about calling
+    the open method too many times, but you should make sure that you're explicitly closing the connection
+    whenever the activity is going away. That will eliminate the possibility of what are known as database
+    connection leaks. A database connection leak can cause memory and performance issues. */
     @Override
     protected void onResume() {
         super.onResume();
+        //As the activity comes to the screen, it's onResume method is called. Thats when dataSource is opened
         dataSource.open();
     }
 
