@@ -49,7 +49,7 @@ public class AddScreenActivity extends ActionBarActivity implements DatePickerDi
     DataSource dataSource;
 
     //PHOTO MODULE
-    Button addImage;
+    ImageView addImage;
     ImageView previewImageThumbnail;
     Bitmap yourImage=null;
     byte imageInByte[];
@@ -70,8 +70,8 @@ public class AddScreenActivity extends ActionBarActivity implements DatePickerDi
         actionBar.setHomeButtonEnabled(true); //this required API level 14  MIGUEL
 
         //References for user input edit text
-        projectTextView= (TextView) findViewById(R.id.projectTextView);
-        categoryTextView= (TextView) findViewById(R.id.categoryTextView);
+        projectTextView= (Button) findViewById(R.id.chooseProjectButton);
+        categoryTextView= (Button) findViewById(R.id.chooseCategoryButton);
         inputAmountEditText= (EditText) findViewById(R.id.inputAmountEditText);
         selectDateButton=(Button) findViewById(R.id.selectDateButton);
         commentEditText= (EditText) findViewById(R.id.commentEditText);
@@ -100,7 +100,7 @@ public class AddScreenActivity extends ActionBarActivity implements DatePickerDi
         });
         final AlertDialog dialog = builder.create();
 
-        addImage = (Button) findViewById(R.id.photoButton);
+        addImage = (ImageView) findViewById(R.id.imageView);
 
         addImage.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -182,7 +182,7 @@ public class AddScreenActivity extends ActionBarActivity implements DatePickerDi
         switch (item.getItemId())
         {
             case android.R.id.home:
-                Intent intent = new Intent(this, MenuActivity.class);
+                Intent intent = new Intent(this, DashboardListViewActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
                 return true;
@@ -289,24 +289,34 @@ public class AddScreenActivity extends ActionBarActivity implements DatePickerDi
     }
 
     public void submitExpense(View v){
-        //get raw string data input
+
         String project=projectTextView.getText().toString();
         String category=categoryTextView.getText().toString();
         String amount= inputAmountEditText.getText().toString();
         String date=selectDateButton.getText().toString();
         String comment=commentEditText.getText().toString();
 
-        //setup the expense entry object
-        ExpenseEntry expenseEntry=new ExpenseEntry();
-        expenseEntry.setProject(project);
-        expenseEntry.setCategory(category);
-        expenseEntry.setAmount(amount);
-        expenseEntry.setDate(date);
-        expenseEntry.setComment(comment);
-        expenseEntry.setPhoto(imageInByte);
-        expenseEntry=dataSource.create(expenseEntry);
+        if(project.equals("Choose Project")) {
+            Toast.makeText(getApplicationContext(), "Please, choose Project",
+                    Toast.LENGTH_LONG).show();
+        } else if(category.equals("Choose Category")) {
+            Toast.makeText(getApplicationContext(), "Please, choose Category",
+                    Toast.LENGTH_LONG).show();
+        } else if(amount.equals("")){
+            Toast.makeText(getApplicationContext(), "Expense can't be empty",
+                    Toast.LENGTH_LONG).show();
+        } else {
 
-        Toast.makeText(this, "One Entry Added "+expenseEntry.getAmount(), Toast.LENGTH_LONG).show();
+            //get raw string data input
+            //setup the expense entry object
+            ExpenseEntry expenseEntry=new ExpenseEntry();
+            expenseEntry.setProject(project);
+            expenseEntry.setCategory(category);
+            expenseEntry.setAmount(amount);
+            expenseEntry.setDate(date);
+            expenseEntry.setComment(comment);
+            expenseEntry.setPhoto(imageInByte);
+            expenseEntry=dataSource.create(expenseEntry);
 
         startActivity(new Intent(this, DashboardListViewActivity.class));
     }

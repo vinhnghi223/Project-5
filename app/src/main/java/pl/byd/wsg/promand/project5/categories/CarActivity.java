@@ -11,6 +11,7 @@ import android.widget.Button;
 
 import pl.byd.wsg.promand.project5.R;
 import pl.byd.wsg.promand.project5.add.AddScreenActivity;
+import pl.byd.wsg.promand.project5.dashboards.DashboardListViewActivity;
 import pl.byd.wsg.promand.project5.menus.MenuActivity;
 
 public class CarActivity extends ActionBarActivity {
@@ -38,7 +39,7 @@ public class CarActivity extends ActionBarActivity {
         // as you specify a parent activity in AndroidManifest.xml.
         switch (item.getItemId()) {
             case android.R.id.home:
-                Intent intent = new Intent(this, MenuActivity.class);
+                Intent intent = new Intent(this, DashboardListViewActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
                 return true;
