@@ -11,6 +11,7 @@ import android.view.MenuItem;
 import android.view.View;
 
 import pl.byd.wsg.promand.project5.R;
+import pl.byd.wsg.promand.project5.dashboards.DashboardListViewActivity;
 import pl.byd.wsg.promand.project5.menus.MenuActivity;
 
 public class CategoriesActivity extends ActionBarActivity {
@@ -40,7 +41,7 @@ public class CategoriesActivity extends ActionBarActivity {
         switch (item.getItemId())
         {
             case android.R.id.home:
-                Intent intent = new Intent(this, MenuActivity.class);
+                Intent intent = new Intent(this, DashboardListViewActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
                 return true;

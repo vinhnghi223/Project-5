@@ -129,22 +129,17 @@
 
     <ImageView android:id="@+id/imageView"
         android:layout_height="wrap_content"
-        android:layout_width="fill_parent"
+        android:layout_width="match_parent"
         android:layout_margin="10dip"
-        android:src="@drawable/nophoto" />
+        android:layout_weight="1"
+        android:src="@drawable/nophoto"
+        android:onClick="submitExpense"/>
 
           <LinearLayout
               android:layout_width="match_parent"
               android:layout_height="100dp"
               android:orientation="horizontal"
               android:layout_marginTop="20dp">
-
-              <Button
-                  android:layout_width="120dp"
-                  android:layout_height="80dp"
-                  android:text="@string/photo"
-                  android:id="@+id/photoButton"
-                  />
 
               <Button
                   android:layout_width="fill_parent"

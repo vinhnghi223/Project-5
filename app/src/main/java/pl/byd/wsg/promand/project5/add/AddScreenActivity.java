@@ -49,7 +49,7 @@ public class AddScreenActivity extends ActionBarActivity implements DatePickerDi
     DataSource dataSource;
 
     //PHOTO MODULE
-    Button addImage;
+    ImageView addImage;
     ImageView previewImageThumbnail;
     Bitmap yourImage=null;
     byte imageInByte[];
@@ -100,7 +100,7 @@ public class AddScreenActivity extends ActionBarActivity implements DatePickerDi
         });
         final AlertDialog dialog = builder.create();
 
-        addImage = (Button) findViewById(R.id.photoButton);
+        addImage = (ImageView) findViewById(R.id.imageView);
 
         addImage.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -182,7 +182,7 @@ public class AddScreenActivity extends ActionBarActivity implements DatePickerDi
         switch (item.getItemId())
         {
             case android.R.id.home:
-                Intent intent = new Intent(this, MenuActivity.class);
+                Intent intent = new Intent(this, DashboardListViewActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
                 return true;
