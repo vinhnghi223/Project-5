@@ -39,8 +39,10 @@ public class DashboardGraphActivity extends ActionBarActivity implements DatePic
 
     final Calendar calendar = Calendar.getInstance();
     final com.fourmob.datetimepicker.date.DatePickerDialog from_datePickerDialog = com.fourmob.datetimepicker.date.DatePickerDialog.newInstance(this, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH));
+    final com.fourmob.datetimepicker.date.DatePickerDialog to_datePickerDialog = com.fourmob.datetimepicker.date.DatePickerDialog.newInstance(this, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH));
 
     public static final String FROM_DATEPICKER_TAG = "from_datepicker";
+    public static final String TO_DATEPICKER_TAG = "to_datepicker";
 
     //TODO Calculation for DB
 
@@ -109,21 +111,39 @@ public class DashboardGraphActivity extends ActionBarActivity implements DatePic
 
         Button nButton = (Button) findViewById(R.id.graphview_selectDateFromButton);
         nButton.setText(dynamicCalendarText);
+        Button tButton = (Button) findViewById(R.id.graphview_selectDateToButton);
+        tButton.setText(dynamicCalendarText);
 
         findViewById(R.id.graphview_selectDateFromButton).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                to_datePickerDialog.setYearRange(1999, 2028);
+                to_datePickerDialog.show(getSupportFragmentManager(), TO_DATEPICKER_TAG);
+            }
+
+        });
+
+        findViewById(R.id.graphview_selectDateToButton).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
                 from_datePickerDialog.setYearRange(1999, 2028);
                 from_datePickerDialog.show(getSupportFragmentManager(), FROM_DATEPICKER_TAG);
+
             }
         });
 
         if (savedInstanceState != null) {
-            com.fourmob.datetimepicker.date.DatePickerDialog dpd = (com.fourmob.datetimepicker.date.DatePickerDialog) getSupportFragmentManager().findFragmentByTag(FROM_DATEPICKER_TAG);
-            if (dpd != null) {
-                dpd.setOnDateSetListener((com.fourmob.datetimepicker.date.DatePickerDialog.OnDateSetListener) this);
+            com.fourmob.datetimepicker.date.DatePickerDialog dpdFrom = (com.fourmob.datetimepicker.date.DatePickerDialog) getSupportFragmentManager().findFragmentByTag(FROM_DATEPICKER_TAG);
+            if (dpdFrom != null) {
+                dpdFrom.setOnDateSetListener(this);
+            }
+
+            com.fourmob.datetimepicker.date.DatePickerDialog dpdTo = (com.fourmob.datetimepicker.date.DatePickerDialog) getSupportFragmentManager().findFragmentByTag(TO_DATEPICKER_TAG);
+            if (dpdTo != null) {
+                dpdTo.setOnDateSetListener(this);
             }
         }
+
 
     }
 
@@ -252,7 +272,7 @@ public class DashboardGraphActivity extends ActionBarActivity implements DatePic
 
     @Override
     public void onDateSet( com.fourmob.datetimepicker.date.DatePickerDialog datePickerDialog, int year, int month, int day) {
-        Button nButton = (Button) findViewById(R.id.graphview_selectDateFromButton);
+        Button nButton = (Button) findViewById(R.id.graphview_selectDateToButton);
         month += 1;
         nButton.setText(day + " / " + month + " / " + year);
     }
