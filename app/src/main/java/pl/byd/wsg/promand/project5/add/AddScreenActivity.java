@@ -189,11 +189,11 @@ public class AddScreenActivity extends FragmentActivity implements DatePickerDia
             case R.id.menu_close:
                 System.exit(0);
                 break;
-            case R.id.menu_ocr:
+            case R.id.menu_qr:
                 Intent ocrIntent = new Intent(this, QRActivity.class);
                 startActivity(ocrIntent);
                 break;
-            case R.id.menu_qr:
+            case R.id.menu_ocr:
                 Intent qrIntent = new Intent(this, OCR.class);
                 startActivity(qrIntent);
                 break;
