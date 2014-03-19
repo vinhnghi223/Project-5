@@ -2,18 +2,12 @@ package pl.byd.wsg.promand.project5.add;
 
 import android.app.ActionBar;
 import android.app.AlertDialog;
-import android.content.ContentValues;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.hardware.Camera;
 import android.support.v4.app.FragmentActivity;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -182,7 +176,7 @@ public class AddScreenActivity extends FragmentActivity implements DatePickerDia
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.add_screen_menu, menu);
+        getMenuInflater().inflate(R.menu.menu_add_screen_activity, menu);
         return true;
     }
 
@@ -201,11 +195,11 @@ public class AddScreenActivity extends FragmentActivity implements DatePickerDia
             case R.id.menu_close:
                 System.exit(0);
                 break;
-            case R.id.menu_ocr:
+            case R.id.menu_qr:
                 Intent ocrIntent = new Intent(this, QRActivity.class);
                 startActivity(ocrIntent);
                 break;
-            case R.id.menu_qr:
+            case R.id.menu_ocr:
                 Intent qrIntent = new Intent(this, OCR.class);
                 startActivity(qrIntent);
                 break;

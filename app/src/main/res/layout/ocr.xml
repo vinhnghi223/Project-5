@@ -3,17 +3,20 @@
               android:layout_width="fill_parent"
               android:layout_height="fill_parent"
               android:orientation="vertical" >
-
     <Button
-        android:id="@+id/button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Go OCR!" />
+        android:text="Scan"
+        android:layout_gravity="center"
+        android:id="@+id/button"
+        android:background="#FFFFFF"
+        android:textColor="#33B5E5"
+        android:textSize="18sp"/>
 
     <EditText
         android:id="@+id/field"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Out" />
+        android:hint="Output Text" />
 
 </LinearLayout>

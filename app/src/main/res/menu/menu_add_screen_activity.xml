@@ -1,0 +1,19 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:tools="http://schemas.android.com/tools"
+      tools:context="pl.byd.wsg.promand.project5.add.AddScreenActivity" >
+    <item
+        android:id="@+id/menu_qr"
+        android:orderInCategory="100"
+        android:showAsAction="always"
+        android:title="QR"/>
+    <item
+        android:id="@+id/menu_ocr"
+        android:orderInCategory="100"
+        android:showAsAction="always"
+        android:title="OCR"/>
+    <item
+        android:id="@+id/menu_close"
+        android:orderInCategory="100"
+        android:showAsAction="always"
+        android:title="CLOSE"/>
+</menu>
