@@ -74,9 +74,9 @@ public class TransportActivity extends ActionBarActivity {
     public void inputBus(View v) {
         Button buttonBus = (Button) findViewById(R.id.button_bus);
         String str = buttonBus.getText().toString();
-        AddScreenActivity.categoryTextView.setText(str);
 
         Intent returnIntent = new Intent();
+        returnIntent.putExtra("result",str);
         setResult(RESULT_OK, returnIntent);
         this.finish();
     }
@@ -84,9 +84,9 @@ public class TransportActivity extends ActionBarActivity {
     public void inputTaxi(View v) {
         Button buttonTaxi = (Button) findViewById(R.id.button_taxi);
         String str = buttonTaxi.getText().toString();
-        AddScreenActivity.categoryTextView.setText(str);
 
         Intent returnIntent = new Intent();
+        returnIntent.putExtra("result",str);
         setResult(RESULT_OK, returnIntent);
         this.finish();
     }
@@ -94,9 +94,9 @@ public class TransportActivity extends ActionBarActivity {
     public void inputPublicTransport(View v) {
         Button buttonPublicTransport = (Button) findViewById(R.id.button_public_transport);
         String str = buttonPublicTransport.getText().toString();
-        AddScreenActivity.categoryTextView.setText(str);
 
         Intent returnIntent = new Intent();
+        returnIntent.putExtra("result",str);
         setResult(RESULT_OK, returnIntent);
         this.finish();
     }
