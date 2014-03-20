@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import pl.byd.wsg.promand.project5.dashboards.DashboardGraphActivity;
 import pl.byd.wsg.promand.project5.dashboards.DashboardListViewActivity;
 import pl.byd.wsg.promand.project5.R;
 
@@ -39,7 +40,7 @@ public class LoginActivity extends Activity {
         et.getEditableText().toString();
 
         if (PIN.equals("1234")) {
-            Intent intent = new Intent(this, DashboardListViewActivity.class);
+            Intent intent = new Intent(this, DashboardGraphActivity.class);
             startActivity(intent);
             this.finish();
         }

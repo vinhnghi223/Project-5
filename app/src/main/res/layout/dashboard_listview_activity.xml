@@ -15,6 +15,7 @@
             android:layout_height="50sp"
             android:id="@+id/buttonGoToListView"
             android:onClick="GoToListView"
+            android:clickable="false"
             android:text="Item List"
             android:layout_weight="0.5"/>
 

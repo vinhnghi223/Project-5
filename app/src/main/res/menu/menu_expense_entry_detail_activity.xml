@@ -12,9 +12,4 @@
         android:orderInCategory="100"
         android:showAsAction="always"
         android:title="MODIFY"/>
-    <item
-        android:id="@+id/menu_close"
-        android:orderInCategory="100"
-        android:showAsAction="always"
-        android:title="CLOSE"/>
 </menu>

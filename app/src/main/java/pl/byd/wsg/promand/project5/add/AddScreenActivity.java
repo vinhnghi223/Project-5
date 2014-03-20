@@ -193,9 +193,6 @@ public class AddScreenActivity extends FragmentActivity implements DatePickerDia
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
                 return true;
-            case R.id.menu_close:
-                System.exit(0);
-                break;
             case R.id.menu_qr:
                 IntentIntegrator scanIntegrator = new IntentIntegrator(this);
                 scanIntegrator.initiateScan();
@@ -337,9 +334,23 @@ public class AddScreenActivity extends FragmentActivity implements DatePickerDia
             dataSource.create(expenseEntry);
             Toast.makeText(getApplicationContext(), "Entry saved successfully",
                     Toast.LENGTH_LONG).show();
-        startActivity(new Intent(this, DashboardListViewActivity.class));
+
+
+            //It will close this application and the DashboardListView, not allowing us
+            //to get back to a expense list that hasn't updated information
+            Log.d("MS", "Before return intent");
+            Intent returnIntent = new Intent();
+            setResult(RESULT_OK,returnIntent);
+            this.finish();
+
+            startActivity(new Intent(this, DashboardListViewActivity.class));
     }
 }
+
+
+
+
+
 
     /* Maintain a persistent database connection for the entire lifetime of the activity
     The connection object within any activity is cached. So you don't have to worry about calling

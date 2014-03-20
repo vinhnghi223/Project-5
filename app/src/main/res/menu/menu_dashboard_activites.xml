@@ -7,9 +7,4 @@
         android:orderInCategory="100"
         android:showAsAction="always"
         android:title="ADD NEW"/>
-    <item
-        android:id="@+id/menu_close"
-        android:orderInCategory="100"
-        android:showAsAction="always"
-        android:title="CLOSE"/>
 </menu>

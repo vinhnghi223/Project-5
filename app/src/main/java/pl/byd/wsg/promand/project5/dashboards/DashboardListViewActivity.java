@@ -40,8 +40,8 @@ public class DashboardListViewActivity extends ListActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.dashboard_listview_activity);
         //SET UP ACTION BAR
-        ActionBar actionBar = getActionBar();
-        actionBar.setHomeButtonEnabled(true); //this required API level 14  MIGUEL
+
+
 
         //SET UP BUTTON
         btnListView=(Button) findViewById(R.id.buttonGoToListView);
@@ -104,16 +104,8 @@ public class DashboardListViewActivity extends ListActivity {
         switch (item.getItemId())
         {
             case R.id.menu_add:
-                Intent GoToAddScreenIntent = new Intent(this, AddScreenActivity.class);
-                startActivity(GoToAddScreenIntent);
-                break;
-            case android.R.id.home:
-                Intent intent = new Intent(this, DashboardListViewActivity.class);
-                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                startActivity(intent);
-                return true;
-            case R.id.menu_close:
-                System.exit(0);
+                Intent intent3 = new Intent(this, AddScreenActivity.class);
+                startActivityForResult(intent3, 3);
                 break;
         }
         return super.onOptionsItemSelected(item);
@@ -130,8 +122,8 @@ public class DashboardListViewActivity extends ListActivity {
 
     public void GoToGraphView(View v){
         Intent intent = new Intent(this, DashboardGraphActivity.class);
-        //this.finish();
         startActivity(intent);
+        this.finish();
     }
     public void filteredByCategories(){
         Intent intent = new Intent(this, CategoriesActivity.class);
@@ -163,6 +155,26 @@ public class DashboardListViewActivity extends ListActivity {
             if (resultCode == RESULT_CANCELED){
                 Log.d("MS", "It's in   resultCode == RESULT_CANCELED");
             }
+        }
+        if (requestCode==3){
+            if (resultCode==RESULT_OK){
+                Log.d("MS", "Inside finishing request_code=3...");
+                this.finish();
+            }
+            if (resultCode == RESULT_CANCELED){
+                Log.d("MS", "It's in   resultCode == RESULT_CANCELED  request_code=3...");
+            }
+
+        }
+        if (requestCode==EXPENSE_ENTRY_DETAIL_ACTIVITY){
+            if (resultCode==RESULT_OK){
+                Log.d("MS", "Inside finishing rquest_code=EXPENSE_ENTRY...");
+                this.finish();
+            }
+            if (resultCode == RESULT_CANCELED){
+                Log.d("MS", "It's in   resultCode == RESULT_CANCELED  EXPENSE_ENTRY_DETAIL...");
+            }
+
         }
     }//onActivityResult
 

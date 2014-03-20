@@ -25,6 +25,7 @@
             android:layout_height="50sp"
             android:id="@+id/buttonGoToGraphView"
             android:onClick="GoToGraphView"
+            android:clickable="false"
             android:text="Graph"
             android:layout_weight="0.5"
             android:layout_gravity="top|center_horizontal"/>

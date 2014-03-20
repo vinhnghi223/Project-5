@@ -63,9 +63,6 @@ public class DashboardGraphActivity extends FragmentActivity implements DatePick
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.dashboard_graph_activity);
-        //SET UP ACTION BAR
-        ActionBar actionBar = getActionBar();
-        actionBar.setHomeButtonEnabled(true);//this required API level 14  MIGUEL
 
 
         //SET BUTTON COLOR
@@ -208,15 +205,7 @@ public class DashboardGraphActivity extends FragmentActivity implements DatePick
         {
             case R.id.menu_add:
                 Intent GoToAddScreenIntent = new Intent(this, AddScreenActivity.class);
-                startActivity(GoToAddScreenIntent);
-                break;
-            case android.R.id.home:
-                Intent intent = new Intent(this, DashboardListViewActivity.class);
-                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                startActivity(intent);
-                return true;
-            case R.id.menu_close:
-                System.exit(0);
+                startActivityForResult(GoToAddScreenIntent,1);
                 break;
         }
         return super.onOptionsItemSelected(item);
@@ -224,8 +213,8 @@ public class DashboardGraphActivity extends FragmentActivity implements DatePick
 
     public void GoToListView(View v){
         Intent intent = new Intent(this, DashboardListViewActivity.class);
-        //this.finish();
         startActivity(intent);
+        this.finish();
     }
     public void GoToGraphView(View v){
     }
@@ -317,6 +306,17 @@ public class DashboardGraphActivity extends FragmentActivity implements DatePick
         BarGraph g = (BarGraph)findViewById(R.id.pieGraph);
         g.setBars(points);
     }
+
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == 1) {
+            if(resultCode == RESULT_OK){
+                this.finish();
+            }
+            if (resultCode == RESULT_CANCELED) {
+                Log.d("MS", "It's in   resultCode == RESULT_CANCELED");
+            }
+        }
+    }//onActivityResult
 
     @Override
     public void onDateSet( com.fourmob.datetimepicker.date.DatePickerDialog datePickerDialog, int year, int month, int day) {

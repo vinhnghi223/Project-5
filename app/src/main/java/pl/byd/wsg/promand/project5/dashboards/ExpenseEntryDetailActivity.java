@@ -74,6 +74,8 @@ public class ExpenseEntryDetailActivity extends FragmentActivity {
                 startActivity(intent0);
                 return true;
             case R.id.menu_delete:
+                Intent returnIntent = new Intent();
+                setResult(RESULT_OK,returnIntent);
                 if (datasource.removeEntry(expenseEntry)) {
                     Toast.makeText(getApplicationContext(), "One entry deleted",
                             Toast.LENGTH_LONG).show();
@@ -83,6 +85,7 @@ public class ExpenseEntryDetailActivity extends FragmentActivity {
                 }
                 break;
             case R.id.menu_modify:
+
                 String project = expenseEntry.getProject();
                 String category = expenseEntry.getCategory();
                 String amount = expenseEntry.getAmount();
@@ -101,15 +104,12 @@ public class ExpenseEntryDetailActivity extends FragmentActivity {
                 intent.putExtra("comment",comment);
                 intent.putExtra("photo",byteArray2);
 
-                startActivity(intent);
+                startActivityForResult(intent,1);
 
                 if (datasource.removeEntry(expenseEntry)) {
                     setResult(-1);
-                    this.finish();
+
                 }
-            case R.id.menu_close:
-                System.exit(0);
-                break;
         }
         return super.onOptionsItemSelected(item);
     }
@@ -131,6 +131,8 @@ public class ExpenseEntryDetailActivity extends FragmentActivity {
             Log.d("MS", "Inside requestCode");
             if(resultCode == RESULT_OK){
                 Log.d("MS", "Inside OK");
+                Intent returnIntent1 = new Intent();
+                setResult(RESULT_OK,returnIntent1);
                 this.finish();
             }
             if (resultCode == RESULT_CANCELED) {
