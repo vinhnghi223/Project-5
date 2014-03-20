@@ -1,4 +1,4 @@
-Smart Mobile Expense Manager(R) Version 1.0 21/03/2013
+Smart Mobile Expense Manager 1.0
 =============
 Description 
 -------
