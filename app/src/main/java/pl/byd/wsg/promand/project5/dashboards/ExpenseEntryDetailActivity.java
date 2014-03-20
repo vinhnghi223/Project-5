@@ -69,7 +69,7 @@ public class ExpenseEntryDetailActivity extends FragmentActivity {
         // as you specify a parent activity in AndroidManifest.xml.
         switch (item.getItemId()) {
             case android.R.id.home:
-                Intent intent0 = new Intent(this, DashboardListViewActivity.class);
+                Intent intent0 = new Intent(this, DashboardGraphActivity.class);
                 intent0.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent0);
                 return true;
