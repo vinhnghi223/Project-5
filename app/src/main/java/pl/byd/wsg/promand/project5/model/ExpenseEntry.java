@@ -87,7 +87,7 @@ public class ExpenseEntry implements Parcelable{
     public String toString() {
         NumberFormat nf = NumberFormat.getCurrencyInstance();
         //return project + "\n("+nf.format(amount)+")";
-        return "PROJECT: "+project+ "\nCATEGORY: "+category+"\nAMOUNT: "+amount+"\nDATE: " + date;
+        return "PROJECT: "+project+ "\nCATEGORY: "+category+"\nAMOUNT: "+amount+"\nDATE: " + date + "\nCOMMENT: " + comment;
     }
     //For detail view
     public String getText() {
