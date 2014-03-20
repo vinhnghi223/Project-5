@@ -42,4 +42,5 @@ Mobile Expense Manager is developed by Nghi Le, Marta Pawłowska, Miguel Santos 
 Contact us
 -------
 https://twitter.com/vinhnghi223
+http://sergeykibish.com
 http://www.promand.byd.pl
