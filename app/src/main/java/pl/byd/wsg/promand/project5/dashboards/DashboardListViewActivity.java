@@ -66,8 +66,10 @@ public class DashboardListViewActivity extends ListActivity {
                         Log.i("MenuItemClick", "Item Id"+item.getItemId());
                         if(item.getTitle().toString().equals("Projects")){
                             filteredByProjects();
+                            btnFilteredBy.setText("Projects");
                         }else{
                             filteredByCategories();
+                            btnFilteredBy.setText("Categories");
                         }
                         return true;
                     }

@@ -81,9 +81,11 @@ public class DashboardGraphActivity extends FragmentActivity implements DatePick
                         if(item.getTitle().toString().equals("Projects")){
                             filterByCategories = false;
                             goProjects();
+                            btnFilteredBy.setText("Projects");
                         }else{
                             filterByCategories = true;
                             goCategories();
+                            btnFilteredBy.setText("Categories");
                         }
                         return true;
                     }
