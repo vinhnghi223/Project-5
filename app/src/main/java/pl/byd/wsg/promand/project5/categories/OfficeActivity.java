@@ -11,6 +11,7 @@ import android.widget.Button;
 
 import pl.byd.wsg.promand.project5.R;
 
+import pl.byd.wsg.promand.project5.dashboards.DashboardGraphActivity;
 import pl.byd.wsg.promand.project5.dashboards.DashboardListViewActivity;
 
 
@@ -40,7 +41,7 @@ public class OfficeActivity extends ActionBarActivity {
         switch (item.getItemId())
         {
             case android.R.id.home:
-                Intent intent = new Intent(this, DashboardListViewActivity.class);
+                Intent intent = new Intent(this, DashboardGraphActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
                 return true;

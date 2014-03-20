@@ -26,6 +26,7 @@ import com.fourmob.datetimepicker.date.DatePickerDialog;
 import pl.byd.wsg.promand.project5.QRcode.android.IntentIntegrator;
 import pl.byd.wsg.promand.project5.categories.CategoriesActivity;
 
+import pl.byd.wsg.promand.project5.dashboards.DashboardGraphActivity;
 import pl.byd.wsg.promand.project5.dashboards.DashboardListViewActivity;
 import pl.byd.wsg.promand.project5.database.DataSource;
 
@@ -202,7 +203,7 @@ public class AddScreenActivity extends FragmentActivity implements DatePickerDia
         switch (item.getItemId())
         {
             case android.R.id.home:
-                Intent intent = new Intent(this, DashboardListViewActivity.class);
+                Intent intent = new Intent(this, DashboardGraphActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
                 return true;
