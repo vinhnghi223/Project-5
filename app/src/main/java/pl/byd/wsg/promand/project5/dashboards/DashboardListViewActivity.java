@@ -1,7 +1,9 @@
 package pl.byd.wsg.promand.project5.dashboards;
 
 import android.app.ActionBar;
+import android.app.AlertDialog;
 import android.app.ListActivity;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -111,6 +113,19 @@ public class DashboardListViewActivity extends ListActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+
+    /*public void onBackPressed() {
+        System.runFinalizersOnExit(true);
+            *//*
+             * Force the system to close the app down completely instead of
+             * retaining it in the background. The virtual machine that runs the
+             * app will be killed. The app will be completely created as a new
+             * app in a new virtual machine running in a new process if the user
+             * starts the app again.
+             *//*
+        System.exit(0);
+    }*/
+
 
     public void refreshDisplay(){
         ListView dataList=(ListView)findViewById(android.R.id.list);

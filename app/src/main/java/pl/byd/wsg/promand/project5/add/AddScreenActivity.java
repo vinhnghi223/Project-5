@@ -9,6 +9,7 @@ import android.graphics.BitmapFactory;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -45,6 +46,7 @@ public class AddScreenActivity extends FragmentActivity implements DatePickerDia
     public static TextView projectTextView, categoryTextView;
     Button selectDateButton;
     DataSource dataSource;
+    ExpenseEntry expenseToDelete;
 
     //PHOTO MODULE
     ImageView addImage;
@@ -152,12 +154,23 @@ public class AddScreenActivity extends FragmentActivity implements DatePickerDia
             if (strdata != null) {
                 if (strdata.equals("from_modify")) {
                     Log.d("MS", "inside strdata.equals(from_modify)");
+
                     String strProj = intent.getStringExtra("project");
                     String strCat = intent.getStringExtra("category");
                     String strAmount = intent.getStringExtra("amount");
                     String strDat = intent.getStringExtra("date");
                     String strComm = intent.getStringExtra("comment");
                     imageInByte = intent.getByteArrayExtra("photo"); //byteArray is an array of byte
+
+                    Log.d("MS", "Before getting values in expenseToDelete");
+                    expenseToDelete= new ExpenseEntry();
+                    expenseToDelete.setId(intent.getLongExtra("id",0));
+                    expenseToDelete.setProject(strProj);
+                    expenseToDelete.setCategory(strCat);
+                    expenseToDelete.setAmount(strAmount);
+                    expenseToDelete.setDate(strDat);
+                    expenseToDelete.setComment(strComm);
+                    expenseToDelete.setPhoto(imageInByte);
 
                     projectTextView.setText(strProj);
                     categoryTextView.setText(strCat);
@@ -217,7 +230,7 @@ public class AddScreenActivity extends FragmentActivity implements DatePickerDia
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        Log.d("MS", "Inside onActivityResult");
+        Log.d("MS", "AddScreenActivity  Inside onActivityResult");
         if (requestCode == 4) {
             Log.d("MS", "Inside requestCode");
             if(resultCode == RESULT_OK){
@@ -302,6 +315,17 @@ public class AddScreenActivity extends FragmentActivity implements DatePickerDia
                 PICK_FROM_GALLERY);
     }
 
+    public boolean onKeyDown(int keyCode, KeyEvent event)  {
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+            Intent returnIntent = new Intent();
+            setResult(RESULT_CANCELED,returnIntent);
+            //finishActivity(1001);
+            this.finish();
+        }
+
+        return super.onKeyDown(keyCode, event);
+    }
+
     public void submitExpense(View v){
 
         String project=projectTextView.getText().toString();
@@ -331,6 +355,7 @@ public class AddScreenActivity extends FragmentActivity implements DatePickerDia
 
             expenseEntry.setPhoto(imageInByte);
 
+            if (expenseToDelete!=null) dataSource.removeEntry(expenseToDelete);
             dataSource.create(expenseEntry);
             Toast.makeText(getApplicationContext(), "Entry saved successfully",
                     Toast.LENGTH_LONG).show();
@@ -338,9 +363,10 @@ public class AddScreenActivity extends FragmentActivity implements DatePickerDia
 
             //It will close this application and the DashboardListView, not allowing us
             //to get back to a expense list that hasn't updated information
-            Log.d("MS", "Before return intent");
+            Log.d("MS", "Before return intent on submit");
             Intent returnIntent = new Intent();
             setResult(RESULT_OK,returnIntent);
+            //finishActivity(1001);
             this.finish();
 
             startActivity(new Intent(this, DashboardListViewActivity.class));

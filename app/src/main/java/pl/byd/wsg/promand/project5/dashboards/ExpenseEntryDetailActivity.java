@@ -86,6 +86,7 @@ public class ExpenseEntryDetailActivity extends FragmentActivity {
                 break;
             case R.id.menu_modify:
 
+                long id = expenseEntry.getId();
                 String project = expenseEntry.getProject();
                 String category = expenseEntry.getCategory();
                 String amount = expenseEntry.getAmount();
@@ -97,6 +98,7 @@ public class ExpenseEntryDetailActivity extends FragmentActivity {
                 intent.setClass(this,AddScreenActivity.class);
                 intent.putExtra("Uniqid", "from_modify");
                 Log.d("MS", "Value Uniqid=" + intent.getStringExtra("Uniqid"));
+                intent.putExtra("id",id);
                 intent.putExtra("project", project);
                 intent.putExtra("category",category);
                 intent.putExtra("amount",amount);
@@ -105,11 +107,6 @@ public class ExpenseEntryDetailActivity extends FragmentActivity {
                 intent.putExtra("photo",byteArray2);
 
                 startActivityForResult(intent,1);
-
-                if (datasource.removeEntry(expenseEntry)) {
-                    setResult(-1);
-
-                }
         }
         return super.onOptionsItemSelected(item);
     }
@@ -126,19 +123,28 @@ public class ExpenseEntryDetailActivity extends FragmentActivity {
     }
 
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        Log.d("MS", "Inside onActivityResult");
+        Log.d("MS", "ExpenseEntryDetail   Inside onActivityResult");
         if (requestCode == 1) {
-            Log.d("MS", "Inside requestCode");
+            Log.d("MS", "expenseEntryDetailActivity  Inside requestCode");
             if(resultCode == RESULT_OK){
-                Log.d("MS", "Inside OK");
+                Log.d("MS", "expenseEntryDetailActivity  Inside OK ");
+                Log.d("MS", "expenseEntryDetailActivity  Inside OK before delete ");
+               // datasource.removeEntry(expenseEntry);
                 Intent returnIntent1 = new Intent();
                 setResult(RESULT_OK,returnIntent1);
+
                 this.finish();
             }
             if (resultCode == RESULT_CANCELED) {
-                Log.d("MS", "It's in   resultCode == RESULT_CANCELED");
+                Log.d("MS", "expenseEntryDetailActivityv   It's in   resultCode == RESULT_CANCELED");
+                Intent returnIntent1 = new Intent();
+                setResult(RESULT_CANCELED,returnIntent1);
+
             }
         }
 
     }//onActivityResult
+
+
 }
+
