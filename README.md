@@ -11,7 +11,15 @@ Installation instructions
 Download the apk file here and install it into your app. Optionally, to be able to use QR code functionality, it is required that your device has Barcode Scanner already installed.
 
 Usage
-(On development)
+Brief instructional video:
+[![Alt text for your video](https://raw.githubusercontent.com/PROMAND/Project-5/master/Video0.PNG)](https://www.youtube.com/watch?v=skWaZTa-8B8)
+[![Alt text for your video](https://raw.githubusercontent.com/PROMAND/Project-5/master/Video1.PNG)](http://www.youtube.com/watch?v=Qq9C2B0xtt4)
+![](https://raw.githubusercontent.com/PROMAND/Project-5/master/Screenshot.png)
+
+
+Screenshots:
+
+
 
 Features
 -------
