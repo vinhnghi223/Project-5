@@ -13,7 +13,7 @@ Download the apk file here and install it into your app. Optionally, to be able 
 Usage
 (On development)
 
-Features:
+Features
 -------
 •	Modern flat design with friendly and good user experience.
 •	Easy entry input with features for attach photos via taking photo from camera or from gallery or social networks.
@@ -39,6 +39,6 @@ Contributor
 Mobile Expense Manager is developed by Nghi Le, Marta Pawłowska, Miguel Santos and Sergey Kibish. Our customer is a telecom company located in Portugal. 
 (On development)
 
-Contact us at:
+Contact us
 -------
 http://www.promand.byd.pl
