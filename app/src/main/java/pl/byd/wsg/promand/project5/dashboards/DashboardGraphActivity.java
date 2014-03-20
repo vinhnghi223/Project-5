@@ -49,15 +49,7 @@ public class DashboardGraphActivity extends FragmentActivity implements DatePick
     public static final String FROM_DATEPICKER_TAG = "from_datepicker";
     public static final String TO_DATEPICKER_TAG = "to_datepicker";
 
-    //TODO Calculation for DB
-
-    float c1_total_amount = (float) 30.12;
-    float c2_total_amount = (float) 20.15;
-    float c3_total_amount = (float) 30.43;
-    float c4_total_amount = (float) 40.04;
-    float c5_total_amount = (float) 50.99;
-
-    boolean isCategory = true;
+    boolean filterByCategories = true;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -87,8 +79,10 @@ public class DashboardGraphActivity extends FragmentActivity implements DatePick
                     public boolean onMenuItemClick(MenuItem item) {
                         Log.i("MenuItemClick", "Item Id"+item.getItemId());
                         if(item.getTitle().toString().equals("Projects")){
+                            filterByCategories = false;
                             goProjects();
                         }else{
+                            filterByCategories = true;
                             goCategories();
                         }
                         return true;
@@ -342,6 +336,89 @@ public class DashboardGraphActivity extends FragmentActivity implements DatePick
                     nButton.setText(year + "-" + "0" + month + "-" + "0" + day);
                 }
             }
+        }
+
+        if(filterByCategories){
+            Button fromButton = (Button) findViewById(R.id.graphview_selectDateFromButton);
+            Button toButton = (Button) findViewById(R.id.graphview_selectDateToButton);
+
+            Float meal_total = dataSource.sumAllMeal(fromButton.getText().toString(), toButton.getText().toString());
+            Float transport_total = dataSource.sumAllTransport(fromButton.getText().toString(), toButton.getText().toString());
+            Float comcar_total = dataSource.sumAllCompanyCar(fromButton.getText().toString(), toButton.getText().toString());
+            Float office_total = dataSource.sumAllOfficeMaterials(fromButton.getText().toString(), toButton.getText().toString());
+            Float repexp_total = dataSource.sumAllRepresentationExpenses(fromButton.getText().toString(), toButton.getText().toString());
+
+            //Create Bar chart for categories by default
+            ArrayList<Bar> points = new ArrayList<Bar>();
+            Bar d = new Bar();
+            d.setColor(Color.parseColor("#33B5E5"));
+            d.setName("Meals");
+            d.setValue(meal_total);
+            Bar d2 = new Bar();
+            d2.setColor(Color.parseColor("#AA66CC"));
+            d2.setName("Transport");
+            d2.setValue(transport_total);
+
+            Bar d3 = new Bar();
+            d3.setColor(Color.parseColor("#99CC00"));
+            d3.setName("Company Car");
+            d3.setValue(comcar_total);
+
+            Bar d4 = new Bar();
+            d4.setColor(Color.parseColor("#FFBB33"));
+            d4.setName("Office Material");
+            d4.setValue(office_total);
+
+            Bar d5 = new Bar();
+            d5.setColor(Color.parseColor("#FF4444"));
+            d5.setName("Representation Expenses");
+            d5.setValue(repexp_total);
+
+            points.add(d);
+            points.add(d2);
+            points.add(d3);
+            points.add(d4);
+            points.add(d5);
+
+            BarGraph g = (BarGraph)findViewById(R.id.pieGraph);
+            g.setBars(points);
+        } else {
+            Button fromButton = (Button) findViewById(R.id.graphview_selectDateFromButton);
+            Button toButton = (Button) findViewById(R.id.graphview_selectDateToButton);
+
+            Float project1_total = dataSource.sumAllProject("Project 1", fromButton.getText().toString(), toButton.getText().toString());
+            Float project2_total = dataSource.sumAllProject("Project 2", fromButton.getText().toString(), toButton.getText().toString());
+            Float project3_total = dataSource.sumAllProject("Project 3", fromButton.getText().toString(), toButton.getText().toString());
+            Float project4_total = dataSource.sumAllProject("Project 4", fromButton.getText().toString(), toButton.getText().toString());
+
+            ArrayList<Bar> points = new ArrayList<Bar>();
+            Bar d = new Bar();
+            d.setColor(Color.parseColor("#33B5E5"));
+            d.setName("Project 1");
+            d.setValue(project1_total);
+
+            Bar d2 = new Bar();
+            d2.setColor(Color.parseColor("#AA66CC"));
+            d2.setName("Project 2");
+            d2.setValue(project2_total);
+
+            Bar d3 = new Bar();
+            d3.setColor(Color.parseColor("#99CC00"));
+            d3.setName("Project 3");
+            d3.setValue(project3_total);
+
+            Bar d4 = new Bar();
+            d4.setColor(Color.parseColor("#FFBB33"));
+            d4.setName("Project 4");
+            d4.setValue(project4_total);
+
+            points.add(d);
+            points.add(d2);
+            points.add(d3);
+            points.add(d4);
+
+            BarGraph g = (BarGraph)findViewById(R.id.pieGraph);
+            g.setBars(points);
         }
     }
 }
