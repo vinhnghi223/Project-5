@@ -28,6 +28,7 @@ public class DashboardListViewActivity extends ListActivity {
     DataSource dataSource;
     List<ExpenseEntry> expenseEntryList;
     private static final int EXPENSE_ENTRY_DETAIL_ACTIVITY = 1001;
+    String result;
 
     //SET UP BUTTON
     static final String LIGHT_BLUE="#33B5E5";
@@ -66,10 +67,8 @@ public class DashboardListViewActivity extends ListActivity {
                         Log.i("MenuItemClick", "Item Id"+item.getItemId());
                         if(item.getTitle().toString().equals("Projects")){
                             filteredByProjects();
-                            btnFilteredBy.setText("Projects");
                         }else{
                             filteredByCategories();
-                            btnFilteredBy.setText("Categories");
                         }
                         return true;
                     }
@@ -140,7 +139,7 @@ public class DashboardListViewActivity extends ListActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == 1) {
             if(resultCode == RESULT_OK){
-                String result=data.getStringExtra("result");
+                result=data.getStringExtra("result");
                 expenseEntryList=dataSource.findFiltered("project = \""+result+"\"" ,"amount ASC");
                 refreshDisplay();
             }
@@ -150,7 +149,7 @@ public class DashboardListViewActivity extends ListActivity {
         }
         if (requestCode ==2){
             if (resultCode==RESULT_OK){
-                String result=data.getStringExtra("result");
+               result=data.getStringExtra("result");
                 expenseEntryList=dataSource.findFiltered("category = \""+result+"\"" ,"amount ASC");
                 refreshDisplay();
             }
@@ -158,6 +157,14 @@ public class DashboardListViewActivity extends ListActivity {
                 Log.d("MS", "It's in   resultCode == RESULT_CANCELED");
             }
         }
+
+        //Display what has been select as a filter on the Filter button
+        if(result==null){
+            btnFilteredBy.setText("Select filter");
+        }else {
+            btnFilteredBy.setText("Filtered by " + result);
+        }
+
         if (requestCode==3){
             if (resultCode==RESULT_OK){
                 Log.d("MS", "Inside finishing request_code=3...");

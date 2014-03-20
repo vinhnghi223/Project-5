@@ -42,7 +42,7 @@
             android:layout_height="match_parent"
             android:id="@+id/filteredByButton"
             style="?android:attr/spinnerStyle"
-            android:text="Filtered By"/>
+            android:text="Select filter"/>
         <TextView
             android:textSize="18sp"
             android:layout_width="wrap_content"
