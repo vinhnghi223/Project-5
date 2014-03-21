@@ -293,7 +293,7 @@ public class AddScreenActivity extends FragmentActivity implements DatePickerDia
     public void callCamera() {
         Intent cameraIntent = new Intent(
                 android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
-        cameraIntent.putExtra("crop", "true");
+        //cameraIntent.putExtra("crop", "true");
         cameraIntent.putExtra("aspectX", 0);
         cameraIntent.putExtra("aspectY", 0);
         cameraIntent.putExtra("outputX", 400);
