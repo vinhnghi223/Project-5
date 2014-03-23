@@ -9,7 +9,7 @@ The data will be saved and displayed in a list view style or a bar graph view st
 
 Installation instructions
 -------
-Download the apk file here and install it into your app. Optionally, to be able to use QR code functionality, it is required that your device has Barcode Scanner already installed.
+Download the apk file here (https://github.com/PROMAND/Project-5/blob/master/smem-1.0.rar) and install it into your app. Optionally, to be able to use QR code functionality, it is required that your device has Barcode Scanner already installed.
 
 Brief instructionalon usage video
 -------
@@ -50,8 +50,8 @@ Mobile Expense Manager is developed by Nghi Le, Sergey Kibish, Miguel Santos and
 | Nghi Le         | Sergey Kibish   | Miguel Santos   | Marta Pawłowska
 | ----------------| ----------------| ----------------| ----------------|
 | Team leader     | Scrum master    | Developer       | Developer       |
-| Developer       | Developer       | Tester          | Designer        |
-| Designer        | Tester          |                 |                 |
+| Developer       | Developer       | Tester          | UI/UX Designer  |
+| UI/UX Designer  | Tester          |                 |                 |
 
 Contact us
 -------
