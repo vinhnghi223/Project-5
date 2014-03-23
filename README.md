@@ -2,11 +2,6 @@ Smart Mobile Expense Manager 1.0
 =============
 Description 
 -------
-Nghi
-sthing			Sergei	    	Miguel	   Marta
-sdfsd				sdfdf					fvf					v
-
-
 
 This is an application that was created to ease the tracking of expenses related item. It has been tailored to allow easy entry of these items throughout categories and projects. Smart Mobile Expense Manager (SMEM) also offer users the capabilities of taking pictures (eg. of bills as proof) from camera or attach pictures from gallery or other sources (such as email, social networks etc.)
 
@@ -50,6 +45,12 @@ Contributor
 -------
 Mobile Expense Manager is developed by Nghi Le, Marta Pawłowska, Miguel Santos and Sergey Kibish. Our customer is a telecom company located in Portugal. 
 (On development)
+
+| Nghi Le       | Sergey Kibish | Miguel Santos  | Marta Pawłowska
+| ------------- |---------------| ---------------| ---------------|
+| col 3 is      | right-aligned | $1600          |                |
+| col 2 is      | centered      |   $12          |                |
+| zebra stripes | are neat      |    $1          |                |
 
 Contact us
 -------
