@@ -45,7 +45,7 @@ Contributor
 -------
 Mobile Expense Manager is developed by Nghi Le, Sergey Kibish, Miguel Santos and Marta Pawłowska. Our customer is a telecom company located in Portugal. 
 
-![](https://github.com/PROMAND/Project-5/blob/master/dream%20team%205.png)
+![](https://raw.githubusercontent.com/PROMAND/Project-5/master/dream%20team%205.png)
 
 | Nghi Le       | Sergey Kibish | Miguel Santos  | Marta Pawłowska
 | ------------- |---------------| ---------------| ----------------|
