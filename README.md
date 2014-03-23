@@ -43,14 +43,15 @@ Smart Mobile Expense Manager is free software: you can redistribute it and/or mo
 Smart Mobile Expense Manager is distributed in the hope that it will be useful. See the GNU General Public License for more details.
 Contributor
 -------
-Mobile Expense Manager is developed by Nghi Le, Marta Pawłowska, Miguel Santos and Sergey Kibish. Our customer is a telecom company located in Portugal. 
-(On development)
+Mobile Expense Manager is developed by Nghi Le, Sergey Kibish, Miguel Santos and Marta Pawłowska. Our customer is a telecom company located in Portugal. 
+
+![](https://github.com/PROMAND/Project-5/blob/master/dream%20team%205.png)
 
 | Nghi Le       | Sergey Kibish | Miguel Santos  | Marta Pawłowska
-| ------------- |---------------| ---------------| ---------------|
-| col 3 is      | right-aligned | $1600          |                |
-| col 2 is      | centered      |   $12          |                |
-| zebra stripes | are neat      |    $1          |                |
+| ------------- |---------------| ---------------| ----------------|
+| Team leader   | Scrum master  | Developer      | Developer       |
+| Developer     | Developer     | Tester         | Designer        |
+| Designer      | Tester        |                |                 |
 
 Contact us
 -------
