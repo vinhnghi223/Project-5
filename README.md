@@ -9,7 +9,7 @@ The data will be saved and displayed in a list view style or a bar graph view st
 
 Installation instructions
 -------
-Download the apk file here (https://github.com/PROMAND/Project-5/blob/master/smem-1.0.rar) and install it into your app. Optionally, to be able to use QR code functionality, it is required that your device has Barcode Scanner already installed.
+Download the apk file here at https://github.com/PROMAND/Project-5/blob/master/smem-1.0.rar and install it into your app. Optionally, to be able to use QR code functionality, it is required that your device has Barcode Scanner already installed.
 
 Brief instructionalon usage video
 -------
