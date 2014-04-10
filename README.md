@@ -13,8 +13,8 @@ Download the apk file here at https://github.com/PROMAND/Project-5/blob/master/s
 
 Brief tutorial videos
 -------
-[![Alt text for your video](https://raw.githubusercontent.com/PROMAND/Project-5/master/Video0.PNG)](https://www.youtube.com/watch?v=skWaZTa-8B8)
-[![Alt text for your video](https://raw.githubusercontent.com/PROMAND/Project-5/master/Video1.PNG)](http://www.youtube.com/watch?v=Qq9C2B0xtt4)
+[![Alt text for your video](https://raw.githubusercontent.com/PROMAND/Project-5/master/Video0.PNG)](http://goo.gl/ExLgMx)
+[![Alt text for your video](https://raw.githubusercontent.com/PROMAND/Project-5/master/Video1.PNG)](http://goo.gl/vTJ4YX)
 
 Screenshots
 -------
