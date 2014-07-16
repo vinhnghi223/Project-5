@@ -3,9 +3,9 @@ Smart Mobile Expense Manager 1.0
 Description 
 -------
 
-This is an application that was created to ease the tracking of expenses related item. It has been tailored to allow easy entry of these items throughout categories and projects. Smart Mobile Expense Manager (SMEM) also offer users the capabilities of taking pictures (eg. of bills as proof) from camera or attach pictures from gallery or other sources (such as email, social networks etc.)
+Created to ease the tracking of expenses and related item,  Smart Mobile Expense Manager (SMEM) also offer users the capabilities of taking pictures (eg. of bills as proof) from camera or attach pictures from gallery or other sources (such as email, social networks etc.)
 
-The data will be saved and displayed in a list view style or a bar graph view style. The user can then filter displayed data by projects, categories and dates. 
+The data will be saved and displayed in a list view style or a bar graph view style. The user can then filter displayed data by projects, categories and dates.
 
 Installation instructions
 -------
