@@ -23,17 +23,12 @@ Screenshots
 Features
 -------
 * Modern flat design with friendly and good user experience.
-* Easy entry input with features for attach photos via taking photo from camera or from gallery or social networks.
-* Entry input via OCR (Optical Character Recognition) and QR Scanner
-* Managing different projects and categories with different sub-categories and dates.
-* Beautiful and smooth graph display with filter by projects, categories, and dates functionality.
-* Clean list view display with filter by projects and sub-categories functionality.
+* Easy entry input with features for attach photos from camera or gallery 
+* Managing different projects and categories.
+* Elegant graph display, filtered by projects, categories, and dates.
 * Entry’s detail view display.
-* Easy modify and delete functionality.
-* Tracking of expenses and payments within different projects and categories.
-* Expense tracking with notes, and pictures (eg. for attachments of receipts, thumbnail preview included).
-* Fully-functional application without network connections; although, when connected user can be able to attach photo from sources from the internet.
-* Receipt capture makes use of camera functions such as auto-focus, auto-flash, compression, select photo area etc.
+* Easy to modify and delete entry input.
+* Functional without network connections.
 * Free and easy to use.
 
 License
