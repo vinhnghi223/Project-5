@@ -22,14 +22,13 @@ Screenshots
 
 Features
 -------
+* Light weight, fast, smooth display, free and easy to use
 * Modern flat design with friendly and good user experience.
 * Easy entry input with features for attach photos from camera or gallery 
 * Managing different projects and categories.
 * Elegant graph display, filtered by projects, categories, and dates.
 * Entry’s detail view display.
 * Easy to modify and delete entry input.
-* Functional without network connections.
-* Free and easy to use.
 
 License
 -------
